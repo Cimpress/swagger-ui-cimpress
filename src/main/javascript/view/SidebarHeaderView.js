@@ -71,7 +71,8 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
 
     /* update navigation */
     function updateUrl(element) {
-      history.pushState && history.pushState(null, null, element)
+      // HACK @theopak 2015-12-30 Commented out bc this is a horrible thing to do
+      // history.pushState && history.pushState(null, null, element)
     }
 
     function matchMedia() {

@@ -15,6 +15,7 @@ var connect = require('gulp-connect');
 var header = require('gulp-header');
 var pkg = require('./package.json');
 var order = require('gulp-order');
+var nano = require('gulp-cssnano');
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -110,6 +111,46 @@ gulp.task('copy', ['less'], function() {
 });
 
 /**
+ * Concatenate and minify all CSS in the proper order
+ */
+gulp.task('minify:css', function() {
+  return gulp
+    .src([
+      './src/main/html/css/index.css',
+      './src/main/html/css/standalone.css',
+      './src/main/html/css/api-explorer.css'
+    ])
+    .pipe(concat('min.css'))
+    .pipe(nano())
+    .pipe(gulp.dest('./dist'))
+    .on('error', log);
+});
+
+/**
+ * Concatenate and minify all JS in the proper order
+ */
+gulp.task('minify:js', function() {
+  return gulp
+    .src([
+      './lib/jquery.slideto.min.js',
+      './lib/jquery.wiggle.min.js',
+      './lib/jquery.ba-bbq.min.js',
+      './lib/handlebars-2.0.0.js',
+      './lib/underscore-min.js',
+      './lib/backbone-min.js',
+
+      './lib/highlight.7.3.pack.js',
+      './lib/marked.js',
+      './lib/swagger-oauth.js',
+      './lib/bootstrap.min.js'
+    ])
+    .pipe(concat('min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist'))
+    .on('error', log);
+});
+
+/**
  * Watch for changes and recompile
  */
 gulp.task('watch', function() {
@@ -133,5 +174,5 @@ function log(error) {
 }
 
 
-gulp.task('default', ['dist', 'copy']);
+gulp.task('default', ['dist', 'minify:js', 'minify:css', 'copy']);
 gulp.task('serve', ['connect', 'watch']);
