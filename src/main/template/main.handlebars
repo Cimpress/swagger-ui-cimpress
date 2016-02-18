@@ -1,8 +1,19 @@
 <div id="swagger_sidebar">
     <div class="sticky-nav-placeholder">
         <div class="sticky-nav">
+
+            <div class="token-generator" id="mcp-client-id-container" style="display: none;">
+              <div class="scope-selector">
+                  <label for="scopes">MCP Client ID</label>
+                  <div class="area controls" style="width: 100%;">
+                      <input type="text" autocorrect="off" class="form-control" id="mcp-client-id" readonly="readonly" onClick="function() { setTimeout(function () { console.log(this); this.target.select(), 50) } }"/>
+                  </div>
+              </div>
+            </div>
+
             <div class="mobile-nav">
-                <span class="select-label">API Reference: </span><span data-selected-value></span>
+                <span class="select-label">API Reference: </span>
+                <span data-selected-value></span>
             </div>
 
             <div class="token-generator hide" style="display: none !important">
