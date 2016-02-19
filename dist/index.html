@@ -124,15 +124,6 @@
                 $("[data-toggle='tooltip']").tooltip();
 
                 addApiKeyAuthorization();
-
-                // HACK 2016-02-17 @theopak
-                var clientId = window.location.search.match(/client_id=([^&]+)/);
-                if (clientId && clientId.length > 1) {
-                    clientId = decodeURIComponent(clientId[1]).trim();
-                    log('clientId %s', clientId);
-                    document.getElementById('mcp-client-id').value = clientId;
-                    document.getElementById('mcp-client-id-container').style.display = 'block';
-                }
             },
             onFailure: function (data) {
                 log("Unable to Load SwaggerUI");
