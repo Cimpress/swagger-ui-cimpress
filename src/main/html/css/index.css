@@ -17414,3 +17414,47 @@ li.L9 {
         display: none;
     }
 }
+
+/* @theopak */
+/* https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html */
+.ApiReference--label-options,
+.ApiReference--label-get,
+.ApiReference--label-head,
+.ApiReference--label-post,
+.ApiReference--label-put,
+.ApiReference--label-delete,
+.ApiReference--label-trace,
+.ApiReference--label-connect {
+  display: inline-block;
+  margin: 0 0.1rem 0 0;
+  padding: 0.25rem 0;
+  width: 2rem;
+  color: white;
+  font-size: 0.5em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: -0.05em;
+  background-color: #f0f0f2;
+  border-radius: 0.25rem;
+  vertical-align: middle;
+}
+.ApiReference--label-options {
+  background-color: #0f6ab4;
+}
+.ApiReference--label-get {
+  background-color: #01b48f;
+}
+.ApiReference--label-head {
+  background-color: #01b48f;
+}
+.ApiReference--label-post {
+  background-color: #01b48f;
+}
+.ApiReference--label-put {
+  background-color: #c5862b;
+}
+.ApiReference--label-delete {
+  background-color: red;
+}
