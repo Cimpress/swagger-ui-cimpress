@@ -6,7 +6,7 @@ SwaggerUi.Views.HeaderView = Backbone.View.extend({
     'click #show-wordnik-dev-icon'  : 'showWordnikDev',
     'click #explore'                : 'showCustom',
     'keyup #input_baseUrl'          : 'showCustomOnKeyup',
-    'keyup #input_apiKey'           : 'showCustomOnKeyup'
+    // 'keyup #input_apiKey'           : 'showCustomOnKeyup'
   },
 
   initialize: function(){},
@@ -47,9 +47,9 @@ SwaggerUi.Views.HeaderView = Backbone.View.extend({
 
     $('#input_baseUrl').val(url);
 
-    $('#input_apiKey').val(apiKey);
-    if (trigger) {
-      this.trigger('update-swagger-ui', {url:url});
-    }
+    // $('#input_apiKey').val(apiKey);
+    // if (trigger) {
+    //   this.trigger('update-swagger-ui', {url:url});
+    // }
   }
 });

@@ -834,7 +834,8 @@
 }
 
 .swagger-section .token-generator .scope-selector .controls {
-    width: calc(100% - 55px)
+    /*width: calc(100% - 55px)*/
+    width: 100%;
 }
 
 .swagger-section .token-generator .scope-selector .cta {
@@ -1123,7 +1124,7 @@
 
     .swagger-section .sticky-nav [data-navigator]:before {
         display: inline-block;
-        content: "API Reference";
+        /* content: "API Reference"; */
         text-transform: uppercase;
         letter-spacing: .08em;
         color: #5c666f;
@@ -1142,7 +1143,7 @@
 
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] [data-resource] .item {
-        display: none
+        /*display: none*/
     }
 }
 
@@ -1265,7 +1266,7 @@
 
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] .item[data-selected]:after {
-        display: none
+        /*display: none*/
     }
 }
 
