@@ -103,7 +103,7 @@
                 if (typeof initOAuth == "function") {
 
                     initOAuth({
-                        clientId: "ffe7748a-3a3f-4860-a02a-42ab08e4fde2",
+                        clientId: "your-client-id-if-required",
                         realm: "realm",
                         appName: "Swagger"
                     });
@@ -119,6 +119,11 @@
                 }
                 if (swaggerUi.options.apiKey) {
                     $('#input_apiKey').val(swaggerUi.options.apiKey);
+                }
+
+                // HACK 2016-05-02 @theopak
+                if (accessToken) {
+                    $('#input_apiKey')[0].value = accessToken.trim();
                 }
 
                 $("[data-toggle='tooltip']").tooltip();
