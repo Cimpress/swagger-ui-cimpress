@@ -81,7 +81,7 @@ gulp.task('less', ['clean'], function() {
 
   return gulp
     .src([
-      './src/main/less/screen.less',
+      './src/main/less/screen.less', // screen.less includes highlight_default.less, specs.less, and auth.less
       './src/main/less/print.less',
       './src/main/less/reset.less'
     ])
@@ -95,7 +95,7 @@ gulp.task('less', ['clean'], function() {
 /**
  * Copy lib and html folders
  */
-gulp.task('copy', ['less'], function() {
+gulp.task('copy', function() {
 
   // copy JavaScript files inside lib folder
   gulp
@@ -116,6 +116,9 @@ gulp.task('copy', ['less'], function() {
 gulp.task('minify:css', function() {
   return gulp
     .src([
+      // './src/main/html/css/reset.css',  // api-explorer.css supplants reset.css
+      // './src/main/html/css/print.css',  // api-explorer.css supplants print.css
+      // './src/main/html/css/screen.css', // api-explorer.css supplants screen.css
       './src/main/html/css/index.css',
       './src/main/html/css/standalone.css',
       './src/main/html/css/api-explorer.css'
@@ -129,7 +132,7 @@ gulp.task('minify:css', function() {
 /**
  * Concatenate and minify all JS in the proper order
  */
-gulp.task('minify:js', function() {
+gulp.task('minify:js', ['dist'], function() {
   return gulp
     .src([
       './lib/jquery.slideto.min.js',
@@ -138,7 +141,6 @@ gulp.task('minify:js', function() {
       './lib/handlebars-2.0.0.js',
       './lib/underscore-min.js',
       './lib/backbone-min.js',
-
       './lib/highlight.7.3.pack.js',
       './lib/marked.js',
       './lib/swagger-oauth.js',
@@ -174,5 +176,5 @@ function log(error) {
 }
 
 
-gulp.task('default', ['dist', 'minify:js', 'minify:css', 'copy']);
+gulp.task('default', ['dist', 'copy', 'minify:js', 'minify:css',]);
 gulp.task('serve', ['connect', 'watch']);
