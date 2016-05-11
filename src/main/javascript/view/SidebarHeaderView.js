@@ -48,7 +48,14 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
 
   clickSidebarItem: function (e) {
 
-    var elem = $(e.target);
+    /* @theopak 2016-05-11 NG-4302 */
+    // console.info(e);
+    candidateElement = e.target;
+    while (candidateElement.parentNode && !candidateElement.hasAttribute("data-endpoint")) {
+      candidateElement = candidateElement.parentNode;
+      // console.info('.');
+    }
+    var elem = $(candidateElement);
     var eln = $("#" + elem.attr("data-endpoint"));
 
     if (elem.is(".item")) {
@@ -65,7 +72,7 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
       scrollT(r)
     }
 
-    /set selected value and select operation (class) */
+    /* set selected value and select operation (class) */
     function setSelected(element) {
       {
         var nav = $(".sticky-nav [data-navigator]");

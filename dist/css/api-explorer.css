@@ -1195,7 +1195,9 @@
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] .item {
         color: #5c666f;
-        padding: 9px 9px 9px 40px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-right: 9px;
         font-size: 14px;
         background: #f3f3f4
     }
@@ -1230,7 +1232,7 @@
 
 .swagger-section .sticky-nav [data-navigator] .item[data-selected] {
     background: rgba(68, 199, 244, .5);
-    padding-right: 42px
+    /* padding-right: 42px; */
 }
 
 @media (min-width: 992px) {
@@ -1243,25 +1245,6 @@
     .swagger-section .sticky-nav [data-navigator] .item[data-selected]:active, .swagger-section .sticky-nav [data-navigator] .item[data-selected]:hover {
         color: #333
     }
-}
-
-.swagger-section .sticky-nav [data-navigator] .item[data-selected]:after {
-    content: "\E178";
-    font-family: budicon-font !important;
-    font-style: normal !important;
-    font-weight: 400 !important;
-    font-variant: normal !important;
-    text-transform: none !important;
-    speak: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 12px;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    opacity: .7;
-    pointer-events: none
 }
 
 @media (min-width: 992px) {
