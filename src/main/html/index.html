@@ -77,13 +77,18 @@
 
 <script type="text/javascript">
     $(function () {
+        function getSchemeAndHost(url) {
+            // turns https://gpu.images.documents.cimpress.io/crispify/swagger/docs/v2 into https://gpu.images.documents.cimpress.io
+            var urlParts = url.split('/');
+            return urlParts[0] + "//" + urlParts[2];
+        }
+
         var url = window.location.search.match(/url=([^&]+)/);
         if (url && url.length > 1) {
             url = decodeURIComponent(url[1]);
         } else {
             url = "http://petstore.swagger.io/v2/swagger.json";
         }
-
         // HACK 2015-12-22 @theopak
         var accessToken = window.location.search.match(/access_token=([^&]+)/);
         if (accessToken && accessToken.length > 1) {
@@ -115,7 +120,9 @@
                 });
 
                 if (swaggerUi.options.url) {
-                    $('#input_baseUrl').val(swaggerUi.options.url);
+                    // changed to get the api url that goes through the gateway instead of what is specified in the docs
+                    var host = getSchemeAndHost(url);
+                    $('#input_baseUrl').val(host+(swaggerApi.basePath || "/"));
                 }
                 if (swaggerUi.options.apiKey) {
                     $('#input_apiKey').val(swaggerUi.options.apiKey);
