@@ -17461,3 +17461,9 @@ li.L9 {
 .ApiReference--label-delete {
     background-color: red;
 }
+
+
+/* @harsingh */
+.main-section {
+    margin-top: -20px;
+}
