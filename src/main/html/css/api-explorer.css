@@ -190,15 +190,15 @@
 }
 
 .swagger-section .operation.get .http_method a, .swagger-section .operation.get .http_method span {
-    background: #44c7f4
+    background: #6bbd5b
 }
 
 .swagger-section .operation.post .http_method a, .swagger-section .operation.post .http_method span {
-    background: #01b48f
+    background: #248fb2
 }
 
 .swagger-section .operation.delete .http_method a, .swagger-section .operation.delete .http_method span {
-    background: red
+    background: #e27a7a
 }
 
 .swagger-section .operation.patch .http_method a, .swagger-section .operation.patch .http_method span {
@@ -2075,17 +2075,17 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.heading h3 span.http_method a {
-    background-color: #c5862b
+    background-color: #9b708b
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.heading ul.options li {
-    border-right: 1px solid #ddd;
-    border-right-color: #f0e0ca;
-    color: #c5862b
+    border-right: 1px solid #9b708b;
+    border-right-color: #9b708b;
+    color: #9b708b
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.heading ul.options li a {
-    color: #c5862b
+    color: #9b708b
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.head div.heading h3 span.http_method a {
@@ -2104,17 +2104,17 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.options div.heading h3 span.http_method a {
-    background-color: #0f6ab4
+    background-color: #d3ca12
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.options div.heading ul.options li {
-    border-right: 1px solid #ddd;
-    border-right-color: #c3d9ec;
-    color: #0f6ab4
+    border-right: 1px solid #d3ca12;
+    border-right-color: #d3ca12;
+    color: #d3ca12
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.options div.heading ul.options li a {
-    color: #0f6ab4
+    color: #d3ca12
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.delete div.content, .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.content, .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.head div.content, .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.patch div.content, .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.content, .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.content {
