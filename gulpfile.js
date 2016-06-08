@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 var es = require('event-stream');
-var clean = require('gulp-clean');
+var del = require('del');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -28,10 +28,7 @@ var banner = ['/**',
  * Clean ups ./dist folder
  */
 gulp.task('clean', function() {
-  return gulp
-    .src('./dist', {read: false})
-    .pipe(clean({force: true}))
-    .on('error', log);
+  return del.sync(['./dist/**']);
 });
 
 /**
@@ -156,7 +153,7 @@ gulp.task('minify:js', ['dist'], function() {
  * Watch for changes and recompile
  */
 gulp.task('watch', function() {
-  return watch(['./src/**/*.{js,less,handlebars}'], function() {
+  return watch(['./src/**'], function() {
     gulp.start('default');
   });
 });
