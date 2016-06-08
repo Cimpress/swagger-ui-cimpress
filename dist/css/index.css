@@ -17441,20 +17441,23 @@ li.L9 {
   vertical-align: middle;
 }
 .ApiReference--label-options {
-  background-color: #0f6ab4;
+    background-color: #6fa5d2;
 }
 .ApiReference--label-get {
-  background-color: #01b48f;
+    background-color: #0f6ab4;
 }
 .ApiReference--label-head {
-  background-color: #01b48f;
+    background-color: #ffd20f;
 }
 .ApiReference--label-post {
-  background-color: #01b48f;
+    background-color: #10a54a;
 }
 .ApiReference--label-put {
-  background-color: #c5862b;
+    background-color: #c5862b;
+}
+.ApiReference--label-patch {
+    background-color: #ff9a57;
 }
 .ApiReference--label-delete {
-  background-color: red;
+    background-color: red;
 }
