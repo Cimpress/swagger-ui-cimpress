@@ -31,25 +31,23 @@
             <form accept-charset="UTF-8" class="sandbox">
 
                 {{#if parameters}}
-                    <h4 data-control data-parm-toggle data-toggle="collapse"
-                        data-target="#parm-{{parentId}}_{{nickname}}">
+                    <h4>
                         Parameters
                     </h4>
 
-                    <div data-content class="operation-params collapse in" id="parm-{{parentId}}_{{nickname}}">
+                    <div class="operation-params" id="parm-{{parentId}}_{{nickname}}">
                     </div>
 
                 {{/if}}
 
-                <h4 data-control data-toggle="collapse" data-target="#test-{{parentId}}_{{nickname}}">
+                <h4>
                     Test this endpoint
                 </h4>
 
                 <div id="test-{{parentId}}_{{nickname}}">
-                    <div class="sandbox_header collapse in" data-content>
+                    <div class="sandbox_header">
                         <input class="submit btn btn-primary" name="commit" type="submit" value="Try"
                                data-target="#get_clients-modal-request">
-                        <a href="#" class="response_hider hide" style="display: inline;">Hide Response</a>
                         <!--small class="curl-copy-message hide" style="display:none;">Copied to clipboard</small-->
                         <!--span class="response_throbber hide" style="display: none;"></span-->
 
@@ -80,11 +78,11 @@
 
                 {{#if responseMessages}}
                     <div style="margin:0;padding:0;display:inline"></div>
-                    <h4 data-control data-toggle="collapse" data-target="#response-{{parentId}}_{{nickname}}">
+                    <h4 >
                         Response Messages
                     </h4>
 
-                    <div data-content class="responses-wrapper collapse in" id="response-{{parentId}}_{{nickname}}">
+                    <div>
                         <table class="fullwidth">
                             <tbody class="operation-status">
                             </tbody>
