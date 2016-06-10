@@ -17425,36 +17425,45 @@ li.L9 {
 .ApiReference--label-delete,
 .ApiReference--label-trace,
 .ApiReference--label-connect {
-  display: inline-block;
-  margin: 0 0.1rem 0 0;
-  padding: 0.25rem 0;
-  width: 2rem;
-  color: white;
-  font-size: 0.5em;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: -0.05em;
-  background-color: #f0f0f2;
-  border-radius: 0.25rem;
-  vertical-align: middle;
-}
-.ApiReference--label-options {
-  background-color: #0f6ab4;
-}
-.ApiReference--label-get {
-  background-color: #01b48f;
+    display: inline-block;
+    margin: 0 0.1rem 0 0;
+    padding: 0.25rem 0;
+    width: 2rem;
+    color: white;
+    font-size: 0.5em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: -0.05em;
+    background-color: #999;
+    border-radius: 0.25rem;
+    vertical-align: middle;
 }
 .ApiReference--label-head {
-  background-color: #01b48f;
+    background-color: #ffd20f;
+}f
+.ApiReference--label-options {
+    background-color: #d3ca12;
+}
+.ApiReference--label-get {
+    background-color: #6bbd5b;
 }
 .ApiReference--label-post {
-  background-color: #01b48f;
+    background-color: #248fb2;
 }
 .ApiReference--label-put {
-  background-color: #c5862b;
+    background-color: #9b708b;
+}
+.ApiReference--label-patch {
+    background-color: #ff9a57;
 }
 .ApiReference--label-delete {
-  background-color: red;
+    background-color: #e27a7a;
+}
+
+
+/* @harsingh */
+.main-section {
+    margin-top: -20px;
 }

@@ -72,7 +72,7 @@
 
 @media (min-width: 992px) {
     .swagger-section .operation {
-        min-height: 100vh
+        /*min-height: 100vh*/
     }
 
     .swagger-section .operation:after {
@@ -1483,7 +1483,7 @@ body {
 }
 
 .swagger-section .endpoint {
-    margin: 0 0 100px
+    /*margin: 0 0 100px*/
 }
 
 @media (min-width: 992px) {
@@ -1585,7 +1585,7 @@ body {
 
 @media (min-width: 992px) {
     .swagger-section #resources.samples-collapsed {
-        width: 130%;
+        width: 199%;
     }
 
     .swagger-section #resources.samples-collapsed a.toggle-samples .circle-icon:before {
