@@ -1685,11 +1685,13 @@ body {
 
 .swagger-section .swagger-ui-wrap {
     line-height: 1;
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     margin-left: auto;
     margin-right: auto
 }
 
 .swagger-section .swagger-ui-wrap b, .swagger-section .swagger-ui-wrap strong {
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     font-weight: 700
 }
 
@@ -1830,6 +1832,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap .model-signature {
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     font-size: 1em;
     line-height: 1.5em
 }
@@ -1884,6 +1887,7 @@ body {
     font-size: 1.5em;
     line-height: 1.3em;
     padding: 10px 0;
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     font-weight: 700
 }
 
@@ -1920,6 +1924,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap form.formtastic fieldset.inputs ol li.text textarea {
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     height: 250px;
     padding: 4px;
     display: block;
@@ -1999,7 +2004,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap ul#resources {
-    
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     font-size: .9em
 }
 
@@ -2186,7 +2191,7 @@ body {
     padding: 10px 0;
     font-size: .8em;
     border-top: 1px solid #ddd;
-    
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     color: #999;
     font-style: italic
 }
@@ -2203,7 +2208,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap .markdown ol, .swagger-section .swagger-ui-wrap .markdown ul {
-    
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 5px 0 10px;
     padding: 0 0 0 18px;
     list-style-type: disc
