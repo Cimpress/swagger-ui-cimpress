@@ -1,3 +1,56 @@
+.snippet {
+    position: relative;
+}
+
+.click-to-copy {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    font-size: 1.4rem;
+    fill: #e7e8e9;
+}
+
+
+.guide{
+    background-color: #242729;
+}
+
+.guide .nav {
+    padding-left: 30px;
+}
+
+.guide .nav-pills > li > a {
+    border: solid 1px transparent;
+    display: block;
+    float: left;
+    color: #D0D4D7;
+    text-decoration: none;
+    padding: 0 15px;
+    margin-right: 5px;
+    line-height: 30px;
+    outline: 0;
+    border-radius: 5px
+}
+.guide .nav-pills > li > a:focus,
+.guide .nav-pills > li > a:hover {
+    border: solid 1px #D0D4D7;
+    background-color: transparent;
+}
+.guide .nav-pills > li.active > a {
+    color: #fff;
+    background-color: #3d51eb;
+}
+.guide .nav-pills > li.active > a:focus,
+.guide .nav-pills > li.active > a:hover {
+    border: solid 1px transparent;
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+
 .swagger-section pre code {
     display: block;
     padding: .5em
@@ -48,7 +101,7 @@
 @media (min-width: 992px) {
     .swagger-section #resources:before {
         content: "";
-        background: #5c666f;
+        background: #2d3134;
         height: 100%;
         width: 50%;
         top: 0;
@@ -63,7 +116,6 @@
 }
 
 .swagger-section .operations {
-    padding: 20px 0 0
 }
 
 .swagger-section .operation {
@@ -383,7 +435,7 @@
 
 @media (min-width: 992px) {
     .swagger-section .operations .model-signature .description {
-        background: #4e575e
+        background: #272B2D;
     }
 }
 
@@ -545,7 +597,7 @@
 }
 
 .swagger-section pre {
-    background: #4e575e;
+    background: #272B2D;
     margin: 0;
     word-wrap: break-word !important;
     max-height: none;
@@ -1105,7 +1157,7 @@
     height: 0;
     overflow-y: scroll;
     overflow-x: hidden;
-    background: #4e575e;
+    background: #272B2D;
     box-shadow: inset 0 2px 10px 0 rgba(0, 0, 0, .4);
     position: absolute;
     top: 43px;
@@ -1633,13 +1685,11 @@ body {
 
 .swagger-section .swagger-ui-wrap {
     line-height: 1;
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
     margin-left: auto;
     margin-right: auto
 }
 
 .swagger-section .swagger-ui-wrap b, .swagger-section .swagger-ui-wrap strong {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
     font-weight: 700
 }
 
@@ -1780,7 +1830,6 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap .model-signature {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
     font-size: 1em;
     line-height: 1.5em
 }
@@ -1835,7 +1884,6 @@ body {
     font-size: 1.5em;
     line-height: 1.3em;
     padding: 10px 0;
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
     font-weight: 700
 }
 
@@ -1872,7 +1920,6 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap form.formtastic fieldset.inputs ol li.text textarea {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
     height: 250px;
     padding: 4px;
     display: block;
@@ -1952,7 +1999,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap ul#resources {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    
     font-size: .9em
 }
 
@@ -2139,7 +2186,7 @@ body {
     padding: 10px 0;
     font-size: .8em;
     border-top: 1px solid #ddd;
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    
     color: #999;
     font-style: italic
 }
@@ -2156,7 +2203,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap .markdown ol, .swagger-section .swagger-ui-wrap .markdown ul {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    
     margin: 5px 0 10px;
     padding: 0 0 0 18px;
     list-style-type: disc

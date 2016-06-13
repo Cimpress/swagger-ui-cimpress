@@ -1,17 +1,30 @@
-<h4 class="sample-title" data-control data-toggle="collapse"
-    data-target="#sample-{{id}}">{{type}} Sample</h4>
-<div data-content class="" id="sample-{{id}}">
-    <div class="snippet">
-        <pre><code>{{sampleJSON}}</code></pre>
+<div role="tabpanel" class="guide">
+    <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#sample-{{id}}" aria-controls="home" role="tab" data-toggle="tab">{{type}} Sample</a>
+        </li>
+        {{#if signature}}
+        <li role="presentation">
+            <a href="#schema-{{id}}" aria-controls="tab" role="tab" data-toggle="tab">{{type}} Schema</a>
+        </li>
+        {{/if}}
+
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="sample-{{id}}">
+            <div class="snippet">
+                {{#if clickToCopy}}
+                <svg class="icon icon-copy click-to-copy"><use xlink:href="#icon-copy"></use></svg>
+                {{/if}}
+                <pre><code>{{sampleJSON}}</code></pre>
+            </div>
+        </div>
+        {{#if signature}}
+        <div role="tabpanel" class="tab-pane" id="schema-{{id}}">
+            <div class="description">
+                {{{signature}}}
+            </div>
+        </div>
+        {{/if}}
     </div>
 </div>
-
-{{#if signature}}
-    <h4 class="schema-title collapsed" data-control data-toggle="collapse"
-        data-target="#schema-{{id}}">{{type}} Schema</h4>
-    <div data-content class="collapse" id="schema-{{id}}">
-        <div class="description">
-            {{{signature}}}
-        </div>
-    </div>
-{{/if}}

@@ -243,6 +243,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       isParam: true,
       signature: param.signature,
       type: "Body",
+      clickToCopy: true,
       id: this.parentId + '_' + this.nickname + '_body'
     };
     var signatureView = new SwaggerUi.Views.SignatureView({model: bodySample, tagName: 'div'});
