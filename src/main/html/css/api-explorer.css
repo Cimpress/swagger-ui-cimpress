@@ -2,6 +2,7 @@
     position: relative;
 }
 
+/* @harsignh 2016-06-13 */
 .click-to-copy {
     position: absolute;
     right: 8px;
@@ -15,6 +16,7 @@
     background-color: #242729;
 }
 
+/* @harsignh @theopak 2016-06-13 */
 .guide .nav {
     padding-left: 30px;
 }
@@ -45,12 +47,14 @@
     border: solid 1px transparent;
 }
 
+/* @harsignh 2016-06-13 */
 .icon {
     display: inline-block;
     width: 1em;
     height: 1em;
 }
 
+/* @harsignh 2016-06-13 */
 .swagger-section pre code {
     display: block;
     padding: .5em
