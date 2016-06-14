@@ -1,3 +1,68 @@
+.snippet {
+    position: relative;
+}
+
+/* @harsignh 2016-06-13 */
+.click-to-copy {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    font-size: 1.4rem;
+    fill: #e7e8e9;
+    transition: opacity 150ms ease;
+    opacity: 0;
+}
+.tab-content:active .click-to-copy,
+.tab-content:focus .click-to-copy,
+.tab-content:hover .click-to-copy {
+  opacity: 1;
+}
+
+/* @harsignh @theopak 2016-06-13 */
+.guide {
+    background-color: #4F5357;
+}
+.guide .nav {
+    padding-left: 16px; /* calc(9.5px + 0.5em) */
+}
+.guide .nav-pills > li {
+    margin: 0;
+}
+.guide .nav-pills > li > a {
+    border: solid 1px transparent;
+    display: block;
+    float: left;
+    color: #D0D4D7;
+    text-decoration: none;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    margin-right: 5px;
+    line-height: 1rem;
+    outline: 0;
+    border-radius: 5px;
+}
+.guide .nav-pills > li > a:focus,
+.guide .nav-pills > li > a:hover {
+    border-color: #D0D4D7;
+    background-color: transparent;
+}
+.guide .nav-pills > li.active > a {
+    color: #fff;
+    background-color: #3d51eb;
+}
+.guide .nav-pills > li.active > a:focus,
+.guide .nav-pills > li.active > a:hover {
+    border-color: transparent;
+}
+
+/* @harsignh 2016-06-13 */
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+
+/* @harsignh 2016-06-13 */
 .swagger-section pre code {
     display: block;
     padding: .5em
@@ -48,7 +113,7 @@
 @media (min-width: 992px) {
     .swagger-section #resources:before {
         content: "";
-        background: #5c666f;
+        background: #4F5357;
         height: 100%;
         width: 50%;
         top: 0;
@@ -63,7 +128,6 @@
 }
 
 .swagger-section .operations {
-    padding: 20px 0 0
 }
 
 .swagger-section .operation {
@@ -107,22 +171,16 @@
 }
 
 .swagger-section h2.operation-title {
-    display: block;
     float: none;
     color: #333;
-    padding: 0;
-    font-size: 25px;
-    line-height: 1.3;
-    font-weight: 400;
-    margin: 20px 0
+    margin: 0;
+    padding: 1.3rem 20px 0;
+    font: normal 1.5rem/1.3 -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 992px) {
-    .swagger-section h2.operation-title {
-        font-size: 32px;
-        font-weight: 200;
-        line-height: 1;
-        padding-right: 160px
+    .swagger-section ul#resources div.heading h3 {
+        padding-right: 9em;
     }
 }
 
@@ -133,7 +191,10 @@
 }
 
 .swagger-section h3 {
-    font-weight: 400
+    display: block;
+    margin: 1.3rem 0 0;
+    font-weight: 400;
+    line-height: 1rem;
 }
 
 .swagger-section .heading {
@@ -146,12 +207,12 @@
 
 .swagger-section .heading .path a {
     font-weight: 400;
-    color: #838991;
     font-size: 12px;
+    line-height: 100%;
     max-width: 230px;
-    overflow: hidden;
+    overflow-x: hidden;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: bottom;
     text-overflow: ellipsis;
     white-space: nowrap
 }
@@ -187,6 +248,11 @@
     margin: 0;
     padding: 20px;
     color: #838991
+}
+
+/* @theopak 2016-06-13 */
+.swagger-section .action-summary p {
+  margin: 0;
 }
 
 .swagger-section .operation.get .http_method a, .swagger-section .operation.get .http_method span {
@@ -364,7 +430,6 @@
     .swagger-section .operations .model-signature h4 {
         color: #fff;
         text-transform: uppercase;
-        letter-spacing: .08em;
         font-size: 14px
     }
 }
@@ -376,14 +441,14 @@
 }
 
 .swagger-section .operations .model-signature .description {
-    background: #5c666f;
+    background: #2B2B2B;
     padding-bottom: 15px;
     color: #fff
 }
 
 @media (min-width: 992px) {
     .swagger-section .operations .model-signature .description {
-        background: #4e575e
+        background: #2B2B2B;
     }
 }
 
@@ -545,7 +610,7 @@
 }
 
 .swagger-section pre {
-    background: #4e575e;
+    background: #2B2B2B;
     margin: 0;
     word-wrap: break-word !important;
     max-height: none;
@@ -1105,7 +1170,7 @@
     height: 0;
     overflow-y: scroll;
     overflow-x: hidden;
-    background: #4e575e;
+    background: #4F5357;
     box-shadow: inset 0 2px 10px 0 rgba(0, 0, 0, .4);
     position: absolute;
     top: 43px;
@@ -1525,15 +1590,23 @@ body {
     .swagger-section #resources a.toggle-samples {
         display: inline-block;
         position: absolute;
-        top: 30px;
+        top: 1rem;
         right: 20px;
         color: #5c666f;
         text-decoration: none;
-        cursor: pointer
+        cursor: pointer;
     }
 
+    .swagger-section #resources a.toggle-samples .text{
+      transition: opacity 250ms ease;
+      opacity: 0;
+    }
+
+    .swagger-section #resources a.toggle-samples:active .text,
+    .swagger-section #resources a.toggle-samples:focus .text,
     .swagger-section #resources a.toggle-samples:hover .text {
-        text-decoration: underline
+        text-decoration: none;
+        opacity: 1;
     }
 
     .swagger-section #resources a.toggle-samples .circle-icon {
@@ -1633,13 +1706,13 @@ body {
 
 .swagger-section .swagger-ui-wrap {
     line-height: 1;
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     margin-left: auto;
     margin-right: auto
 }
 
 .swagger-section .swagger-ui-wrap b, .swagger-section .swagger-ui-wrap strong {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     font-weight: 700
 }
 
@@ -1780,7 +1853,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap .model-signature {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     font-size: 1em;
     line-height: 1.5em
 }
@@ -1835,7 +1908,7 @@ body {
     font-size: 1.5em;
     line-height: 1.3em;
     padding: 10px 0;
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     font-weight: 700
 }
 
@@ -1872,7 +1945,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap form.formtastic fieldset.inputs ol li.text textarea {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     height: 250px;
     padding: 4px;
     display: block;
@@ -1952,7 +2025,7 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap ul#resources {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     font-size: .9em
 }
 
@@ -2022,13 +2095,6 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 {
-    display: block;
-    clear: none;
-    float: left;
-    width: auto;
-    margin: 0;
-    padding: 0;
-    line-height: 1.1em;
     color: #000
 }
 
@@ -2139,7 +2205,7 @@ body {
     padding: 10px 0;
     font-size: .8em;
     border-top: 1px solid #ddd;
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     color: #999;
     font-style: italic
 }
@@ -2152,11 +2218,11 @@ body {
 .swagger-section .swagger-ui-wrap h3 {
     color: #000;
     font-size: 1.1em;
-    padding: 10px 0
+    /*padding: 10px 0*/
 }
 
 .swagger-section .swagger-ui-wrap .markdown ol, .swagger-section .swagger-ui-wrap .markdown ul {
-    -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif
+    font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 5px 0 10px;
     padding: 0 0 0 18px;
     list-style-type: disc

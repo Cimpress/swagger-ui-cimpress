@@ -173,5 +173,5 @@ function log(error) {
 }
 
 
-gulp.task('default', ['dist', 'copy', 'minify:js', 'minify:css',]);
+gulp.task('default', ['dist', 'copy', 'minify:js', 'minify:css']);
 gulp.task('serve', ['connect', 'watch']);
