@@ -13,9 +13,7 @@
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="sample-{{id}}">
             <div class="snippet">
-                {{#if clickToCopy}}
-                <svg class="icon icon-copy click-to-copy"><use xlink:href="#icon-copy"></use></svg>
-                {{/if}}
+                {{#if clickToCopy}}<svg class="icon icon-copy click-to-copy" title="Copy to Request Body"><use xlink:href="#icon-copy"></use></svg>{{/if}}
                 <pre><code>{{sampleJSON}}</code></pre>
             </div>
         </div>

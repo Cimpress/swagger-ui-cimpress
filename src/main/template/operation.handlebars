@@ -2,8 +2,6 @@
     <li class='{{method}} operation' id='{{parentId}}_{{nickname}}'>
         <div class='content'>
             <div class='heading'>
-                <h2 class='operation-title'>{{summary}}</h2>
-
                 <h3>
                     <span class='http_method'>
                         <a href='#!/{{encodedParentId}}/{{nickname}}'>{{method}}</a>
@@ -23,6 +21,11 @@
             {{#if deprecated}}
                 <h4>Warning: Deprecated</h4>
             {{/if}}
+
+            {{#if summary}}
+                <h2 class='operation-title'>{{summary}}</h2>
+            {{/if}}
+
             {{#if description}}
                 <div class="markdown action-summary">{{{description}}}</div>
             {{/if}}
