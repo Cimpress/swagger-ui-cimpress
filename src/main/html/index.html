@@ -134,7 +134,7 @@
                 if (swaggerUi.options.url) {
                     // changed to get the api url that goes through the gateway instead of what is specified in the docs
                     var host = getSchemeAndHost(url);
-                    $('#input_baseUrl').val(host+(swaggerApi.basePath || "/"));
+                    $('#input_baseUrl').html(host+(swaggerApi.basePath || "/"));
                 }
                 if (swaggerUi.options.apiKey) {
                     $('#input_apiKey').val(swaggerUi.options.apiKey);
@@ -262,12 +262,6 @@
             }
         });
 
-    });
-</script>
-
-<script type="text/javascript">
-    $(function () {
-        $("[data-toggle='tooltip']").tooltip();
     });
 </script>
 

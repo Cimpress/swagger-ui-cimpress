@@ -11,15 +11,17 @@
                 <span data-close class="icon-budicon-471" style="display: none;"></span>
 
                 <div class="scope-selector">
-
                     <div class="area controls">
                         <label for="input_baseUrl">Base URL</label>
-                        <input type="text" autocorrect="off" class="form-control" id="input_baseUrl" readOnly style="margin-bottom: 1.5rem;"  placeholder="https://example.com/api">
-                        <label for="input_apiKey">API TOKEN</label>
-                        <input type="text" autocorrect="off" class="form-control" id="input_apiKey"
-                               readOnly
-                               style="margin-bottom: 0.5rem;"
-                               placeholder="Bearer token (JWT)">
+                        <span id="input_baseUrl" style="word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;" ></span>
+
+                        <label for="input_apiKey">Access Token (JWT)</label>
+                        <div class="input-group" style="margin-bottom: 0.5rem;">
+                          <input type="text" autocorrect="off" class="form-control" id="input_apiKey" readOnly  placeholder="Bearer token (JWT)">
+                          <span class="input-group-btn">
+                              <button class=" copy-btn btn btn-primary" data-clipboard-target="#input_apiKey" style="height:34px;"><img src="./images/clippy.svg" alt="Copy to clipboard" width="13" style="vertical-align: text-bottom;"></button>
+                          </span>
+                        </div>
                         <a style="color: #5c666f; text-decoration: underline; cursor: pointer;" onClick="window.open('https://jwt.io?value=' + encodeURIComponent($('#input_apiKey')[0].value))">debug in jwt.io</a>
                     </div>
 
