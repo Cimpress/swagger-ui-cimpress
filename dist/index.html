@@ -8,7 +8,7 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" async></script><![endif]-->
     <!--style type="text/css"></style-->
-
+    <link href="//cloud.typography.com/7971714/6011752/css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="min.css" rel="stylesheet" />
 
 </head>
@@ -56,6 +56,7 @@
         </div>
     </div>
 </section>
+<section id="global_error"></section>
 
 
 <script src='https://code.jquery.com/jquery-1.8.0.min.js' crossorigin='anonymous'></script>
@@ -151,6 +152,12 @@
             },
             onFailure: function (data) {
                 log("Unable to Load SwaggerUI");
+                var title = (data.includes("access-control-origin")) ?  "CORS Error" : "Error";
+                $("#global_error").html(Handlebars.templates.error({
+                    title: title,
+                    description: data,
+                    url: url
+                }));
             },
             docExpansion: "none",
             showRequestHeaders: true,

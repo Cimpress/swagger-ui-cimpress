@@ -147,6 +147,18 @@ window.Docs = {
 
 };
 
+this["Handlebars"]["templates"]["error"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<div id=\"block_error\">\n    <div class=\"col-xl-6 col-xl-offset-3 col-lg-8 col-lg-offset-2 col-xs-12\">\n        <img src=\"./images/noun-117716-404-error.svg\" alt=\"conversation\" style=\"max-width: 100%; width: 6rem;\">\n        <h1 class=\"brand\">"
+    + escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"title","hash":{},"data":data}) : helper)))
+    + "</h1>\n        <p style=\"font-size:1.2rem\">\n            "
+    + escapeExpression(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"description","hash":{},"data":data}) : helper)))
+    + "\n        </p>\n        <p>Please check the following url for the swagger document <a href=\""
+    + escapeExpression(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"url","hash":{},"data":data}) : helper)))
+    + "\">"
+    + escapeExpression(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"url","hash":{},"data":data}) : helper)))
+    + "</a>. </p>\n    </div>\n</div>";
+},"useData":true});
 'use strict';
 
 Handlebars.registerHelper('sanitize', function(html) {
