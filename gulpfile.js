@@ -141,7 +141,9 @@ gulp.task('minify:js', ['dist'], function() {
       './lib/highlight.7.3.pack.js',
       './lib/marked.js',
       './lib/swagger-oauth.js',
-      './lib/bootstrap.min.js'
+      './lib/bootstrap.min.js',
+      './lib/clipboard.min.js',
+      './lib/copyToClipboard.js',
     ])
     .pipe(concat('min.js'))
     .pipe(uglify())
