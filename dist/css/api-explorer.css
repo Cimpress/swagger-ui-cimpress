@@ -1,8 +1,20 @@
+/* @harsingh 2016-06-20 */
 .snippet {
     position: relative;
 }
 
 /* @harsignh 2016-06-13 */
+.brand {
+    font-weight: 500;
+    margin: 0;
+    font-family: "Gotham Rounded SSm A","Gotham Rounded SSm B","Gotham Rounded",Gotham,"-apple-system",".SFNSText-Regular","SF UI Text",Roboto,"Segoe UI","Helvetica Neue","Lucida Grande",Helvetica,Arial,"sans-serif";
+}
+#block_error{
+    min-height: 384px;
+    margin: 3.75rem auto;
+}
+
+/* @harsingh 2016-06-13 */
 .click-to-copy {
     position: absolute;
     right: 8px;
