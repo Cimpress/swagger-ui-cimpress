@@ -3,6 +3,16 @@
     position: relative;
 }
 
+/* @harsingh 2016-06-20 */
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 100%;
+    }
+}
+.modal.in{
+    padding: 10px;
+}
+
 /* @harsignh 2016-06-13 */
 .brand {
     font-weight: 500;
@@ -217,27 +227,17 @@
     display: table-cell
 }
 
-.swagger-section .heading .path a {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 100%;
-    max-width: 230px;
-    overflow-x: hidden;
-    display: inline-block;
-    vertical-align: bottom;
-    text-overflow: ellipsis;
-    white-space: nowrap
-}
-
+/* @harsingh 2016-06-22 */
 @media (min-width: 992px) {
-    .swagger-section .heading .path a {
+    .swagger-section .heading .path span {
         font-size: 16px;
         max-width: 545px;
     }
 }
 
 @media (min-width: 1400px) {
-     .swagger-section .heading .path a {
+    /* @harsingh 2016-06-22 */
+    .swagger-section .heading .path span {
         max-width: 405px;
     }
 }
@@ -246,7 +246,8 @@
     display: table-cell
 }
 
-.swagger-section .heading .http_method a {
+/* @harsingh 2016-06-22 */
+.swagger-section .heading .http_method span {
     color: #fff;
     text-transform: uppercase;
     font-size: 11px;
@@ -1505,8 +1506,10 @@ body {
     margin-left: 10px
 }
 
+/* @harsingh 2016-06-22 */
 #api2-explorer .modal .modal-dialog {
-    overflow: visible
+    overflow: visible;
+    max-width: 1200px;
 }
 
 #api2-explorer .modal .modal-dialog .modal-body {
@@ -2120,7 +2123,6 @@ body {
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span {
     margin: 0;
-    padding: 0
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading ul.options {
