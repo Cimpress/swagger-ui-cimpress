@@ -18,6 +18,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     this.parentId = this.model.parentId;
     this.nickname = this.model.nickname;
     this.model.encodedParentId = encodeURIComponent(this.parentId);
+    this.model.outsideURL = location.protocol + "//" +  $.host + "/apis/" + $.namespace + "/" + $.slug;
     return this;
   },
 

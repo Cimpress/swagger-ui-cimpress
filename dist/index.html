@@ -103,6 +103,17 @@
             url = "http://petstore.swagger.io/v2/swagger.json";
         }
         // HACK 2015-12-22 @theopak
+        function getQueryParam(param) {
+            var result =  window.location.search.match(
+                new RegExp("(\\?|&)" + param + "(\\[\\])?=([^&]*)")
+            );
+
+            return result ? result[3] : false;
+        }
+        $.namespace = getQueryParam("namespace");
+        $.slug = getQueryParam("slug");
+        $.host = getQueryParam("host");
+
         var accessToken = window.location.search.match(/access_token=([^&]+)/);
         if (accessToken && accessToken.length > 1) {
             accessToken = decodeURIComponent(accessToken[1]).trim();

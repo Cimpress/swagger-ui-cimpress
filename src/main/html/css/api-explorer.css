@@ -12,6 +12,10 @@
 .modal.in{
     padding: 10px;
 }
+.modal .block.response_body img {
+    max-width: 100%;
+    max-height: 100vh;
+}
 
 /* @harsignh 2016-06-13 */
 .brand {
@@ -1509,7 +1513,7 @@ body {
 /* @harsingh 2016-06-22 */
 #api2-explorer .modal .modal-dialog {
     overflow: visible;
-    max-width: 1200px;
+    max-width: 75em;
 }
 
 #api2-explorer .modal .modal-dialog .modal-body {
