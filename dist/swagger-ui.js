@@ -188,7 +188,7 @@ this["Handlebars"]["templates"]["main"] = Handlebars.template({"1":function(dept
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.version : stack1), depth0))
     + "\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<div id=\"swagger_sidebar\">\n    <div class=\"sticky-nav-placeholder\">\n        <div class=\"sticky-nav\">\n            <div class=\"mobile-nav\">\n                <!--\n                <span class=\"select-label\">API Reference: </span><span data-selected-value></span>\n                -->\n            </div>\n\n            <div class=\"token-generator hide\">\n                <span data-close class=\"icon-budicon-471\" style=\"display: none;\"></span>\n\n                <div class=\"scope-selector\">\n                    <div class=\"area controls\">\n                        <label for=\"input_baseUrl\">Base URL</label>\n                        <span id=\"input_baseUrl\" style=\"word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;\" ></span>\n\n                        <label for=\"input_apiKey\">Access Token (JWT)</label>\n                        <div class=\"input-group\" style=\"margin-bottom: 0.5rem;\">\n                          <input type=\"text\" autocorrect=\"off\" class=\"form-control\" id=\"input_apiKey\" readOnly  placeholder=\"Bearer token (JWT)\">\n                          <span class=\"input-group-btn\">\n                              <button class=\" copy-btn btn btn-primary\" data-clipboard-target=\"#input_apiKey\" style=\"height:34px;\"><img src=\"./images/clippy.svg\" alt=\"Copy to clipboard\" width=\"13\" style=\"vertical-align: text-bottom;\"></button>\n                          </span>\n                        </div>\n                        <a style=\"color: #5c666f; text-decoration: underline; cursor: pointer;\" onClick=\"window.open('https://jwt.io?value=' + encodeURIComponent($('#input_apiKey')[0].value))\">debug in jwt.io</a>\n                    </div>\n\n                    <div class=\"area cta\" style=\"display: none !important\">\n                        <div data-add-scope id=\"explore\" class=\"btn\"><span class=\"icon-budicon-519\"></span>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n            <div data-navigator>\n                <div data-resource=\"\" label=\"Tools\">\n                    <div class=\"item active\" data-tg-switch=\"\">Swagger resource <span class=\"status\"></span></div>\n                </div>\n                <div id=\"resources_nav\">\n                </div>\n            </div>\n\n            <p class=\"changes-disclaimer\" style=\"display: none;\">\n                <span class='info' id='api_info'>\n";
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<div id=\"swagger_sidebar\">\n    <div class=\"sticky-nav-placeholder\">\n        <div class=\"sticky-nav\">\n            <div class=\"mobile-nav\">\n                <!--\n                <span class=\"select-label\">API Reference: </span><span data-selected-value></span>\n                -->\n            </div>\n\n            <div class=\"token-generator hide\">\n                <span data-close class=\"icon-budicon-471\" style=\"display: none;\"></span>\n\n                <div class=\"scope-selector\">\n                    <div class=\"area controls\">\n                        <label for=\"input_baseUrl\">Base URL</label>\n                        <span id=\"input_baseUrl\" style=\"word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;\" ></span>\n\n                        <label for=\"input_apiKey\">Access Token (JWT)</label>\n                        <div class=\"input-group\" style=\"margin-bottom: 0.5rem;\">\n                          <input type=\"text\" autocorrect=\"off\" class=\"form-control\" id=\"input_apiKey\" readOnly  placeholder=\"Bearer token (JWT)\">\n                          <span class=\"input-group-btn\">\n                              <button class=\" copy-btn btn btn-primary\" data-clipboard-target=\"#input_apiKey\" style=\"height:34px;\"><img src=\"./images/clippy.svg\" alt=\"Copy to clipboard\" width=\"13\" style=\"vertical-align: text-bottom;\"></button>\n                          </span>\n                        </div>\n                        <a style=\"color: #5c666f; text-decoration: underline; cursor: pointer;\" onClick=\"window.open('https://jwt.io?value=' + encodeURIComponent($('#input_apiKey')[0].value))\">debug in jwt.io</a>\n                    </div>\n\n                    <div class=\"area cta\" style=\"display: none !important\">\n                        <div data-add-scope id=\"explore\" class=\"btn\"><span class=\"icon-budicon-519\"></span>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n            <div data-navigator>\n                <div data-resource=\"\" label=\"Tools\">\n                    <div class=\"item\" data-tg-switch=\"\">Show swagger_url and Access Token (JWT) <span class=\"status\"></span></div>\n                </div>\n                <div id=\"resources_nav\">\n                </div>\n            </div>\n\n            <p class=\"changes-disclaimer\" style=\"display: none;\">\n                <span class='info' id='api_info'>\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.info : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\n                </span>\n\n                <span class='info' id='api_info'>\n";
@@ -249,20 +249,20 @@ this["Handlebars"]["templates"]["operation"] = Handlebars.template({"1":function
     + escapeExpression(((helper = (helper = helpers.parentId || (depth0 != null ? depth0.parentId : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"parentId","hash":{},"data":data}) : helper)))
     + "_"
     + escapeExpression(((helper = (helper = helpers.nickname || (depth0 != null ? depth0.nickname : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"nickname","hash":{},"data":data}) : helper)))
-    + "'>\n        <div class='content'>\n            <div class='heading'>\n                <a href=\""
-    + escapeExpression(((helper = (helper = helpers.outsideURL || (depth0 != null ? depth0.outsideURL : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"outsideURL","hash":{},"data":data}) : helper)))
+    + "'>\n        <div class='content'>\n            <div class='heading'>\n                <h3>\n                    <a href=\""
+    + escapeExpression(((helper = (helper = helpers.interfaceBaseUrl || (depth0 != null ? depth0.interfaceBaseUrl : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"interfaceBaseUrl","hash":{},"data":data}) : helper)))
     + "#!/"
     + escapeExpression(((helper = (helper = helpers.encodedParentId || (depth0 != null ? depth0.encodedParentId : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"encodedParentId","hash":{},"data":data}) : helper)))
     + "/"
     + escapeExpression(((helper = (helper = helpers.nickname || (depth0 != null ? depth0.nickname : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"nickname","hash":{},"data":data}) : helper)))
-    + "\" onclick=\"event.preventDefault();\" >\n                    <h3>\n                        <span class='http_method'>\n                            <span >"
+    + "\" onclick=\"event.preventDefault();\">\n                        <span class='http_method'><span >"
     + escapeExpression(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"method","hash":{},"data":data}) : helper)))
-    + "</span>\n                        </span>\n                        <span class='path'>\n                            <span class=\"";
+    + "</span></span>\n                        <span class='path'><span class=\"";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.deprecated : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\">"
     + escapeExpression(((helper = (helper = helpers.path || (depth0 != null ? depth0.path : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"path","hash":{},"data":data}) : helper)))
-    + "</span>\n                        </span>\n                    </h3>\n                </a>\n            </div>\n\n            <a href=\"javascript:;\" class=\"toggle-samples\" data-toggle=\"tooltip\" data-placement=\"left\"\n               data-original-title title>\n                <span class=\"text\">Show samples</span><span class=\"circle-icon\"></span>\n            </a>\n\n";
+    + "</span></span>\n                    </a>\n                </h3>\n            </div>\n\n            <a href=\"javascript:;\" class=\"toggle-samples\" data-toggle=\"tooltip\" data-placement=\"left\"\n               data-original-title title>\n                <span class=\"text\">Show samples</span><span class=\"circle-icon\"></span>\n            </a>\n\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.deprecated : depth0), {"name":"if","hash":{},"fn":this.program(3, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\n";
@@ -677,7 +677,13 @@ this["Handlebars"]["templates"]["sidebar_header"] = Handlebars.template({"compil
 this["Handlebars"]["templates"]["sidebar_item"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   return "deprecated";
   },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<span title='"
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<a href='"
+    + escapeExpression(((helper = (helper = helpers.interfaceBaseUrl || (depth0 != null ? depth0.interfaceBaseUrl : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"interfaceBaseUrl","hash":{},"data":data}) : helper)))
+    + "#!/"
+    + escapeExpression(((helper = (helper = helpers.encodedParentId || (depth0 != null ? depth0.encodedParentId : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"encodedParentId","hash":{},"data":data}) : helper)))
+    + "/"
+    + escapeExpression(((helper = (helper = helpers.nickname || (depth0 != null ? depth0.nickname : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"nickname","hash":{},"data":data}) : helper)))
+    + "' onclick='event.preventDefault();' title='"
     + escapeExpression(((helper = (helper = helpers.nickname || (depth0 != null ? depth0.nickname : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"nickname","hash":{},"data":data}) : helper)))
     + "'>\n  <span class='http_method ApiReference--label-"
     + escapeExpression(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"method","hash":{},"data":data}) : helper)))
@@ -688,7 +694,7 @@ this["Handlebars"]["templates"]["sidebar_item"] = Handlebars.template({"1":funct
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\">"
     + escapeExpression(((helper = (helper = helpers.path || (depth0 != null ? depth0.path : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"path","hash":{},"data":data}) : helper)))
-    + "</span>\n</span>\n";
+    + "</span>\n</a>\n";
 },"useData":true});
 this["Handlebars"]["templates"]["signature"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
@@ -21471,6 +21477,11 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
 
 'use strict';
 
+// HACK 2016-06-24 @theopak via https://gist.github.com/hbogs/7908703
+if (!window.location.origin) { // Some browsers (mainly IE) does not have this property, so we need to build it manually...
+  window.location.origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? (':' + window.location.port) : '');
+}
+
 SwaggerUi.Views.OperationView = Backbone.View.extend({
   invocationUrl: null,
 
@@ -21489,7 +21500,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     this.parentId = this.model.parentId;
     this.nickname = this.model.nickname;
     this.model.encodedParentId = encodeURIComponent(this.parentId);
-    this.model.url = ($.host && $.namespace $.slug) ? location.protocol + "//" +  $.host + "/apis/" + $.namespace + "/" + $.slug : location.href.split("#")[0];
+    this.model.interfaceBaseUrl = window.interfaceBaseUrl;
     return this;
   },
 
@@ -22503,6 +22514,10 @@ SwaggerUi.Views.SidebarItemView = Backbone.View.extend({
   initialize: function (opts) {
     this.options = opts || {};
     this.router = this.options.router;
+    this.parentId = this.model.parentId;
+    this.nickname = this.model.nickname;
+    this.model.encodedParentId = encodeURIComponent(this.parentId);
+    this.model.interfaceBaseUrl = window.interfaceBaseUrl;
   },
 
   render: function () {
@@ -22511,6 +22526,7 @@ SwaggerUi.Views.SidebarItemView = Backbone.View.extend({
   }
 
 });
+
 'use strict';
 
 SwaggerUi.Views.SignatureView = Backbone.View.extend({

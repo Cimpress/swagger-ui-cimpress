@@ -940,14 +940,13 @@
     font-weight: 700;
     color: #fff;
     display: inline-block;
-    margin-bottom: 10px
+    margin-bottom: 0.5rem;
 }
 
 @media (min-width: 992px) {
     .swagger-section .token-generator label {
         color: #5c666f;
         font-size: 13px;
-        margin-bottom: 15px
     }
 }
 
@@ -1274,6 +1273,15 @@
     position: relative
 }
 
+.swagger-section .sticky-nav [data-navigator] .item a
+.swagger-section .sticky-nav [data-navigator] .item a:active,
+.swagger-section .sticky-nav [data-navigator] .item a:hover,
+.swagger-section .sticky-nav [data-navigator] .item a:visited,
+.swagger-section .sticky-nav [data-navigator] .item a {
+  color: #fff;
+  text-decoration: none;
+}
+
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] .item {
         color: #5c666f;
@@ -1284,7 +1292,19 @@
         background: #f3f3f4
     }
 
-    .swagger-section .sticky-nav [data-navigator] .item:active, .swagger-section .sticky-nav [data-navigator] .item:hover {
+    .swagger-section .sticky-nav [data-navigator] .item a
+    .swagger-section .sticky-nav [data-navigator] .item a:active,
+    .swagger-section .sticky-nav [data-navigator] .item a:hover,
+    .swagger-section .sticky-nav [data-navigator] .item a:visited,
+    .swagger-section .sticky-nav [data-navigator] .item a {
+      color: #5c666f;
+      text-decoration: none;
+    }
+
+    .swagger-section .sticky-nav [data-navigator] .item:active,
+    .swagger-section .sticky-nav [data-navigator] .item:hover,
+    .swagger-section .sticky-nav [data-navigator] .item a:active,
+    .swagger-section .sticky-nav [data-navigator] .item a:hover {
         color: #8c9299
     }
 }

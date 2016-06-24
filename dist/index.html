@@ -102,17 +102,20 @@
         } else {
             url = "http://petstore.swagger.io/v2/swagger.json";
         }
-        // HACK 2016-06-23 @harsingh
-        function getQueryParam(param) {
-            var result =  window.location.search.match(
-                new RegExp("(\\?|&)" + param + "(\\[\\])?=([^&]*)")
-            );
 
-            return result ? result[3] : false;
+        // HACK 2016-06-23 @harsingh @theopak
+        function getQueryParam(param) {
+            var result =  window.location.search.match(new RegExp('(\\?|&)' + param + '(\\[\\])?=([^&]*)'));
+            return result && result[3] ? result[3] : null;
         }
-        $.namespace = getQueryParam("namespace");
-        $.slug = getQueryParam("slug");
-        $.host = getQueryParam("host");
+
+        // HACK 2016-06-24 @theopak
+        // (NG-4455) provide a URL parameter called `interfaceBaseUrl` in order to change all scroll anchors in this
+        // swagger-ui instance to reference an arbitrary base url instead of the current page URL. For example,
+        // `?interfaceBaseUrl=https://example.com/page` makes the 'POST /pet' method headings in the sidebar and center
+        // pane point to `https://example.com/page#!/pet/addPet`.
+        window.interfaceBaseUrl = getQueryParam('interfaceBaseUrl') || window.location.origin;
+
         // HACK 2015-12-22 @theopak
         var accessToken = window.location.search.match(/access_token=([^&]+)/);
         if (accessToken && accessToken.length > 1) {
