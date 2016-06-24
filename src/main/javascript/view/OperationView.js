@@ -1,5 +1,10 @@
 'use strict';
 
+// HACK 2016-06-24 @theopak via https://gist.github.com/hbogs/7908703
+if (!window.location.origin) { // Some browsers (mainly IE) does not have this property, so we need to build it manually...
+  window.location.origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? (':' + window.location.port) : '');
+}
+
 SwaggerUi.Views.OperationView = Backbone.View.extend({
   invocationUrl: null,
 
@@ -18,6 +23,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     this.parentId = this.model.parentId;
     this.nickname = this.model.nickname;
     this.model.encodedParentId = encodeURIComponent(this.parentId);
+    this.model.interfaceBaseUrl = window.interfaceBaseUrl;
     return this;
   },
 

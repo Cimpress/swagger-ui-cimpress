@@ -3,6 +3,20 @@
     position: relative;
 }
 
+/* @harsingh 2016-06-20 */
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 100%;
+    }
+}
+.modal.in{
+    padding: 10px;
+}
+.modal .block.response_body img {
+    max-width: 100%;
+    max-height: 100vh;
+}
+
 /* @harsignh 2016-06-13 */
 .brand {
     font-weight: 500;
@@ -217,27 +231,17 @@
     display: table-cell
 }
 
-.swagger-section .heading .path a {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 100%;
-    max-width: 230px;
-    overflow-x: hidden;
-    display: inline-block;
-    vertical-align: bottom;
-    text-overflow: ellipsis;
-    white-space: nowrap
-}
-
+/* @harsingh 2016-06-22 */
 @media (min-width: 992px) {
-    .swagger-section .heading .path a {
+    .swagger-section .heading .path span {
         font-size: 16px;
         max-width: 545px;
     }
 }
 
 @media (min-width: 1400px) {
-     .swagger-section .heading .path a {
+    /* @harsingh 2016-06-22 */
+    .swagger-section .heading .path span {
         max-width: 405px;
     }
 }
@@ -246,7 +250,8 @@
     display: table-cell
 }
 
-.swagger-section .heading .http_method a {
+/* @harsingh 2016-06-22 */
+.swagger-section .heading .http_method span {
     color: #fff;
     text-transform: uppercase;
     font-size: 11px;
@@ -935,14 +940,13 @@
     font-weight: 700;
     color: #fff;
     display: inline-block;
-    margin-bottom: 10px
+    margin-bottom: 0.5rem;
 }
 
 @media (min-width: 992px) {
     .swagger-section .token-generator label {
         color: #5c666f;
         font-size: 13px;
-        margin-bottom: 15px
     }
 }
 
@@ -1269,6 +1273,15 @@
     position: relative
 }
 
+.swagger-section .sticky-nav [data-navigator] .item a
+.swagger-section .sticky-nav [data-navigator] .item a:active,
+.swagger-section .sticky-nav [data-navigator] .item a:hover,
+.swagger-section .sticky-nav [data-navigator] .item a:visited,
+.swagger-section .sticky-nav [data-navigator] .item a {
+  color: #fff;
+  text-decoration: none;
+}
+
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] .item {
         color: #5c666f;
@@ -1279,7 +1292,19 @@
         background: #f3f3f4
     }
 
-    .swagger-section .sticky-nav [data-navigator] .item:active, .swagger-section .sticky-nav [data-navigator] .item:hover {
+    .swagger-section .sticky-nav [data-navigator] .item a
+    .swagger-section .sticky-nav [data-navigator] .item a:active,
+    .swagger-section .sticky-nav [data-navigator] .item a:hover,
+    .swagger-section .sticky-nav [data-navigator] .item a:visited,
+    .swagger-section .sticky-nav [data-navigator] .item a {
+      color: #5c666f;
+      text-decoration: none;
+    }
+
+    .swagger-section .sticky-nav [data-navigator] .item:active,
+    .swagger-section .sticky-nav [data-navigator] .item:hover,
+    .swagger-section .sticky-nav [data-navigator] .item a:active,
+    .swagger-section .sticky-nav [data-navigator] .item a:hover {
         color: #8c9299
     }
 }
@@ -1505,8 +1530,10 @@ body {
     margin-left: 10px
 }
 
+/* @harsingh 2016-06-22 */
 #api2-explorer .modal .modal-dialog {
-    overflow: visible
+    overflow: visible;
+    max-width: 75em;
 }
 
 #api2-explorer .modal .modal-dialog .modal-body {
@@ -2120,7 +2147,6 @@ body {
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span {
     margin: 0;
-    padding: 0
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading ul.options {
