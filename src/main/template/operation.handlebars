@@ -2,16 +2,12 @@
     <li class='{{method}} operation' id='{{parentId}}_{{nickname}}'>
         <div class='content'>
             <div class='heading'>
-                <a href="{{outsideURL}}#!/{{encodedParentId}}/{{nickname}}" onclick="event.preventDefault();" >
-                    <h3>
-                        <span class='http_method'>
-                            <span >{{method}}</span>
-                        </span>
-                        <span class='path'>
-                            <span class="{{#if deprecated}}deprecated{{/if}}">{{path}}</span>
-                        </span>
-                    </h3>
-                </a>
+                <h3>
+                    <a href="{{interfaceBaseUrl}}#!/{{encodedParentId}}/{{nickname}}" onclick="event.preventDefault();">
+                        <span class='http_method'><span >{{method}}</span></span>
+                        <span class='path'><span class="{{#if deprecated}}deprecated{{/if}}">{{path}}</span></span>
+                    </a>
+                </h3>
             </div>
 
             <a href="javascript:;" class="toggle-samples" data-toggle="tooltip" data-placement="left"
