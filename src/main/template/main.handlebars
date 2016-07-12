@@ -39,23 +39,6 @@
                 <div id="resources_nav">
                 </div>
             </div>
-
-            <p class="changes-disclaimer" style="display: none;">
-                </span>
-
-                <span class='info' id='api_info'>
-                    {{#if info.contact.email}}
-                        <span class='info_email'>
-                            Contact: <a href="mailto:{{info.contact.email}}?subject={{info.title}}">{{info.contact.email}}</a>
-                        </span><br><br>
-                    {{/if}}
-                </span>
-
-                <span style="font-variant: small-caps">base url</span>: {{basePath}}
-                {{#if info.version}}
-                    <span style="font-variant: small-caps">api version</span>: {{info.version}}
-                {{/if}}
-            </p>
         </div>
     </div>
 </div>
