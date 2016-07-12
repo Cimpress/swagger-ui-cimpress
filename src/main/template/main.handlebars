@@ -41,12 +41,6 @@
             </div>
 
             <p class="changes-disclaimer" style="display: none;">
-                <span class='info' id='api_info'>
-                    {{#if info}}
-                        <span class="info_title">{{info.title}}</span>
-                        <span class="markdown">{{{info.description}}}</span>
-                    {{/if}}
-
                 </span>
 
                 <span class='info' id='api_info'>
@@ -67,5 +61,22 @@
 </div>
 
 <div id='resources_container'>
-    <ul id='resources' class="samples-collapsed"></ul>
+    <ul id='resources' class="samples-collapsed">
+        {{#if info}}
+        <li class="resource">
+            <ul class="endpoints">
+                <li class="endpoint">
+                    <ul class="operations">
+                        <li class="operation" id="introduction">
+                            <div class="content">
+                                <div class="markdown action-summary info-section">{{{info.description}}}</div>
+                            </div>
+                            <div class="samples"></div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        {{/if}}
+    </ul>
 </div>
