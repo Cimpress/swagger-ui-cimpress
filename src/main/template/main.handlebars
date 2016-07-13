@@ -45,21 +45,21 @@
 
 <div id='resources_container'>
     <ul id='resources' class="samples-collapsed">
-        {{#if info}}
-        <li class="resource">
-            <ul class="endpoints">
-                <li class="endpoint">
-                    <ul class="operations">
-                        <li class="operation" id="introduction">
-                            <div class="content">
-                                <div class="markdown action-summary info-section">{{{info.description}}}</div>
-                            </div>
-                            <div class="samples"></div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
+        {{#if info.description}}
+            <li class="resource">
+                <ul class="endpoints">
+                    <li class="endpoint">
+                        <ul class="operations">
+                            <li class="operation" id="introduction">
+                                <div class="content">
+                                    <div class="markdown action-summary info-section">{{{info.description}}}</div>
+                                </div>
+                                <div class="samples"></div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         {{/if}}
     </ul>
 </div>
