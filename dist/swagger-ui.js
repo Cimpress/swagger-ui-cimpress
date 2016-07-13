@@ -1,7 +1,7 @@
 /**
- * swagger-ui - Swagger UI is a dependency-free collection of HTML, JavaScript, and CSS assets that dynamically generate beautiful documentation from a Swagger-compliant API
- * @version v2.1.1-M2
- * @link http://swagger.io
+ * swagger-ui-cimpress - A swagger-ui fork with an easy to read, responsive three pane view. Used on developer.cimpress.io.
+ * @version v3.0.0
+ * @link https://github.com/Cimpress-MCP/swagger-ui-cimpress
  * @license Apache 2.0
  */
 (function(){this["Handlebars"] = this["Handlebars"] || {};
@@ -167,13 +167,13 @@ Handlebars.registerHelper('sanitize', function(html) {
     return new Handlebars.SafeString(html);
 });
 this["Handlebars"]["templates"]["main"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-  var stack1, lambda=this.lambda, buffer = "        <li class=\"resource\">\n            <ul class=\"endpoints\">\n                <li class=\"endpoint\">\n                    <ul class=\"operations\">\n                        <li class=\"operation\" id=\"introduction\">\n                            <div class=\"content\">\n                                <div class=\"markdown action-summary info-section\">";
+  var stack1, lambda=this.lambda, buffer = "            <li class=\"resource\">\n                <ul class=\"endpoints\">\n                    <li class=\"endpoint\">\n                        <ul class=\"operations\">\n                            <li class=\"operation\" id=\"introduction\">\n                                <div class=\"content\">\n                                    <div class=\"markdown action-summary info-section\">";
   stack1 = lambda(((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.description : stack1), depth0);
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "</div>\n                            </div>\n                            <div class=\"samples\"></div>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        </li>\n";
+  return buffer + "</div>\n                                </div>\n                                <div class=\"samples\"></div>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n            </li>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, buffer = "<div id=\"swagger_sidebar\">\n    <div class=\"sticky-nav-placeholder\">\n        <div class=\"sticky-nav\">\n            <div class=\"mobile-nav\">\n                <!--\n                <span class=\"select-label\">API Reference: </span><span data-selected-value></span>\n                -->\n            </div>\n\n            <div class=\"token-generator hide\">\n                <span data-close class=\"icon-budicon-471\" style=\"display: none;\"></span>\n\n                <div class=\"scope-selector\">\n                    <div class=\"area controls\">\n                        <label for=\"input_baseUrl\">Base URL</label>\n                        <span id=\"input_baseUrl\" style=\"word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;\" ></span>\n\n                        <label for=\"input_apiKey\">Access Token (JWT)</label>\n                        <div class=\"input-group\" style=\"margin-bottom: 0.5rem;\">\n                          <input type=\"text\" autocorrect=\"off\" class=\"form-control\" id=\"input_apiKey\" readOnly  placeholder=\"Bearer token (JWT)\">\n                          <span class=\"input-group-btn\">\n                              <button class=\" copy-btn btn btn-primary\" data-clipboard-target=\"#input_apiKey\" style=\"height:34px;\"><img src=\"./images/clippy.svg\" alt=\"Copy to clipboard\" width=\"13\" style=\"vertical-align: text-bottom;\"></button>\n                          </span>\n                        </div>\n                        <a style=\"color: #5c666f; text-decoration: underline; cursor: pointer;\" onClick=\"window.open('https://jwt.io?value=' + encodeURIComponent($('#input_apiKey')[0].value))\">debug in jwt.io</a>\n                    </div>\n\n                    <div class=\"area cta\" style=\"display: none !important\">\n                        <div data-add-scope id=\"explore\" class=\"btn\"><span class=\"icon-budicon-519\"></span>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n            <div data-navigator>\n                <div data-resource=\"\" label=\"Tools\">\n                    <div class=\"item\" data-tg-switch=\"\">Show Base URL and Access Token (JWT) <span class=\"status\"></span></div>\n                </div>\n                <div id=\"resources_nav\">\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div id='resources_container'>\n    <ul id='resources' class=\"samples-collapsed\">\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.info : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.description : stack1), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "    </ul>\n</div>\n";
 },"useData":true});
@@ -21308,7 +21308,6 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     }
 
     // Render the outer container for resources
-    debugger;
     $(this.el).html(Handlebars.templates.main(this.model));
 
     // Render each resource
