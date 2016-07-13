@@ -1,30 +1,21 @@
-# Swagger UI responsive theme
+![screenshot](screenshot.png)
 
-With inspiration from the [Auth0 api explorer](https://auth0.com/docs/apiv2) the original Swagger UI repo is modified to use a responsive layout.
+[![Build Status](https://travis-ci.org/Cimpress-MCP/swagger-ui-cimpress.svg?branch=master)](https://travis-ci.org/Cimpress-MCP/swagger-ui-cimpress)
+[![NPM version](https://badge.fury.io/js/swagger-ui-cimpress.svg)](http://badge.fury.io/js/swagger-ui-cimpress)
+[![Dependency Status](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress/status.svg)](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress)
+[![devDependency Status](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress/dev-status.svg)](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress#info=devDependencies)
 
-[![Swagger Theme example](dist/images/Swagger_explorer.png)](http://ecs.bobbytech.dk/api)
+# swagger-ui-cimpress
 
-The theme will adapt to screen size and works on tablets and mobile phones.
+A swagger-ui fork with an easy to read, responsive three pane view. Used on https://developer.cimpress.io.
 
-[![Swagger Theme example](dist/images/Swagger_explorer_min.png)](http://ecs.bobbytech.dk/api)
+Swagger UI uses client-side Javascript (jQuery + Backbone) to download a swagger.json resource and make "Try It" requests to the described endpoints. You can learn more about the swagger-ui project at the upstream source: https://github.com/swagger-api/swagger-ui
 
-Give it a [try](http://swaggerui.herokuapp.com/) and enter your own swagger definition.
-
-
-## Disclaimer
-
-This is not a fully polished implementation and should be used with care.
 
 ## License
 
-Copyright 2011-2015 Reverb technologies, Inc.
+Apache-2.0
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+## Acknowledgement
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+This is a fork of https://github.com/jensoleg/swagger-ui which is a fork of https://github.com/swagger-api/swagger-ui

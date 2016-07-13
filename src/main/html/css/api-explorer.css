@@ -3,6 +3,21 @@
     position: relative;
 }
 
+/* @harsingh 2016-07-12 */
+.info-section {
+    line-height: 1.4rem;
+}
+.info-section h1,h2 {
+    float: none;
+    color: #333;
+    margin: 0;
+    padding-top: 1.3rem;
+    font: normal -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.swagger-section .info-section pre {
+    margin: 10px 0;
+}
+
 /* @harsingh 2016-06-20 */
 @media (min-width: 768px) {
     .modal-dialog {
