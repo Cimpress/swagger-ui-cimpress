@@ -25,8 +25,6 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
       item.path = this.model.operationsArray[i].path;
 
       this.addSidebarItem(item, i);
-
-      console.info('!!!!!!', this.model)
     }
 
     return this;

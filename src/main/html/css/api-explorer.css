@@ -1,4 +1,36 @@
 /* @harsingh 2016-06-20 */
+#swagger_sidebar .nav_label {
+    display: block;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: 11px;
+    font-weight: 700;
+    background: #454d53
+}
+
+@media (min-width: 992px) {
+    #swagger_sidebar .nav_label {
+        background: 0 0;
+        text-transform: none;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+        color: #5c666f;
+        padding: 9px 9px 9px 20px;
+        display: block;
+    }
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.dollar::before {
+  content: "$";
+}
+
 .snippet {
     position: relative;
 }
