@@ -16105,16 +16105,7 @@ a:hover {
 pre {
     border: 0;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-li,
-pre {
-    margin: 20px 0;
-}
+
 .sidebar-box {
     max-width: 230px;
     border: 1px solid #eee;

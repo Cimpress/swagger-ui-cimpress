@@ -172,10 +172,20 @@ this["Handlebars"]["templates"]["main"] = Handlebars.template({"1":function(dept
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</div>\n                                </div>\n                                <div class=\"samples\"></div>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n            </li>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "<div id=\"swagger_sidebar\">\n    <div class=\"sticky-nav-placeholder\">\n        <div class=\"sticky-nav\">\n            <div class=\"mobile-nav\">\n                <!--\n                <span class=\"select-label\">API Reference: </span><span data-selected-value></span>\n                -->\n            </div>\n\n            <div class=\"token-generator hide\">\n                <span data-close class=\"icon-budicon-471\" style=\"display: none;\"></span>\n\n                <div class=\"scope-selector\">\n                    <div class=\"area controls\">\n                        <label for=\"input_baseUrl\">Base URL</label>\n                        <span id=\"input_baseUrl\" style=\"word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;\" ></span>\n\n                        <label for=\"input_apiKey\">Access Token (JWT)</label>\n                        <div class=\"input-group\" style=\"margin-bottom: 0.5rem;\">\n                          <input type=\"text\" autocorrect=\"off\" class=\"form-control\" id=\"input_apiKey\" readOnly  placeholder=\"Bearer token (JWT)\">\n                          <span class=\"input-group-btn\">\n                              <button class=\" copy-btn btn btn-primary\" data-clipboard-target=\"#input_apiKey\" style=\"height:34px;\"><img src=\"./images/clippy.svg\" alt=\"Copy to clipboard\" width=\"13\" style=\"vertical-align: text-bottom;\"></button>\n                          </span>\n                        </div>\n                        <a style=\"color: #5c666f; text-decoration: underline; cursor: pointer;\" onClick=\"window.open('https://jwt.io?value=' + encodeURIComponent($('#input_apiKey')[0].value))\">debug in jwt.io</a>\n                    </div>\n\n                    <div class=\"area cta\" style=\"display: none !important\">\n                        <div data-add-scope id=\"explore\" class=\"btn\"><span class=\"icon-budicon-519\"></span>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n            <div data-navigator>\n                <div data-resource=\"\" label=\"Tools\">\n                    <div class=\"item\" data-tg-switch=\"\">Show Base URL and Access Token (JWT) <span class=\"status\"></span></div>\n                </div>\n                <div id=\"resources_nav\">\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div id='resources_container'>\n    <ul id='resources' class=\"samples-collapsed\">\n";
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, lambda=this.lambda, buffer = "<div id=\"swagger_sidebar\">\n    <div class=\"sticky-nav-placeholder\">\n        <div class=\"sticky-nav\">\n            <div class=\"mobile-nav\">\n                <!--\n                <span class=\"select-label\">API Reference: </span><span data-selected-value></span>\n                -->\n            </div>\n\n            <div class=\"token-generator hide\">\n                <span data-close class=\"icon-budicon-471\" style=\"display: none;\"></span>\n\n                <div class=\"scope-selector\">\n                    <div class=\"area controls\">\n                        <label for=\"input_baseUrl\">Base URL</label>\n                        <span id=\"input_baseUrl\" style=\"word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;\" ></span>\n\n                        <label for=\"input_apiKey\">Access Token (JWT)</label>\n                        <div class=\"input-group\" style=\"margin-bottom: 0.5rem;\">\n                          <input type=\"text\" autocorrect=\"off\" class=\"form-control\" id=\"input_apiKey\" readOnly  placeholder=\"Bearer token (JWT)\">\n                          <span class=\"input-group-btn\">\n                              <button class=\" copy-btn btn btn-primary\" data-clipboard-target=\"#input_apiKey\" style=\"height:34px;\"><img src=\"./images/clippy.svg\" alt=\"Copy to clipboard\" width=\"13\" style=\"vertical-align: text-bottom;\"></button>\n                          </span>\n                        </div>\n                        <a style=\"color: #5c666f; text-decoration: underline; cursor: pointer;\" onClick=\"window.open('https://jwt.io?value=' + encodeURIComponent($('#input_apiKey')[0].value))\">debug in jwt.io</a>\n                    </div>\n\n                    <div class=\"area cta\" style=\"display: none !important\">\n                        <div data-add-scope id=\"explore\" class=\"btn\"><span class=\"icon-budicon-519\"></span>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n            <div data-navigator>\n                <div data-resource=\"\" label=\"Tools\">\n                    <div class=\"item\" data-tg-switch=\"\">Show Base URL and Access Token (JWT) <span class=\"status\"></span></div>\n                </div>\n                <div id=\"resources_nav\">\n                    <a href=\"#introduction\">\n                        <div data-resource=\"introduction\" label=\"Introduction\" class=\"active\"> </div>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div id='resources_container'>\n    <ul id='resources' class=\"samples-collapsed\">\n";
   stack1 = helpers['if'].call(depth0, ((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.description : stack1), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "    </ul>\n</div>\n";
+  return buffer + "        <li class=\"resource\">\n            <ul class=\"endpoints\">\n                <li class=\"endpoint\">\n                    <ul class=\"operations\">\n                        <li class=\"operation\" id=\"authentication\">\n                            <div class=\"content\">\n                                <a onclick=\"\" class=\"toggle-samples\" data-toggle=\"tooltip\" data-placement=\"left\" data-original-title=\"\" title=\"\">\n                                    <span class=\"text\">Show samples</span><span class=\"circle-icon\"></span>\n                                </a>\n                                <h2 class=\"operation-title\">Authentication</h2>\n                                <div class=\"markdown action-summary info-section\">\nThe curl command on the right shows how to get a JWT from Auth0. You need the JWT to make API requests.  \nStart by identifying your connection type.  \nCimpress Open supports the following values for the connection parameter in a JWT request:  \n1. default\n2. fulfillers\n\nInternal Cimpress applications also use the following values:\n1. CimpressADFS\n2. exagroup-biz\n\nFor more information, see [authentication documentation](http://mcp-docs-sample.cloud.cimpress.io/authentication/index/)\n##### Useful Information About This API\nClient ID: "
+    + escapeExpression(((helper = (helper = helpers.clientId || (depth0 != null ? depth0.clientId : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"clientId","hash":{},"data":data}) : helper)))
+    + "  \nSwagger Url: "
+    + escapeExpression(((helper = (helper = helpers.swaggerURL || (depth0 != null ? depth0.swaggerURL : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"swaggerURL","hash":{},"data":data}) : helper)))
+    + "  \n                                </div>\n                            </div>\n                            <div class=\"samples\">\n                                <span class=\"model-signature\">\n                                    <div>\n                                        <div role=\"tabpanel\" class=\"guide\">\n                                            <ul class=\"nav nav-pills\" role=\"tablist\">\n                                                <li role=\"presentation\" class=\"active\">\n                                                    <a href=\"#example_auth_curl\"role=\"tab\" data-toggle=\"tab\">Example Curl</a>\n                                                </li>\n                                            </ul>\n                                            <div class=\"tab-content\">\n                                                <div role=\"tabpanel\" class=\"tab-pane active\" id=\"example_auth_curl\">\n                                                    <div class=\"snippet\">\n                                                        <pre><code class=\"bash\"><span class=\"dollar\"></span> curl \"https://cimpress.auth0.com/oauth/ro\" \\\n    -d client_id=<span class=\"string\">\""
+    + escapeExpression(((helper = (helper = helpers.clientId || (depth0 != null ? depth0.clientId : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"clientId","hash":{},"data":data}) : helper)))
+    + "\"</span> <span class=\"comment\"># for "
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.title : stack1), depth0))
+    + "</span> \\ \n    -d username=<span class=\"string\">\"Your Email\"</span> \\ \n    -d password=<span class=\"string\">\"Your Password\"</span> \\ \n    -d connection=<span class=\"string\">\"default\"</span> \\ \n    -d scope=<span class=\"string\">\"openid email app_metadata\"</span> \n\n<span class=\"comment\"># the response will contain the JWT in the field id_token</span>\n<span class=\"dollar\"></span> curl -X GET "
+    + escapeExpression(((helper = (helper = helpers.baseUrl || (depth0 != null ? depth0.baseUrl : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"baseUrl","hash":{},"data":data}) : helper)))
+    + " \\ \n    -H <span class=\"string\">'Authorization: Bearer your_id_token'</span>\n</code></pre>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </span>\n                            </div>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n        </li>\n    </ul>\n";
 },"useData":true});
 this["Handlebars"]["templates"]["operation"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   return "deprecated";
@@ -21208,7 +21218,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     'click [data-resource]': 'clickResource',
     'click [data-tg-switch]': 'toggleToken',
     'click [data-close]': 'closeToken',
-    'click #explore' : 'showCustom'
+    'click #explore' : 'showCustom',
+    'click  a.toggle-samples': 'toggleSamples'
   },
 
   apisSorter: {
@@ -21259,7 +21270,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
 
     // set up the UI for input
     this.model.auths = [];
-
+    this.model.swaggerURL = window.swaggerURL;
+    this.model.clientId = window.clientId;
     for (key in this.model.securityDefinitions) {
       value = this.model.securityDefinitions[key];
 
@@ -21269,7 +21281,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
         value: value
       });
     }
-
+    // It is markdown if it has less than 6 html like tags
+    this.model.isMarkdown = this.model.info && this.model.info.description && this.model.info.description.split(/<\/?\S+>/).length < 6
     if (this.model.swaggerVersion === '2.0') {
       if ('validatorUrl' in opts.swaggerOptions) {
 
@@ -21350,7 +21363,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     var resourceView = new SwaggerUi.Views.ResourceView({
       model: resource,
       router: this.router,
-      tagName: 'li',
+      tagName: 'div',
       id: 'resource_' + resource.id,
       className: 'resource',
       auths: auths,
@@ -21448,6 +21461,29 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       url: $('#input_baseUrl').val(),
       apiKey: $('#input_apiKey').val()
     });
+  },
+
+  toggleSamples: function (e) {
+    function o(t) {
+      if ("self" === t) {
+        var n = $(window).scrollTop();
+        return $(window).scrollTop(n)
+      }
+      return $(window).scrollTop(t)
+    }
+
+    var r = $("#resources"),
+      n = $(e.currentTarget);
+
+    r.toggleClass("samples-collapsed").addClass("is-collapsing");
+    n.find('.text').text("Collapse samples");
+    r.hasClass("samples-collapsed") && n.find('.text').text("Show samples");
+
+    setTimeout(function () {
+      var t = n.parents(".endpoint").first().offset().top;
+      r.removeClass("is-collapsing");
+      o(t)
+    }, 500)
   }
 });
 
@@ -21464,7 +21500,6 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   events: {
     'submit .sandbox': 'submitOperation',
     'click .submit': 'submitOperation',
-    'click  a.toggle-samples': 'toggleSamples'
 //    'mouseenter .api-ic': 'mouseEnter',
 //    'mouseout .api-ic': 'mouseExit'
   },
@@ -22159,29 +22194,6 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       return hljs.highlightBlock(response_body_el);
     }
   },
-
-  toggleSamples: function (e) {
-    function o(t) {
-      if ("self" === t) {
-        var n = $(window).scrollTop();
-        return $(window).scrollTop(n)
-      }
-      return $(window).scrollTop(t)
-    }
-
-    var r = $("#resources"),
-      n = $(e.currentTarget);
-
-    r.toggleClass("samples-collapsed").addClass("is-collapsing");
-    n.find('.text').text("Collapse samples");
-    r.hasClass("samples-collapsed") && n.find('.text').text("Show samples");
-
-    setTimeout(function () {
-      var t = n.parents(".endpoint").first().offset().top;
-      r.removeClass("is-collapsing");
-      o(t)
-    }, 500)
-  }
 
 });
 
