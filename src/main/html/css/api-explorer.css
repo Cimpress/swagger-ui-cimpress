@@ -1,4 +1,9 @@
 /* @harsingh 2016-06-20 */
+
+.dollar::before {
+  content: "$";
+}
+
 .snippet {
     position: relative;
 }

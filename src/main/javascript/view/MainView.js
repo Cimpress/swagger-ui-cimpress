@@ -7,7 +7,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     'click [data-resource]': 'clickResource',
     'click [data-tg-switch]': 'toggleToken',
     'click [data-close]': 'closeToken',
-    'click #explore' : 'showCustom'
+    'click #explore' : 'showCustom',
+    'click  a.toggle-samples': 'toggleSamples'
   },
 
   apisSorter: {
@@ -58,7 +59,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
 
     // set up the UI for input
     this.model.auths = [];
-
+    this.model.swaggerURL = window.swaggerURL;
+    this.model.clientId = window.clientId;
     for (key in this.model.securityDefinitions) {
       value = this.model.securityDefinitions[key];
 
@@ -68,7 +70,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
         value: value
       });
     }
-
+    // It is markdown if it has less than 6 html like tags
+    this.model.isMarkdown = this.model.info && this.model.info.description && this.model.info.description.split(/<\/?\S+>/).length < 6
     if (this.model.swaggerVersion === '2.0') {
       if ('validatorUrl' in opts.swaggerOptions) {
 
@@ -149,7 +152,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     var resourceView = new SwaggerUi.Views.ResourceView({
       model: resource,
       router: this.router,
-      tagName: 'li',
+      tagName: 'div',
       id: 'resource_' + resource.id,
       className: 'resource',
       auths: auths,
@@ -247,5 +250,28 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       url: $('#input_baseUrl').val(),
       apiKey: $('#input_apiKey').val()
     });
+  },
+
+  toggleSamples: function (e) {
+    function o(t) {
+      if ("self" === t) {
+        var n = $(window).scrollTop();
+        return $(window).scrollTop(n)
+      }
+      return $(window).scrollTop(t)
+    }
+
+    var r = $("#resources"),
+      n = $(e.currentTarget);
+
+    r.toggleClass("samples-collapsed").addClass("is-collapsing");
+    n.find('.text').text("Collapse samples");
+    r.hasClass("samples-collapsed") && n.find('.text').text("Show samples");
+
+    setTimeout(function () {
+      var t = n.parents(".endpoint").first().offset().top;
+      r.removeClass("is-collapsing");
+      o(t)
+    }, 500)
   }
 });

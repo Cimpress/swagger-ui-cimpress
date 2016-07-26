@@ -102,6 +102,7 @@
         } else {
             url = "http://petstore.swagger.io/v2/swagger.json";
         }
+        window.swaggerURL = url;
 
         // HACK 2016-06-23 @harsingh @theopak
         function getQueryParam(param) {
@@ -115,6 +116,7 @@
         // `?interfaceBaseUrl=https://example.com/page` makes the 'POST /pet' method headings in the sidebar and center
         // pane point to `https://example.com/page#!/pet/addPet`.
         window.interfaceBaseUrl = getQueryParam('interfaceBaseUrl') || window.location.origin;
+        window.clientId = getQueryParam("client_id");
 
         // HACK 2015-12-22 @theopak
         var accessToken = window.location.search.match(/access_token=([^&]+)/);
