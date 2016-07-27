@@ -13,7 +13,7 @@
                 <div class="scope-selector">
                     <div class="area controls">
                         <label for="input_baseUrl">Base URL</label>
-                        <span id="input_baseUrl" style="word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;" ></span>
+                        <span id="input_baseUrl" style="word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;" >{{baseUrl}}</span>
 
                         <label for="input_apiKey">Access Token (JWT)</label>
                         <div class="input-group" style="margin-bottom: 0.5rem;">
@@ -83,11 +83,11 @@
                                     </a>
                                     <h2 class="operation-title">Authentication</h2>
                                     <div class="action-summary info-section">
-                                      <p>Cimpress Open uses Auth0 as an authentication service. Every Cimpress Open Portal user has an Auth0 account. The email address you registered with is the username of your Auth0 account. For more information, see <a href="http://mcp-docs-sample.cloud.cimpress.io/authentication/index/">authentication documentation</a>.</p>
+                                      <p>Cimpress Open uses Auth0 as an authentication service. Every Cimpress Open Portal user has an Auth0 account. The email address you registered with is the username of your Auth0 account. For more information, see <a href="http://mcp-docs-sample.cloud.cimpress.io/authentication/index/" target="_blank">authentication documentation</a>.</p>
                                       <h5 id="useful-information-about-this-api">Useful Information About This API</h5>
                                       <p>
                                         <strong>Client ID:</strong> {{clientId}}<br/>
-                                        {{#if baseUrl}}<strong>Base URL:</strong> {{baseUrl}}{{/if}}
+                                        {{#if baseUrl}}<strong>Base URL:</strong> {{baseUrl}}{{/if}}<br/>
                                       </p>
                                     </div>
                                 </div>
