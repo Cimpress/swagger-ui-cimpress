@@ -28,7 +28,7 @@
 }
 
 .dollar::before {
-  content: "$";
+  content: "$ ";
 }
 
 .snippet {
