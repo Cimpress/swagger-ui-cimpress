@@ -60,7 +60,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     // set up the UI for input
     this.model.auths = [];
     this.model.swaggerURL = window.swaggerURL;
-    this.model.clientId = window.clientId || "CLIENT_ID";
+    if (window.clientId) this.model.clientId = window.clientId;
     for (key in this.model.securityDefinitions) {
       value = this.model.securityDefinitions[key];
 

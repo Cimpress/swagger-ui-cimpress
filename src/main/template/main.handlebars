@@ -33,13 +33,17 @@
 
             </div>
             <div data-navigator>
-{{!--                 <div data-resource="" label="Tools">
+                {{!--
+                <div data-resource="" label="Tools">
                     <div class="item" data-tg-switch="">Show Base URL and Access Token (JWT) <span class="status"></span></div>
-                </div> --}}
+                </div>
+                --}}
                 {{#if info.description}}
                     <a href="#introduction" class="nav_label">Introduction</a>
                 {{/if}}
-                <a href="#authentication" class="nav_label">Authentication</a>
+                {{#if clientId}}
+                    <a href="#authentication" class="nav_label">Authentication</a>
+                {{/if}}
 
                 <div id="resources_nav">
                 </div>
@@ -67,67 +71,62 @@
                 </ul>
             </li>
         {{/if}}
-        <li class="resource" id="authentication">
-            <ul class="endpoints">
-                <li class="endpoint">
-                    <ul class="operations">
-                        <li class="operation" >
-                            <div class="content">
-                                <a onclick="" class="toggle-samples" data-toggle="tooltip" data-placement="left" data-original-title="" title="">
-                                    <span class="text">Show samples</span><span class="circle-icon"></span>
-                                </a>
-                                <h2 class="operation-title">Authentication</h2>
-                                <div class="markdown action-summary info-section">
-The curl command on the right shows how to get a JWT from Auth0. You need the JWT to make API requests.  
-Start by identifying your connection type.  
-Cimpress Open supports the following values for the connection parameter in a JWT request:  
-1. default
-2. fulfillers
-
-Internal Cimpress applications also use the following values:
-1. CimpressADFS
-2. exagroup-biz
-
-For more information, see [authentication documentation](http://mcp-docs-sample.cloud.cimpress.io/authentication/index/)
-##### Useful Information About This API
-Client ID: {{clientId}}  
-Swagger Url: {{swaggerURL}}  
+        {{#if clientId}}
+            <li class="resource" id="authentication">
+                <ul class="endpoints">
+                    <li class="endpoint">
+                        <ul class="operations">
+                            <li class="operation" >
+                                <div class="content">
+                                    <a onclick="" class="toggle-samples" data-toggle="tooltip" data-placement="left" data-original-title="" title="">
+                                        <span class="text">Show samples</span><span class="circle-icon"></span>
+                                    </a>
+                                    <h2 class="operation-title">Authentication</h2>
+                                    <div class="action-summary info-section">
+                                      <p>Cimpress Open uses Auth0 as an authentication service. Every Cimpress Open Portal user has an Auth0 account. The email address you registered with is the username of your Auth0 account. For more information, see <a href="http://mcp-docs-sample.cloud.cimpress.io/authentication/index/">authentication documentation</a></p>
+                                      <h5 id="useful-information-about-this-api">Useful Information About This API</h5>
+                                      <p>
+                                        <strong>Client ID:</strong> {{clientId}}<br/>
+                                        {{#if baseUrl}}<strong>Base URL:</strong> {{baseUrl}}{{/if}}
+                                      </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="samples">
-                                <span class="model-signature">
-                                    <div>
-                                        <div role="tabpanel" class="guide">
-                                            <ul class="nav nav-pills" role="tablist">
-                                                <li role="presentation" class="active">
-                                                    <a href="#example_auth_curl"role="tab" data-toggle="tab">Example Curl</a>
-                                                </li>
-                                            </ul>
-                                            <div class="tab-content">
-                                                <div role="tabpanel" class="tab-pane active" id="example_auth_curl">
-                                                    <div class="snippet">
-                                                        <pre><code class="bash"><span class="dollar"></span> curl "https://cimpress.auth0.com/oauth/ro" \
-    -d client_id=<span class="string">"{{clientId}}"</span> <span class="comment"># for {{info.title}}</span> \ 
-    -d username=<span class="string">"Your Email"</span> \ 
-    -d password=<span class="string">"Your Password"</span> \ 
-    -d connection=<span class="string">"default"</span> \ 
-    -d scope=<span class="string">"openid email app_metadata"</span> 
-
-<span class="comment"># the response will contain the JWT in the field id_token</span>
-<span class="dollar"></span> curl -X GET {{baseUrl}} \ 
-    -H <span class="string">'Authorization: Bearer your_id_token'</span>
+                                <div class="samples">
+                                    <span class="model-signature">
+                                        <div>
+                                            <div role="tabpanel" class="guide">
+                                                <ul class="nav nav-pills" role="tablist">
+                                                    <li role="presentation" class="active">
+                                                        <a href="#example_auth_curl"role="tab" data-toggle="tab">Example Curl</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div role="tabpanel" class="tab-pane active" id="example_auth_curl">
+                                                        <div class="snippet">
+<pre><code class="bash"><span class="dollar"></span>curl "https://cimpress.auth0.com/oauth/ro" \
+    -d client_id=<span class="string">"{{clientId}}"</span> <span class="comment"># for {{info.title}}</span> \
+    -d username=<span class="string">"Your Email"</span> \
+    -d password=<span class="string">"Your Password"</span> \
+    -d connection=<span class="string">"default"</span> \
+    -d scope=<span class="string">"openid email app_metadata"</span>
 </code></pre>
+{{#if baseUrl}}<pre><code class="bash">
+<span class="comment"># The response will contain the JWT in the field id_token</span>
+<span class="dollar"></span>curl -X GET "{{baseUrl}}" \
+      -H <span class="string">'Authorization: Bearer your_id_token'</span>
+</code></pre>{{/if}}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        {{/if}}
     </ul>
 </div>
