@@ -33,39 +33,101 @@
 
             </div>
             <div data-navigator>
-                <div data-resource="" label="Tools">
+{{!--                 <div data-resource="" label="Tools">
                     <div class="item" data-tg-switch="">Show Base URL and Access Token (JWT) <span class="status"></span></div>
-                </div>
+                </div> --}}
+                {{#if info.description}}
+                    <a href="#introduction" class="nav_label">Introduction</a>
+                {{/if}}
+                <a href="#authentication" class="nav_label">Authentication</a>
+
                 <div id="resources_nav">
                 </div>
             </div>
-
-            <p class="changes-disclaimer" style="display: none;">
-                <span class='info' id='api_info'>
-                    {{#if info}}
-                        <span class="info_title">{{info.title}}</span>
-                        <span class="markdown">{{{info.description}}}</span>
-                    {{/if}}
-
-                </span>
-
-                <span class='info' id='api_info'>
-                    {{#if info.contact.email}}
-                        <span class='info_email'>
-                            Contact: <a href="mailto:{{info.contact.email}}?subject={{info.title}}">{{info.contact.email}}</a>
-                        </span><br><br>
-                    {{/if}}
-                </span>
-
-                <span style="font-variant: small-caps">base url</span>: {{basePath}}
-                {{#if info.version}}
-                    <span style="font-variant: small-caps">api version</span>: {{info.version}}
-                {{/if}}
-            </p>
         </div>
     </div>
 </div>
 
 <div id='resources_container'>
-    <ul id='resources' class="samples-collapsed"></ul>
+    <ul id='resources' class="samples-collapsed">
+        {{#if info.description}}
+            <li class="resource" id="introduction">
+                <ul class="endpoints">
+                    <li class="endpoint">
+                        <ul class="operations">
+                            <li class="operation" >
+                                <div class="content">
+                                    <h2 class="operation-title">Introduction</h2>
+                                    <div class="markdown action-summary info-section">{{{info.description}}}</div>
+                                </div>
+                                <div class="samples"></div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        {{/if}}
+        <li class="resource" id="authentication">
+            <ul class="endpoints">
+                <li class="endpoint">
+                    <ul class="operations">
+                        <li class="operation" >
+                            <div class="content">
+                                <a onclick="" class="toggle-samples" data-toggle="tooltip" data-placement="left" data-original-title="" title="">
+                                    <span class="text">Show samples</span><span class="circle-icon"></span>
+                                </a>
+                                <h2 class="operation-title">Authentication</h2>
+                                <div class="markdown action-summary info-section">
+The curl command on the right shows how to get a JWT from Auth0. You need the JWT to make API requests.  
+Start by identifying your connection type.  
+Cimpress Open supports the following values for the connection parameter in a JWT request:  
+1. default
+2. fulfillers
+
+Internal Cimpress applications also use the following values:
+1. CimpressADFS
+2. exagroup-biz
+
+For more information, see [authentication documentation](http://mcp-docs-sample.cloud.cimpress.io/authentication/index/)
+##### Useful Information About This API
+Client ID: {{clientId}}  
+Swagger Url: {{swaggerURL}}  
+                                </div>
+                            </div>
+                            <div class="samples">
+                                <span class="model-signature">
+                                    <div>
+                                        <div role="tabpanel" class="guide">
+                                            <ul class="nav nav-pills" role="tablist">
+                                                <li role="presentation" class="active">
+                                                    <a href="#example_auth_curl"role="tab" data-toggle="tab">Example Curl</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div role="tabpanel" class="tab-pane active" id="example_auth_curl">
+                                                    <div class="snippet">
+                                                        <pre><code class="bash"><span class="dollar"></span> curl "https://cimpress.auth0.com/oauth/ro" \
+    -d client_id=<span class="string">"{{clientId}}"</span> <span class="comment"># for {{info.title}}</span> \ 
+    -d username=<span class="string">"Your Email"</span> \ 
+    -d password=<span class="string">"Your Password"</span> \ 
+    -d connection=<span class="string">"default"</span> \ 
+    -d scope=<span class="string">"openid email app_metadata"</span> 
+
+<span class="comment"># the response will contain the JWT in the field id_token</span>
+<span class="dollar"></span> curl -X GET {{baseUrl}} \ 
+    -H <span class="string">'Authorization: Bearer your_id_token'</span>
+</code></pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
 </div>
