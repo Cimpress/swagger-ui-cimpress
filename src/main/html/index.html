@@ -102,7 +102,7 @@
         } else {
             url = "http://petstore.swagger.io/v2/swagger.json";
         }
-        window.swaggerURL = url;
+        window.swaggerUrl = url;
 
         // HACK 2016-06-23 @harsingh @theopak
         function getQueryParam(param) {
@@ -151,7 +151,8 @@
                 if (swaggerUi.options.url) {
                     // changed to get the api url that goes through the gateway instead of what is specified in the docs
                     var host = getSchemeAndHost(url);
-                    $('#input_baseUrl').html(host+(swaggerApi.basePath || "/"));
+                    window.baseUrl = host+(swaggerApi.basePath || "/");
+                    Backbone.trigger("mainview:newBaseUrl");
                 }
                 if (swaggerUi.options.apiKey) {
                     $('#input_apiKey').val(swaggerUi.options.apiKey);
@@ -195,7 +196,7 @@
             if (key && key.trim() != "") {
                 var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "Bearer " + key, "header");
                 window.swaggerUi.api.clientAuthorizations.add("key", apiKeyAuth);
-                log("added key " + key);
+                // log("added key " + key);
             }
         }
 

@@ -25,6 +25,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     }
   },
   initialize: function (opts) {
+    this.listenTo(Backbone, 'mainview:newBaseUrl', this.render)
     var sorterOption, sorterFn, key, value;
     opts = opts || {};
 
@@ -59,7 +60,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
 
     // set up the UI for input
     this.model.auths = [];
-    this.model.swaggerURL = window.swaggerURL;
+    this.model.swaggerUrl = window.swaggerUrl;
+    this.model.baseUrl = window.baseUrl;
     if (window.clientId) this.model.clientId = window.clientId;
     for (key in this.model.securityDefinitions) {
       value = this.model.securityDefinitions[key];
@@ -92,6 +94,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
   },
 
   render: function () {
+    console.log('test', window.baseUrl);
+    this.model.baseUrl = window.baseUrl;
     if (this.model.securityDefinitions) {
       for (var name in this.model.securityDefinitions) {
         var auth = this.model.securityDefinitions[name];
