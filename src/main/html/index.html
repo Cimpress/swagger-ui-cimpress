@@ -136,6 +136,9 @@
 
                 if (typeof initOAuth == "function") {
 
+                    // NG-4689: Parameters are required by the initOAuth function to
+                    // properly open the OAuth dialog.  They are derived from
+                    // https://github.com/swagger-api/
                     initOAuth({
                         clientId: window.clientId,
                         realm: "your-realms",
