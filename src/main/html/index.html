@@ -136,10 +136,15 @@
 
                 if (typeof initOAuth == "function") {
 
+                    // NG-4689: Parameters are required by the initOAuth function to
+                    // properly open the OAuth dialog.  They are derived from
+                    // https://github.com/swagger-api/
                     initOAuth({
-                        clientId: "your-client-id-if-required",
-                        realm: "realm",
-                        appName: "Swagger"
+                        clientId: window.clientId,
+                        realm: "your-realms",
+                        appName: "your-appname",
+                        scopeSeparator: ",",
+                        additionalQueryStringParams: {}
                     });
 
                 }
@@ -151,8 +156,7 @@
                 if (swaggerUi.options.url) {
                     // changed to get the api url that goes through the gateway instead of what is specified in the docs
                     var host = getSchemeAndHost(url);
-                    window.baseUrl = host+(swaggerApi.basePath || "/");
-                    Backbone.trigger("mainview:newBaseUrl");
+                    $('#input_baseUrl').html(host+(swaggerApi.basePath || "/"));
                 }
                 if (swaggerUi.options.apiKey) {
                     $('#input_apiKey').val(swaggerUi.options.apiKey);
