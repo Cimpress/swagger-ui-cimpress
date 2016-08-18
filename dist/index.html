@@ -117,7 +117,8 @@
         // pane point to `https://example.com/page#!/pet/addPet`.
         window.interfaceBaseUrl = getQueryParam('interfaceBaseUrl') || window.location.origin;
         window.clientId = getQueryParam("client_id");
-
+        // HACK - this will enable outh2
+        window.anthony = getQueryParam("anthony");
         // HACK 2015-12-22 @theopak
         var accessToken = window.location.search.match(/access_token=([^&]+)/);
         if (accessToken && accessToken.length > 1) {
@@ -134,11 +135,22 @@
             onComplete: function (swaggerApi, swaggerUi) {
                 log(swaggerUi.options);
 
-                if (typeof initOAuth == "function") {
+                if (swaggerUi.options.url) {
+                    // changed to get the api url that goes through the gateway instead of what is specified in the docs
+                    var host = getSchemeAndHost(url);
+                    window.baseUrl = host+(swaggerApi.basePath || "/");
+                    Backbone.trigger("mainview:newBaseUrl");
+                }
 
+                $('pre code').each(function (i, e) {
+                    hljs.highlightBlock(e)
+                });
+
+                if (typeof initOAuth == "function" && !!window.anthony) {
                     // NG-4689: Parameters are required by the initOAuth function to
                     // properly open the OAuth dialog.  They are derived from
                     // https://github.com/swagger-api/
+
                     initOAuth({
                         clientId: window.clientId,
                         realm: "your-realms",
@@ -146,17 +158,6 @@
                         scopeSeparator: ",",
                         additionalQueryStringParams: {}
                     });
-
-                }
-
-                $('pre code').each(function (i, e) {
-                    hljs.highlightBlock(e)
-                });
-
-                if (swaggerUi.options.url) {
-                    // changed to get the api url that goes through the gateway instead of what is specified in the docs
-                    var host = getSchemeAndHost(url);
-                    $('#input_baseUrl').html(host+(swaggerApi.basePath || "/"));
                 }
                 if (swaggerUi.options.apiKey) {
                     $('#input_apiKey').val(swaggerUi.options.apiKey);

@@ -335,6 +335,10 @@
     background: #ff9a57
 }
 
+.swagger-section .operation.put .http_method a, .swagger-section .operation.put .http_method span {
+    background: #9b708b
+}
+
 .swagger-section .form-control.error {
     border-color: #fd8888;
     border-width: 2px
