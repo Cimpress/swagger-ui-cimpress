@@ -23,6 +23,9 @@
     "url": "https://github.com/Cimpress-MCP/swagger-ui-cimpress"
   },
   "readmeFilename": "README.md",
+  "dependencies": {
+    "swagger-client": "jensoleg/swagger-js"
+  },
   "devDependencies": {
     "chai": "^2.1.0",
     "cors": "^2.5.3",
@@ -46,7 +49,6 @@
     "http-server": "git+https://github.com/nodeapps/http-server.git",
     "less": "^2.4.0",
     "mocha": "^2.1.0",
-    "selenium-webdriver": "^2.45.0",
-    "swagger-client": "^2"
+    "selenium-webdriver": "^2.45.0"
   }
 }
