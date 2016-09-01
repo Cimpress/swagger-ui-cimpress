@@ -327,6 +327,10 @@
     background: #248fb2
 }
 
+.swagger-section .operation.options .http_method a, .swagger-section .operation.options .http_method span {
+    background: #999
+}
+
 .swagger-section .operation.delete .http_method a, .swagger-section .operation.delete .http_method span {
     background: #e27a7a
 }
