@@ -75,7 +75,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     this.model.description = this.model.description || this.model.notes;
     this.model.oauth = null;
 
-    modelAuths = this.model.authorizations || this.model.security;
+    modelAuths = window.anthony && (this.model.authorizations || this.model.security);
 
     if (modelAuths) {
       if (Array.isArray(modelAuths)) {
