@@ -1,3 +1,11 @@
+// Logging function that accounts for browsers that don't have window.console
+function log() {
+  log.history = log.history || [];
+  log.history.push(arguments);
+  if (this.console) {
+    console.log(Array.prototype.slice.call(arguments)[0]);
+  }
+}
 var appName;
 var popupMask;
 var popupDialog;
@@ -5,6 +13,9 @@ var clientId;
 var realm;
 var oauth2KeyName;
 var redirect_uri;
+var clientSecret;
+var scopeSeparator;
+var additionalQueryStringParams;
 
 function handleLogin() {
   var scopes = [];
@@ -28,7 +39,7 @@ function handleLogin() {
         else {
           // 2.0 support
           for (scope in auth.scopes) {
-            scopes.push({scope: scope, description: auth.scopes[scope]});
+            scopes.push({scope: scope, description: auth.scopes[scope], OAuthSchemeKey: key});
           }
         }
       }
@@ -106,7 +117,8 @@ function handleLogin() {
     var defaultRedirectUrl = host.protocol + '//' + host.host + pathname + '/o2c.html';
     var redirectUrl = window.oAuthRedirectUrl || defaultRedirectUrl;
     var url = null;
-
+    // Implicit auth recommends a state parameter.
+    var state = Math.random();
     for (var key in authSchemes) {
       if (authSchemes.hasOwnProperty(key)) {
         var flow = authSchemes[key].flow;
@@ -116,6 +128,13 @@ function handleLogin() {
           url = dets.authorizationUrl + '?response_type=' + (flow === 'implicit' ? 'token' : 'code');
           window.swaggerUi.tokenName = dets.tokenName || 'access_token';
           window.swaggerUi.tokenUrl = (flow === 'accessCode' ? dets.tokenUrl : null);
+          state = key;
+        }
+        else if(authSchemes[key].type === 'oauth2' && flow && (flow === 'application')) {
+            var dets = authSchemes[key];
+            window.swaggerUi.tokenName = dets.tokenName || 'access_token';
+            clientCredentialsFlow(scopes, dets.tokenUrl, key);
+            return;
         }
         else if (authSchemes[key].grantTypes) {
           // 1.2 support
@@ -145,9 +164,6 @@ function handleLogin() {
         scopes.push(scope);
     }
 
-    // Implicit auth recommends a state parameter.
-    var state = Math.random();
-
     window.enabledScopes = scopes;
 
     redirect_uri = redirectUrl;
@@ -155,14 +171,17 @@ function handleLogin() {
     url += '&redirect_uri=' + encodeURIComponent(redirectUrl);
     url += '&realm=' + encodeURIComponent(realm);
     url += '&client_id=' + encodeURIComponent(clientId);
-    url += '&scope=' + encodeURIComponent(scopes.join(' '));
+    url += '&scope=' + encodeURIComponent(scopes.join(scopeSeparator));
     url += '&state=' + encodeURIComponent(state);
-
+    for (var key in additionalQueryStringParams) {
+        url += '&' + key + '=' + encodeURIComponent(additionalQueryStringParams[key]);
+    }
     window.open(url);
   });
 
   popupMask.show();
   popupDialog.show();
+  return;
 }
 
 function handleLogout() {
@@ -184,11 +203,14 @@ function initOAuth(opts) {
   var o = (opts || {});
   var errors = [];
 
-  appName = (o.appName || errors.push('missing appName'));
+  appName = (o.appName || "App");
   popupMask = (o.popupMask || $('#api-common-mask'));
   popupDialog = (o.popupDialog || $('.api-popup-dialog'));
   clientId = (o.clientId || errors.push('missing client id'));
-  realm = (o.realm || errors.push('missing realm'));
+  clientSecret = (o.clientSecret||null);
+  realm = (o.realm || "");
+  scopeSeparator = (o.scopeSeparator||' ');
+  additionalQueryStringParams = (o.additionalQueryStringParams||{});
 
   if (errors.length > 0) {
     log('auth unable initialize oauth: ' + errors);
@@ -210,28 +232,63 @@ function initOAuth(opts) {
   });
 }
 
+function clientCredentialsFlow(scopes, tokenUrl, OAuthSchemeKey) {
+    var params = {
+      'client_id': clientId,
+      'client_secret': clientSecret,
+      'scope': scopes.join(' '),
+      'grant_type': 'client_credentials'
+    }
+    $.ajax(
+    {
+      url : tokenUrl,
+      type: "POST",
+      data: params,
+      success:function(data, textStatus, jqXHR)
+      {
+        onOAuthComplete(data,OAuthSchemeKey);
+      },
+      error: function(jqXHR, textStatus, errorThrown)
+      {
+        onOAuthComplete("");
+      }
+    });
+  }
 window.processOAuthCode = function processOAuthCode(data) {
+  var OAuthSchemeKey = data.state;
+  // redirect_uri is required in auth code flow
+  // see https://tools.ietf.org/html/draft-ietf-oauth-v2-31#section-4.1.3
+  var host = window.location;
+  var pathname = location.pathname.substring(0, location.pathname.lastIndexOf("/"));
+  var defaultRedirectUrl = host.protocol + '//' + host.host + pathname + '/o2c.html';
+  var redirectUrl = window.oAuthRedirectUrl || defaultRedirectUrl;
+  debugger
   var params = {
     'client_id': clientId,
     'code': data.code,
     'grant_type': 'authorization_code',
-    'redirect_uri': redirect_uri
+    'redirect_uri': redirectUrl
   };
+  if (clientSecret) {
+    params.client_secret = clientSecret;
+  }
   $.ajax(
     {
       url: window.swaggerUi.tokenUrl,
       type: "POST",
       data: params,
-      success: function (data, textStatus, jqXHR) {
-        onOAuthComplete(data);
+    success:function(data, textStatus, jqXHR)
+    {
+      onOAuthComplete(data, OAuthSchemeKey);
       },
       error: function (jqXHR, textStatus, errorThrown) {
         onOAuthComplete("");
       }
     });
+  console.log("241", window.swaggerUi.tokenUrl, params);
 };
 
-window.onOAuthComplete = function onOAuthComplete(token) {
+window.onOAuthComplete = function onOAuthComplete(token,OAuthSchemeKey) {
   if (token) {
     if (token.error) {
       var checkbox = $('input[type=checkbox],.secured')
@@ -242,6 +299,9 @@ window.onOAuthComplete = function onOAuthComplete(token) {
     }
     else {
       var b = token[window.swaggerUi.tokenName];
+      if (!OAuthSchemeKey){
+          OAuthSchemeKey = token.state || oauth2KeyName;
+      }
       if (b) {
         // if all roles are satisfied
         var o = null;
@@ -277,9 +337,10 @@ window.onOAuthComplete = function onOAuthComplete(token) {
             }
           }
         });
+        debugger
         $('.api-ic').text('signout');
         $('#input_apiKey').val(b);
-        window.swaggerUi.api.clientAuthorizations.add(oauth2KeyName, new SwaggerClient.ApiKeyAuthorization('Authorization', 'Bearer ' + b, 'header'));
+        window.swaggerUi.api.clientAuthorizations.add(OAuthSchemeKey, new SwaggerClient.ApiKeyAuthorization('Authorization', 'Bearer ' + b, 'header'));
       }
     }
   }
