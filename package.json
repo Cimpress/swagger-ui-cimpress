@@ -24,7 +24,7 @@
   },
   "readmeFilename": "README.md",
   "dependencies": {
-    "swagger-client": "jensoleg/swagger-js"
+    "swagger-client": "github:swagger-api/swagger-js#v2.1.18"
   },
   "devDependencies": {
     "chai": "^2.1.0",

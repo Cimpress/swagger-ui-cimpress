@@ -135,11 +135,6 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       this.addSidebarHeader(resource, i);
     }
 
-    $('.propWrap').hover(function onHover() {
-      $('.optionsWrapper', $(this)).show();
-    }, function offhover() {
-      $('.optionsWrapper', $(this)).hide();
-    });
 
     var n = $(this.el).find("#resources_nav [data-resource]").first();
     n.trigger("click");
