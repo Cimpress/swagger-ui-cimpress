@@ -12,7 +12,7 @@
   "license": "Apache 2.0",
   "scripts": {
     "build": "gulp && npm run write-version",
-    "write-version": "echo \"<script type='text/javascript'> window.version = {};\nwindow.version.commitHash = '`git rev-parse --short HEAD`';\nwindow.version.date = '`date`';\nwindow.version.npmVersion = '`npm -v`'; </script>\" >> ./dist/index.html",
+    "write-version": "echo \"\n<script type='text/javascript'> window.version = {};\nwindow.version.commitHash = '`git rev-parse --short HEAD`';\nwindow.version.date = '`date`';\nwindow.version.npmVersion = '`npm -v`'; </script>\" >> ./dist/index.html",
     "serve": "gulp serve",
     "prejshint": "gulp",
     "jshint": "jshint .",
