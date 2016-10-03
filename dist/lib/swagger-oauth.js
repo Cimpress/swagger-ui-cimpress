@@ -11,7 +11,6 @@ var popupMask;
 var popupDialog;
 var clientId;
 var realm;
-var oauth2KeyName;
 var redirect_uri;
 var clientSecret;
 var scopeSeparator;
@@ -27,7 +26,6 @@ function handleLogin() {
     for (key in defs) {
       var auth = defs[key];
       if (auth.type === 'oauth2' && auth.scopes) {
-        oauth2KeyName = key;
         var scope;
         if (Array.isArray(auth.scopes)) {
           // 1.2 support
@@ -128,6 +126,7 @@ function handleLogin() {
           url = dets.authorizationUrl + '?response_type=' + (flow === 'implicit' ? 'token' : 'code');
           window.swaggerUi.tokenName = dets.tokenName || 'access_token';
           window.swaggerUi.tokenUrl = (flow === 'accessCode' ? dets.tokenUrl : null);
+          window.swaggerUi.currentKey = key;
           // state = key;
         }
         else if(authSchemes[key].type === 'oauth2' && flow && (flow === 'application')) {
@@ -298,7 +297,7 @@ window.onOAuthComplete = function onOAuthComplete(token,OAuthSchemeKey) {
     else {
       var b = token[window.swaggerUi.tokenName];
       if (!OAuthSchemeKey){
-          OAuthSchemeKey = token.state || oauth2KeyName;
+          OAuthSchemeKey = window.swaggerUi.currentKey || token.state;
       }
       if (b) {
         // if all roles are satisfied
