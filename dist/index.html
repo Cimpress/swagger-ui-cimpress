@@ -124,12 +124,11 @@
             // properly open the OAuth dialog.  They are derived from
             // https://github.com/swagger-api/
             // Hack: really hacky way to set the audience while we integrate the catalog api
-            var audience = window.location.host.match(/staging|integration|localhost/) ? "https://development.api.cimpress.io/" : "https://api.cimpress.io/";
+            var audience = getQueryParam("audience") || (window.location.host.match(/staging|integration|localhost/) ? "https://development.api.cimpress.io/" : "https://api.cimpress.io/");
             initOAuth({
               clientId: window.clientId,
               realm: "",
               appName: "App",
-              scopeSeparator: ",",
               additionalQueryStringParams: {"audience": audience}
             });
           }
@@ -261,3 +260,7 @@
 </body>
 
 </html>
+<script type='text/javascript'> window.version = {};
+window.version.commit = '133c78c';
+window.version.date = 'Mon Oct  3 16:00:56 EDT 2016';
+window.version.npmVersion = '3.10.8'; </script>
