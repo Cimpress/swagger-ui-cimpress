@@ -2,9 +2,7 @@
     <div class="sticky-nav-placeholder">
         <div class="sticky-nav">
             <div class="mobile-nav">
-                <!--
                 <span class="select-label">API Reference: </span><span data-selected-value></span>
-                -->
             </div>
 
             <div class="token-generator hide">
@@ -62,7 +60,7 @@
                             <li class="operation" >
                                 <div class="content">
                                     <h2 class="operation-title">Introduction</h2>
-                                    <div class="markdown action-summary info-section">{{{info.description}}}</div>
+                                    <div class="{{#if isMarkdown}}markdown{{/if}} action-summary info-section">{{{info.description}}}</div>
                                 </div>
                                 <div class="samples"></div>
                             </li>

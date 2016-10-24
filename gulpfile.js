@@ -7,6 +7,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var less = require('gulp-less');
+var gulpif = require('gulp-if');
 var handlebars = require('gulp-handlebars');
 var wrap = require('gulp-wrap');
 var declare = require('gulp-declare');
@@ -15,7 +16,7 @@ var connect = require('gulp-connect');
 var header = require('gulp-header');
 var pkg = require('./package.json');
 var order = require('gulp-order');
-var nano = require('gulp-cssnano');
+var cleanCSS = require('gulp-clean-css');
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -24,6 +25,7 @@ var banner = ['/**',
   ' */',
   ''].join('\n');
 
+var prod = true
 /**
  * Clean ups ./dist folder
  */
@@ -63,7 +65,7 @@ gulp.task('dist', ['clean'], function() {
     .pipe(wrap('(function(){<%= contents %>}).call(this);'))
     .pipe(header(banner, { pkg: pkg } ))
     .pipe(gulp.dest('./dist'))
-    .pipe(uglify())
+    .pipe(gulpif(prod, uglify()))
     .on('error', log)
     .pipe(rename({extname: '.min.js'}))
     .on('error', log)
@@ -121,7 +123,7 @@ gulp.task('minify:css', function() {
       './src/main/html/css/api-explorer.css'
     ])
     .pipe(concat('min.css'))
-    .pipe(nano())
+    .pipe(gulpif(prod, cleanCSS()))
     .pipe(gulp.dest('./dist'))
     .on('error', log);
 });
@@ -146,7 +148,7 @@ gulp.task('minify:js', ['dist'], function() {
       './lib/copyToClipboard.js',
     ])
     .pipe(concat('min.js'))
-    .pipe(uglify())
+    .pipe(gulpif(prod, uglify()))
     .pipe(gulp.dest('./dist'))
     .on('error', log);
 });
@@ -164,6 +166,7 @@ gulp.task('watch', function() {
  * Live reload web server of `dist`
  */
 gulp.task('connect', function() {
+  prod = false;
   connect.server({
     root: 'dist',
     livereload: true
