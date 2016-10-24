@@ -134,7 +134,6 @@ window.SwaggerUi = Backbone.Router.extend({
       default:
         break;
     }
-    this.renderGFM();
 
     if (this.options.onComplete){
       this.options.onComplete(this.api, this);
@@ -146,6 +145,7 @@ window.SwaggerUi = Backbone.Router.extend({
     this.mainView.on('update-swagger-ui', function(data) {
       return that.updateSwaggerUi(data);
     });
+    this.renderGFM();
 
     setTimeout(Docs.shebang.bind(this), 100);
   },
