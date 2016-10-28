@@ -48,7 +48,7 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
 
     /* @theopak 2016-05-11 NG-4302 */
     // console.info(e);
-    candidateElement = e.target;
+    var candidateElement = e.target;
     while (candidateElement.parentNode && !candidateElement.hasAttribute("data-endpoint")) {
       candidateElement = candidateElement.parentNode;
       // console.info('.');

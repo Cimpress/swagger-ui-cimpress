@@ -94,7 +94,6 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
   },
 
   render: function () {
-    console.log('test', window.baseUrl);
     this.model.baseUrl = window.baseUrl;
     if (this.model.securityDefinitions) {
       for (var name in this.model.securityDefinitions) {

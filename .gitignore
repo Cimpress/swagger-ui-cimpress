@@ -2,6 +2,7 @@
 *.ipr
 *.iml
 *.iws
+*.map
 web/
 lib/*.zip
 version.properties

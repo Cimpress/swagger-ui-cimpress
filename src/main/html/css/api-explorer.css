@@ -1,3 +1,108 @@
+@charset "UTF-8";
+.color {
+    background: #f00;
+    border-radius: 3px;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    padding-top: 100px;
+}
+.color span {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+}
+.color strong {
+    display: block;
+    text-transform: uppercase;
+}
+.color.color-blue {
+    background: #16214d;
+}
+.color.color-blue-light {
+    background: #44c7f4;
+}
+.color.color-red {
+    background: #eb5424;
+}
+.color.color-grey {
+    background: #d0d2d3;
+    color: #000;
+}
+.color.color-orange {
+    background: #ff9a57;
+    color: #000;
+}
+.color.color-orange {
+    background: #ff9a57;
+    color: #000;
+}
+.color.color-green {
+    background: #01b48f;
+    color: #000;
+}
+.color.color-oil {
+    background: #5c666f;
+}
+.color.color-yellow {
+    background: #eaca2c;
+    color: #000;
+}
+
+/* @theopak */
+/* https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html */
+.ApiReference--label-options,
+.ApiReference--label-get,
+.ApiReference--label-head,
+.ApiReference--label-post,
+.ApiReference--label-put,
+.ApiReference--label-patch,
+.ApiReference--label-delete,
+.ApiReference--label-trace,
+.ApiReference--label-connect {
+    display: inline-block;
+    margin: 0 0.1rem 0 0;
+    padding: 0.25rem 0;
+    width: 2rem;
+    color: white;
+    font-size: 0.5em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: -0.05em;
+    background-color: #999;
+    border-radius: 0.25rem;
+    vertical-align: middle;
+}
+.ApiReference--label-head {
+    background-color: #ffd20f;
+}f
+.ApiReference--label-options {
+    background-color: #d3ca12;
+}
+.ApiReference--label-get {
+    background-color: #6bbd5b;
+}
+.ApiReference--label-post {
+    background-color: #248fb2;
+}
+.ApiReference--label-put {
+    background-color: #9b708b;
+}
+.ApiReference--label-patch {
+    background-color: #ff9a57;
+}
+.ApiReference--label-delete {
+    background-color: #e27a7a;
+}
+
+
+/* @harsingh */
+.main-section {
+    margin-top: -20px;
+}
+
 /* @harsingh 2016-06-20 */
 #swagger_sidebar .nav_label {
     display: block;
@@ -1371,7 +1476,7 @@
 }
 
 .swagger-section .mobile-nav [data-selected-value] {
-    max-width: 140px;
+    max-width: calc(100vw - 170px);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap
@@ -2380,7 +2485,7 @@ body {
     font-size: 1.5em;
     font-weight: 700;
     text-decoration: none;
-    background: url(../images/logo_small.png) left center no-repeat;
+    /*background: url(../images/logo_small.png) left center no-repeat;*/
     padding: 20px 0 20px 40px;
     color: #fff
 }
