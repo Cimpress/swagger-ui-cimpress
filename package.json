@@ -17,7 +17,10 @@
     "prejshint": "gulp",
     "jshint": "jshint .",
     "pretest": "npm run jshint",
-    "test": "mocha"
+    "test": "mocha",
+    "deploy:integration": "SWAGGER_TARGET='s3://mcpportal.cloud.cimpress.io/env-integration/swagger-ui/' ./deploy.sh",
+    "deploy:staging": "SWAGGER_TARGET='s3://mcpportal.cloud.cimpress.io/env-staging/swagger-ui/' ./deploy.sh",
+    "deploy:production": "SWAGGER_TARGET='s3://mcpportal.cloud.cimpress.io/env-production/swagger-ui/' ./deploy.sh"
   },
   "repository": {
     "type": "git",
