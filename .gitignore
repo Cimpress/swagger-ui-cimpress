@@ -13,3 +13,4 @@ swagger-ui.sublime-workspace
 node_modules/*
 /nbproject/private/
 gulpfile2.js
+dist/
