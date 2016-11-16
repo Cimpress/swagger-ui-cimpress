@@ -14,11 +14,13 @@ var watch = require('gulp-watch');
 var connect = require('gulp-connect');
 var cleanCSS = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
 
 var prod = true;
 
 gulp.task('clean', function() {
-  return del.sync(['./dist/**']);
+  return del.sync(['./dist/**', 'rev-manifest.json']);
 });
 
 /**
@@ -41,21 +43,28 @@ function templates() {
 /**
  * Build a distribution
  */
-gulp.task('dist', ['clean'], function() {
+gulp.task('minify:js', ['clean'], function() {
   return es.merge(
       gulp.src([
+        './lib/backbone-migrate.js',
+        './lib/swagger-oauth.js',
+        './lib/copyToClipboard.js',
         './src/main/javascript/**/*.js',
-        './node_modules/swagger-client/browser/swagger-client.js'
+        './node_modules/swagger-client/browser/swagger-client.js',
       ]),
       templates()
     )
     .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(iife({bindThis: true}))
     .pipe(concat('swagger-ui.min.js'))
-    .pipe(gulpif(prod, uglify({mangle: false, compress: false}))).on('error', log)
+    .pipe(gulpif(prod, uglify({mangle: false, compress: false})))
     .pipe(sourcemaps.write('.'))
+    .pipe(rev())
     .pipe(gulp.dest('./dist'))
-    .pipe(connect.reload());
+    .pipe(rev.manifest({
+      base: 'dist',
+      merge: true
+    }))
+    .pipe(gulp.dest('./dist'))
 });
 
 /**
@@ -77,13 +86,27 @@ gulp.task('copy', ['clean'], function() {
       './node_modules/clipboard/dist/clipboard.min.js',
     ])
     .pipe(concat('lib.js'))
+    .pipe(rev())
     .pipe(gulp.dest('./dist'))
+    .pipe(rev.manifest({
+      base: 'dist',
+      merge: true
+    }))
+    .pipe(gulp.dest('./dist'))
+
   gulp.src([
       './node_modules/bootstrap/dist/css/bootstrap.min.css',
       './src/main/html/css/budicon.fixed.css',
     ])
     .pipe(concat('lib.css'))
+    .pipe(rev())
     .pipe(gulp.dest('./dist'))
+    .pipe(rev.manifest({
+      base: 'dist',
+      merge: true
+    }))
+    .pipe(gulp.dest('./dist'))
+
   gulp.src(['./src/main/html/*.html','./src/main/html/*.json', './src/main/html/images/**'], { "base" : "./src/main/html" })
     .pipe(gulp.dest('./dist'))
 });
@@ -105,26 +128,22 @@ gulp.task('minify:css', ['clean'], function() {
     .pipe(concat('min.css'))
     .pipe(gulpif(prod, cleanCSS()))
     .pipe(sourcemaps.write('.'))
+    .pipe(rev())
+    .pipe(gulp.dest('./dist'))
+    .pipe(rev.manifest({
+      base: 'dist',
+      merge: true
+    }))
     .pipe(gulp.dest('./dist'))
     .on('error', log);
 });
 
-/**
- * Concatenate and minify all JS in the proper order
- */
-gulp.task('minify:js', ['clean'], function() {
-  return gulp
-    .src([
-      './lib/backbone-migrate.js',
-      './lib/swagger-oauth.js',
-      './lib/copyToClipboard.js',
-    ])
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(concat('min.js'))
-    .pipe(gulpif(prod, uglify()))
-    .pipe(sourcemaps.write('.'))
+gulp.task('revReplace', ['clean', 'copy', 'minify:js', 'minify:css'], function(){
+  var manifest = gulp.src('rev-manifest.json')
+  return gulp.src(['./dist/*'])
+    .pipe(revReplace({manifest: manifest}))
     .pipe(gulp.dest('./dist'))
-    .on('error', log);
+    .pipe(connect.reload());
 });
 
 /**
@@ -140,7 +159,7 @@ gulp.task('watch', function() {
  * Live reload web server of `dist`
  */
 gulp.task('connect', function() {
-  prod = false;
+  prod = true;
   connect.server({
     root: 'dist',
     livereload: true
@@ -152,5 +171,5 @@ function log(error) {
 }
 
 
-gulp.task('default', ['dist', 'copy', 'minify:js', 'minify:css']);
+gulp.task('default', ['copy', 'minify:js', 'minify:css', 'revReplace']);
 gulp.task('serve', ['connect', 'watch', 'default']);
