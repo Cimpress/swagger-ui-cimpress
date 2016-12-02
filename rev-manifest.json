@@ -2,7 +2,5 @@
   "lib.css": "lib-1a1ca116de.css",
   "lib.js": "lib-78b06eed41.js",
   "min.css": "min-2aa5fc9ecf.css",
-  "min.css.map": "min-bef83194c8.css.map",
-  "swagger-ui.min.js": "swagger-ui-3558181f68.min.js",
-  "swagger-ui.min.js.map": "swagger-ui-47096dccea.min.js.map"
+  "min.css.map": "min-bef83194c8.css.map"
 }
