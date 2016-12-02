@@ -152,11 +152,11 @@
         onFailure: function(data) {
           log("Unable to Load SwaggerUI");
           Raven.captureException(data)
-          var title = (data.includes("access-control-origin")) ? "CORS Error" : "Error";
+          if (data.includes("Can't read from server.")) {
+            data = "Could not read <a href='" + url + "'>" + url + "</a> from server. Common errors include: URL is not https, server does not implement CORS correctly, or the url is mistyped. Check the developer console for more details. "
+          }
           $("#global_error").html(Handlebars.templates.error({
-            title: title,
-            description: data,
-            url: url
+            description: data
           }));
         },
         docExpansion: "none",
