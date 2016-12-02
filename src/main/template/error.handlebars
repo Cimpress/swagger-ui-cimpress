@@ -1,10 +1,15 @@
-<div id="block_error">
-    <div class="col-xl-6 col-xl-offset-3 col-lg-8 col-lg-offset-2 col-xs-12">
-        <img src="./images/noun-117716-404-error.svg" alt="conversation" style="max-width: 100%; width: 6rem;">
-        <h1 class="brand">{{title}}</h1>
-        <p style="font-size:1.2rem">
-            {{description}}
-        </p>
-        <p>Please check the following url for the swagger document <a href="{{url}}">{{url}}</a> </p>
-    </div>
+<style type="text/css">
+  /* from mcp-portal */
+  .Settings--heading {
+    padding-top: 16px;
+    line-height: 24px;
+    font: 200 32px/1 Gotham Rounded SSm A,Gotham Rounded SSm B,Gotham Rounded,Gotham,-apple-system,BlinkMacSystemFont,Noto,Roboto,Segoe UI,Helvetica Neue,Lucida Grande,Helvetica,Arial,sans-serif;
+  }
+</style>
+<div style="display:flex; height:100vh; justify-content: center; align-items: center; flex-direction: column; font-size: 16px; line-height: 24px;">
+  <img style="display: block; margin: 0px auto; max-width: 100%; width: 6rem;" src="./images/noun-117716-404-error.svg" alt="" />
+  <h2 class="Settings--heading">Error</h2>
+  <div style="max-width: 30rem; word-break: break-all;">
+    <p>{{{description}}}</p>
+  </div>
 </div>
