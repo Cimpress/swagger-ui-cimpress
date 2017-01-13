@@ -25,7 +25,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     }
   },
   initialize: function (opts) {
-    this.listenTo(Backbone, 'mainview:newBaseUrl', this.render)
+    this.listenTo(Backbone, 'mainview:newBaseUrl', this.render);
     var sorterOption, sorterFn, key, value;
     opts = opts || {};
 
@@ -62,7 +62,9 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     this.model.auths = [];
     this.model.swaggerUrl = window.swaggerUrl;
     this.model.baseUrl = window.baseUrl;
-    if (window.clientId) this.model.clientId = window.clientId;
+    if (window.clientId) {
+      this.model.clientId = window.clientId;
+    }
     for (key in this.model.securityDefinitions) {
       value = this.model.securityDefinitions[key];
 
@@ -73,7 +75,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       });
     }
     // It is markdown if it has less than 6 html like tags
-    this.model.isMarkdown = this.model.info && this.model.info.description && this.model.info.description.split(/<\/?\S+>/).length < 6
+    this.model.isMarkdown = this.model.info && this.model.info.description && this.model.info.description.split(/<\/?\S+>/).length < 6;
     if (this.model.swaggerVersion === '2.0') {
       if ('validatorUrl' in opts.swaggerOptions) {
 
@@ -135,8 +137,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     }
 
 
-    var n = $(this.el).find("#resources_nav [data-resource]").first();
-    n.trigger("click");
+    var n = $(this.el).find('#resources_nav [data-resource]').first();
+    n.trigger('click');
     $(window).scrollTop(0);
 
     return this;
@@ -163,11 +165,11 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       model: resource,
       tagName: 'div',
       className: function () {
-        return i == 0 ? 'active' : ''
+        return i === 0 ? 'active' : '';
       },
       attributes: {
-        "data-resource": 'resource_' + resource.name,
-        "label": resource.name
+        'data-resource': 'resource_' + resource.name,
+        'label': resource.name
       },
       router: this.router,
       swaggerOptions: this.options.swaggerOptions
@@ -182,11 +184,11 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       model: resource,
       tagName: 'div',
       className: function () {
-        return i == 0 ? 'active' : ''
+        return i === 0 ? 'active' : '';
       },
       attributes: {
-        "data-resource": 'resource_' + resource.name,
-        "label": resource.name
+        'data-resource': 'resource_' + resource.name,
+        'label': resource.name
       },
       router: this.router,
       swaggerOptions: this.options.swaggerOptions
@@ -198,44 +200,48 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     $(this.el).html('');
   },
 
-  clickSidebarNav: function (e) {
-    $('.sticky-nav').toggleClass("nav-open")
+  clickSidebarNav: function () {
+    $('.sticky-nav').toggleClass('nav-open');
   },
 
   clickResource: function (e) {
-    if (!$(e.target).is(".item")) {
-      var n = $(e.target).find(".item").first();
-      $('.sticky-nav').find("[data-resource].active").removeClass("active");
-      $(e.target).find("[data-resource]").first().addClass("active");
-      n.trigger("click")
+    if (!$(e.target).is('.item')) {
+      var n = $(e.target).find('.item').first();
+      $('.sticky-nav').find('[data-resource].active').removeClass('active');
+      $(e.target).find('[data-resource]').first().addClass('active');
+      n.trigger('click');
     }
   },
 
-  toggleToken: function (e) {
-    var t = $(".token-generator"),
-      tg = $("[data-tg-switch]");
+  toggleToken: function () {
+    var t = $('.token-generator'),
+      tg = $('[data-tg-switch]');
 
-    t.toggleClass("hide");
-    t.hasClass("hide") ? tg.removeClass("active") : tg.addClass("active");
-    t.parents(".sticky-nav").trigger("mobile_nav:update")
+    t.toggleClass('hide');
+    if (t.hasClass('hide')) {
+      tg.removeClass('active');
+    } else {
+      tg.addClass('active');
+    }
+    t.parents('.sticky-nav').trigger('mobile_nav:update');
   },
 
-  closeToken: function (e) {
-    var t = $(".token-generator"),
-      tg = $("[data-tg-switch]");
+  closeToken: function () {
+    var t = $('.token-generator'),
+      tg = $('[data-tg-switch]');
 
-    t.addClass("hide");
-    tg.removeClass("active");
-    t.parents(".sticky-nav").trigger("mobile_nav:update")
+    t.addClass('hide');
+    tg.removeClass('active');
+    t.parents('.sticky-nav').trigger('mobile_nav:update');
   },
 
-  openToken: function (e) {
-    var t = $(".token-generator"),
-      tg = $("[data-tg-switch]");
+  openToken: function () {
+    var t = $('.token-generator'),
+      tg = $('[data-tg-switch]');
 
-    t.removeClass("hide");
-    tg.removeClass("active");
-    t.parents(".sticky-nav").trigger("mobile_nav:update")
+    t.removeClass('hide');
+    tg.removeClass('active');
+    t.parents('.sticky-nav').trigger('mobile_nav:update');
   },
 
   showCustom: function(e){
@@ -250,24 +256,26 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
 
   toggleSamples: function (e) {
     function o(t) {
-      if ("self" === t) {
+      if ('self' === t) {
         var n = $(window).scrollTop();
-        return $(window).scrollTop(n)
+        return $(window).scrollTop(n);
       }
-      return $(window).scrollTop(t)
+      return $(window).scrollTop(t);
     }
 
-    var r = $("#resources"),
+    var r = $('#resources'),
       n = $(e.currentTarget);
 
-    r.toggleClass("samples-collapsed").addClass("is-collapsing");
-    n.find('.text').text("Collapse samples");
-    r.hasClass("samples-collapsed") && n.find('.text').text("Show samples");
+    r.toggleClass('samples-collapsed').addClass('is-collapsing');
+    n.find('.text').text('Collapse samples');
+    if (r.hasClass('samples-collapsed')) {
+      n.find('.text').text('Show samples');
+    }
 
     setTimeout(function () {
-      var t = n.parents(".endpoint").first().offset().top;
-      r.removeClass("is-collapsing");
-      o(t)
-    }, 500)
+      var t = n.parents('.endpoint').first().offset().top;
+      r.removeClass('is-collapsing');
+      o(t);
+    }, 500);
   }
 });

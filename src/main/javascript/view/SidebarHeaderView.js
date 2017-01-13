@@ -30,13 +30,13 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
     return this;
   },
 
-  addSidebarItem: function (item, i) {
+  addSidebarItem: function (item) {
     var sidebarItemView = new SwaggerUi.Views.SidebarItemView({
       model: item,
       tagName: 'div',
       className : 'item',
       attributes: {
-          "data-endpoint": item.parentId + '_' + item.nickname
+          'data-endpoint': item.parentId + '_' + item.nickname
       },
       router: this.router,
       swaggerOptions: this.options.swaggerOptions
@@ -49,57 +49,59 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
     /* @theopak 2016-05-11 NG-4302 */
     // console.info(e);
     var candidateElement = e.target;
-    while (candidateElement.parentNode && !candidateElement.hasAttribute("data-endpoint")) {
+    while (candidateElement.parentNode && !candidateElement.hasAttribute('data-endpoint')) {
       candidateElement = candidateElement.parentNode;
       // console.info('.');
     }
     var elem = $(candidateElement);
-    var eln = $("#" + elem.attr("data-endpoint"));
+    var eln = $('#' + elem.attr('data-endpoint'));
 
-    if (elem.is(".item")) {
-      scroll(elem.attr("data-endpoint"));
+    if (elem.is('.item')) {
+      scroll(elem.attr('data-endpoint'));
       setSelected(elem);
-      updateUrl(eln.find(".path a").first().attr("href"))
+      updateUrl(eln.find('.path a').first().attr('href'));
     }
 
     /* scroll */
     function scroll(elem) {
-      var i = $(".sticky-nav").outerHeight();
-      var r = $("#" + elem).offset().top - i - 10;
-      matchMedia() && (r = $("#" + elem).offset().top - 10);
-      scrollT(r)
+      var i = $('.sticky-nav').outerHeight();
+      var r = $('#' + elem).offset().top - i - 10;
+      if(matchMedia()) {
+        (r = $('#' + elem).offset().top - 10);
+      }
+      scrollT(r);
     }
 
     /* set selected value and select operation (class) */
     function setSelected(element) {
+      var nav = $('.sticky-nav [data-navigator]');
       {
-        var nav = $(".sticky-nav [data-navigator]");
-        $("#" + element.attr("data-endpoint"))
+        $('#' + element.attr('data-endpoint'));
       }
-      nav.find("[data-resource]").removeClass("active");
-      nav.find("[data-selected]").removeAttr("data-selected");
-      element.closest("[data-resource]").addClass("active");
-      element.attr("data-selected", "");
-      $(".sticky-nav").find("[data-selected-value]").html(element.text())
+      nav.find('[data-resource]').removeClass('active');
+      nav.find('[data-selected]').removeAttr('data-selected');
+      element.closest('[data-resource]').addClass('active');
+      element.attr('data-selected', '');
+      $('.sticky-nav').find('[data-selected-value]').html(element.text());
     }
 
     /* update navigation */
-    function updateUrl(element) {
+    function updateUrl(/* element */) {
       // HACK @theopak 2015-12-30 Commented out bc this is a horrible thing to do
       // history.pushState && history.pushState(null, null, element)
     }
 
     function matchMedia() {
-      return window.matchMedia("(min-width: 992px)").matches
+      return window.matchMedia('(min-width: 992px)').matches;
     }
 
     function scrollT(e) {
-      if ("self" === e) {
+      if ('self' === e) {
         var n = $(window).scrollTop();
-        return $(window).scrollTop(n)
+        return $(window).scrollTop(n);
       }
 
-      return $(window).scrollTop(e)
+      return $(window).scrollTop(e);
     }
   }
 

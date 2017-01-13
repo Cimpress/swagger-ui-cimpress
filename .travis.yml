@@ -1,9 +1,22 @@
 language: node_js
 node_js:
   - '6.1'
-cache:
-  yarn: true
-  directories:
-    - node_modules
+sudo: false
+install:
+  - npm cache clean
+  - npm install
 script:
-  - yarn test
+  # - npm test
+  - npm run jshint
+  - npm run build
+after_success:
+  - npm run coveralls
+deploy:
+  provider: npm
+  email: mail@theopak.com
+  on:
+    branch:
+      only: master
+    tags: true
+  api_key:
+    secure: VeEgOEeiHBROgfHFmHjK6sJJ0yqydM5EIXNq4gpuhWS6xrPOnR0iD3g4aejNCnlre7F5ld7FetnBAvvPs03lm+oR5Sl2YIRYIGAXPnBEl8zNSWK/uborf/JZ2Vrhn3Er8Evsq6+goZ9U3D8LmrjrjznAS1uY+/KXs9DBL6+064w=

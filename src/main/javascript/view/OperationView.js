@@ -160,7 +160,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
             sampleJSON: JSON.stringify(value.createJSONSample(), void 0, 2),
             isParam: false,
             signature: value.getMockSignature(),
-            type: "Response",
+            type: 'Response',
             id: this.parentId + '_' + this.nickname + '_succes'
           };
         }
@@ -170,7 +170,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
         sampleJSON: this.model.responseSampleJSON,
         isParam: false,
         signature: this.model.responseClassSignature,
-        type: "Response",
+        type: 'Response',
         id: this.parentId + '_' + this.nickname
       };
     }
@@ -188,7 +188,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       param = ref4[p];
       this.addParameter(param, contentTypeModel.consumes);
       if (param.paramType === 'body' || param.in === 'body') {
-        this.addBodyModel(param)
+        this.addBodyModel(param);
       }
     }
     if (signatureModel) {
@@ -196,7 +196,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
         model: signatureModel,
         router: this.router,
         tagName: 'div',
-        type: "Response",
+        type: 'Response',
         id: this.parentId + '_' + this.nickname + '_response'
       });
       $('.model-signature', $(this.el)).append(responseSignatureView.render().el);
@@ -244,13 +244,15 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   },
 
   addBodyModel: function (param) {
-    if (param.type === 'file') return;
+    if (param.type === 'file') {
+      return;
+    }
 
     var bodySample = {
       sampleJSON: param.sampleJSON,
       isParam: true,
       signature: param.signature,
-      type: "Body",
+      type: 'Body',
       clickToCopy: true,
       id: this.parentId + '_' + this.nickname + '_body'
     };
@@ -352,7 +354,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       }
       opts.responseContentType = $('div select[name=responseContentType]', $(this.el)).val();
       opts.requestContentType = $('div select[name=parameterContentType]', $(this.el)).val();
-      $(".submit", $(this.el)).button("loading");
+      $('.submit', $(this.el)).button('loading');
       if (isFileUpload) {
         return this.handleFileUpload(map, form);
       } else {
@@ -409,8 +411,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
     var clientAuths = window.swaggerUi.api.clientAuthorizations;
     if (typeof clientAuths !== 'undefined' && typeof(clientAuths.authz) !== 'undefined') {
-      _.forEach(clientAuths.authz, function(auth, key) {
-        if (auth.type == 'header') {
+      _.forEach(clientAuths.authz, function(auth) {
+        if (auth.type === 'header') {
           headerParams[auth.name] = auth.value;
         }
       });
@@ -698,7 +700,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     $('.response_throbber', $(this.el)).hide();
     var response_body_el = $('.response_body', $(this.el))[0];
 
-    $(".submit", $(this.el)).button("reset");
+    $('.submit', $(this.el)).button('reset');
 
     // only highlight the response if response is less than threshold, default state is highlight response
     var opts = this.options.swaggerOptions;
