@@ -9,7 +9,7 @@ var gulpif = require('gulp-if');
 var handlebars = require('gulp-handlebars');
 var wrap = require('gulp-wrap');
 var gulpDeclare = require('gulp-declare');
-var iife = require("gulp-iife");
+var iife = require('gulp-iife');
 var watch = require('gulp-watch');
 var connect = require('gulp-connect');
 var cleanCSS = require('gulp-clean-css');
@@ -107,7 +107,7 @@ gulp.task('copy', ['clean'], function() {
     }))
     .pipe(gulp.dest('./dist'))
 
-  gulp.src(['./src/main/html/*.html','./src/main/html/*.json', './src/main/html/images/**'], { "base" : "./src/main/html" })
+  gulp.src(['./src/main/html/*.html','./src/main/html/*.json', './src/main/html/images/**'], { 'base' : './src/main/html' })
     .pipe(gulp.dest('./dist'))
 });
 
