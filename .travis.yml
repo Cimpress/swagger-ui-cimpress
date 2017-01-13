@@ -1,5 +1,9 @@
-sudo: false
 language: node_js
-node_js: 'node'
-install: yarn install
-cache: yarn
+node_js:
+  - '6.1'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+script:
+  - yarn test

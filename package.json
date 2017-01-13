@@ -5,8 +5,8 @@
     "Harsh Singh <harsingh@cimpress.com>"
   ],
   "description": "A swagger-ui fork with an easy to read, responsive three pane view. Used on developer.cimpress.io.",
-  "version": "3.0.0",
-  "license": "Apache 2.0",
+  "version": "3.1.0",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/Cimpress-MCP/swagger-ui-cimpress",
   "repository": {
     "type": "git",
