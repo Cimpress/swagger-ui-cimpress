@@ -1,15 +1,17 @@
 {
   "name": "swagger-ui-cimpress",
-  "author": "Harsh Singh <harsingh@cimpress.com>",
+  "author":   "Theo Pak <tpak@cimpress.com> (https://github.com/theopak)",
   "contributors": [
-    "Theo Pak <tpak@cimpress.com> (https://github.com/theopak)",
-    "Tony Tam <fehguy@gmail.com>",
-    "Mohsen Azimi <me@azimi.me>"
+    "Harsh Singh <harsingh@cimpress.com>",
   ],
   "description": "A swagger-ui fork with an easy to read, responsive three pane view. Used on developer.cimpress.io.",
   "version": "3.0.0",
-  "homepage": "https://github.com/Cimpress-MCP/swagger-ui-cimpress",
   "license": "Apache 2.0",
+  "homepage": "https://github.com/Cimpress-MCP/swagger-ui-cimpress",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cimpress-MCP/swagger-ui-cimpress"
+  },
   "scripts": {
     "build": "gulp && npm run write-version",
     "write-version": "echo \"\n<script type='text/javascript'> window.version = {};\nwindow.version.commit = '`git rev-parse --short HEAD`';\nwindow.version.date = '`date`';\nwindow.version.npmVersion = '`npm -v`'; </script>\" >> ./dist/index.html",
@@ -22,11 +24,6 @@
     "deploy:staging": "SWAGGER_TARGET='s3://mcpportal.cloud.cimpress.io/env-staging/swagger-ui/' ./deploy.sh",
     "deploy:production": "SWAGGER_TARGET='s3://mcpportal.cloud.cimpress.io/env-production/swagger-ui/' ./deploy.sh"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Cimpress-MCP/swagger-ui-cimpress"
-  },
-  "readmeFilename": "README.md",
   "dependencies": {
     "backbone": "^1.3.3",
     "bootstrap": "3",
