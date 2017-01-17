@@ -3,6 +3,7 @@
 # swagger-ui-cimpress
 
 [![Build Status](https://travis-ci.org/Cimpress-MCP/swagger-ui-cimpress.svg?branch=master)](https://travis-ci.org/Cimpress-MCP/swagger-ui-cimpress)
+[![codecov](https://codecov.io/gh/Cimpress-MCP/swagger-ui-cimpress/branch/master/graph/badge.svg)](https://codecov.io/gh/Cimpress-MCP/swagger-ui-cimpress)
 [![NPM version](https://badge.fury.io/js/swagger-ui-cimpress.svg)](http://badge.fury.io/js/swagger-ui-cimpress)
 [![Dependency Status](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress/status.svg)](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress)
 [![devDependency Status](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress/dev-status.svg)](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress#info=devDependencies)
@@ -14,12 +15,12 @@ Swagger UI uses client-side Javascript (jQuery + Backbone) to download a swagger
 
 ## Acknowledgement
 
-This is a fork of https://github.com/jensoleg/swagger-ui which is a fork of https://github.com/swagger-api/swagger-ui
+This is a fork of https://github.com/jensoleg/swagger-ui which is a fork of https://github.com/swagger-api/swagger-ui. There are many differences, including the build process and test definitions.
 
 
 ## Developers
 
-Cimpress Employees can deploy builds to Cimpress Open, but first you'll have to set up credentials.
+Cimpress employees can deploy builds to Cimpress Open, but first it’s necessary to setup credentials.
 
     # Install aws-cli and configure credentials to right AWS account
     # For more info, see https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html

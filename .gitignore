@@ -14,3 +14,4 @@ node_modules/*
 /nbproject/private/
 gulpfile2.js
 dist/
+coverage/
