@@ -16,7 +16,7 @@ var driver = require('./driver');
 var swaggerUI;
 var specServer;
 
-module.exports.start = function (specsLocation, done) {
+module.exports.start = (specsLocation, done) => {
   swaggerUI = createServer({ root: dist, cors: true });
   specServer = createServer({ root: specs, cors: true });
 
@@ -26,17 +26,15 @@ module.exports.start = function (specsLocation, done) {
   var swaggerSpecLocation = encodeURIComponent('http://localhost:' + SPEC_SERVER_PORT + specsLocation);
   var url = 'http://localhost:' + DOCS_PORT + '/index.html?url=' + swaggerSpecLocation;
 
-  setTimeout(function(){
+  console.log('      waiting for server to start');
+  setTimeout(() => {
     driver.get(url);
-    setTimeout(function() {
-      done();
-    }, 2000);
-    console.log('waiting for UI to load');
+    setTimeout(() => done(), 2000);
+    console.log('      waiting for UI to load');
   }, process.env.TRAVIS ? 20000 : 5000);
-  console.log('waiting for server to start');
 };
 
-module.exports.close = function() {
+module.exports.close = () => {
   swaggerUI.close();
   specServer.close();
 };

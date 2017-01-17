@@ -5,3 +5,7 @@ Handlebars.registerHelper('sanitize', function(html) {
     html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
     return new Handlebars.SafeString(html);
 });
+
+Handlebars.registerHelper('encodeURIComponent', function(html) {
+    return new Handlebars.SafeString(encodeURIComponent(html));
+});
