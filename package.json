@@ -18,7 +18,7 @@
     "write-version": "echo \"\n<script type='text/javascript'> window.version = {};\nwindow.version.commit = '`git rev-parse --short HEAD`';\nwindow.version.date = '`date`';\nwindow.version.npmVersion = '`npm -v`'; </script>\" >> ./dist/index.html",
     "jshint": "./node_modules/.bin/jshint",
     "test": "mocha",
-    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov",
     "deploy": "npm run build && npm run write-version && ./deploy.sh",
     "deploy:integration": "SWAGGER_TARGET='s3://mcpportal.cloud.cimpress.io/env-integration/swagger-ui/' npm run deploy",
     "deploy:staging": "SWAGGER_TARGET='s3://mcpportal.cloud.cimpress.io/env-staging/swagger-ui/' npm run deploy",
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "chai": "3.5",
+    "codecov": "^1.0.1",
     "cors": "^2.5.3",
     "del": "^2.2.0",
     "docco": "^0.7.0",
@@ -60,7 +61,7 @@
     "istanbul": "^0.4.5",
     "jshint": "^2.9.4",
     "less": "^2.7.2",
-    "mocha": "^2.1.0",
-    "selenium-webdriver": "^2.45.0"
+    "mocha": "^3.2.0",
+    "selenium-webdriver": "^3.0.1"
   }
 }
