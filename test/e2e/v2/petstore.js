@@ -1,9 +1,11 @@
 'use strict';
 
 var expect = require('chai').expect;
-var driver = require('./driver');
-var servers = require('./servers');
 var webdriver = require('selenium-webdriver');
+var driver = require('../driver');
+var servers = require('../servers');
+var until = webdriver.until;
+var helpers = require('../helpers');
 
 var elements = [
   'swagger-ui-container',
@@ -15,12 +17,14 @@ var elements = [
   'header'
 ];
 
-describe('swagger 1.x spec tests', function () {
-  this.timeout(10 * 1000);
+var specPath = helpers.parseSpecFilename(__filename);
+
+describe('swagger 2.0 spec tests', function () {
+  this.timeout(40 * 1000);
 
   before(function (done) {
-    this.timeout(25 * 1000);
-    servers.start('/v1.2/petstore/api-docs.json', done);
+    this.timeout(50 * 1000);
+    servers.start(specPath, done);
   });
 
   afterEach(function(){
@@ -39,12 +43,8 @@ describe('swagger 1.x spec tests', function () {
     });
   });
 
-  it('should have "Swagger UI" in title', function (done) {
-    driver.sleep(200);
-    driver.getTitle().then(function(title) {
-      expect(title).to.contain('Swagger UI');
-      done();
-    });
+  it('should have "Swagger UI" in title', function () {
+    return driver.wait(until.titleIs('Swagger UI'), 1000);
   });
 
   elements.forEach(function (id) {
@@ -57,9 +57,24 @@ describe('swagger 1.x spec tests', function () {
     });
   });
 
-  // TODO: enable me
-  xit('should find the contact name element', function(done){
+  it('should find the contact name element', function(done){
     var locator = webdriver.By.css('.info_name');
+    driver.isElementPresent(locator).then(function (isPresent) {
+      expect(isPresent).to.be.true;
+      done();
+    });
+  });
+
+  it('should find the contact email element', function(done){
+    var locator = webdriver.By.css('.info_email');
+    driver.isElementPresent(locator).then(function (isPresent) {
+      expect(isPresent).to.be.true;
+      done();
+    });
+  });
+
+  it('should find the contact url element', function(done){
+    var locator = webdriver.By.css('.info_url');
     driver.isElementPresent(locator).then(function (isPresent) {
       expect(isPresent).to.be.true;
       done();
@@ -74,9 +89,8 @@ describe('swagger 1.x spec tests', function () {
     });
   });
 
-  // TODO: enable me
-  xit('should find the pet resource description', function(done){
-    var locator = webdriver.By.xpath('//div[contains(., "Operations about pets")]');
+  it('should find the pet resource description', function(done){
+    var locator = webdriver.By.xpath('//div[contains(., "Everything about your Pets")]');
     driver.findElements(locator).then(function (elements) {
       expect(elements.length).to.not.equal(0);
       done();
@@ -98,8 +112,22 @@ describe('swagger 1.x spec tests', function () {
       done();
     });
   });
+/*
+  // TODO: disabling for now
+  ['root.id','root.username','root.firstName','root.lastName', 'root.email', 'root.password', 'root.phone', 'root.userStatus']
+  .forEach(function (id) {
+    it('should find a jsoneditor for user post with field: ' + id, function (done) {
+      var locator = webdriver.By.xpath('//*[@id=\'user_createUser\']//*[@data-schemapath=\''+id+'\']');
+      driver
+        .wait(webdriver.until.elementLocated(locator),2000)
+        .then(function() { done(); });
+    });
+  });
 
-  after(function(){
+  // TODO JSonEditor Tests for POST/PUT
+*/
+  after(function(done) {
     servers.close();
+    done();
   });
 });
