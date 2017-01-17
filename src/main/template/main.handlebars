@@ -58,9 +58,12 @@
                     <li class="endpoint">
                         <ul class="operations">
                             <li class="operation" >
-                                <div class="content">
+                                <div class="content" id="api_info">
                                     <h2 class="operation-title">Introduction</h2>
-                                    <div class="{{#if isMarkdown}}markdown{{/if}} action-summary info-section">{{{info.description}}}</div>
+                                    <div class="info_description {{#if isMarkdown}}markdown{{/if}} action-summary info-section">{{{info.description}}}</div>
+                                    <!--<a target="_blank" href="//online.swagger.io/validator/debug?url={{encodeURIComponent swaggerUrl}}">
+                                      <img id="validator" src="//online.swagger.io/validator?url={{encodeURIComponent swaggerUrl}}">
+                                    </a>-->
                                 </div>
                                 <div class="samples"></div>
                             </li>
