@@ -23,8 +23,8 @@ Cimpress Employees can deploy builds to Cimpress Open, but first you'll have to 
 
     # Install aws-cli and configure credentials to right AWS account
     # For more info, see https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
-    pip install awsebcli --upgrade
-    aws configure
+    $ pip install awsebcli --upgrade
+    $ aws configure
 
     # Build the project
     $ yarn run build
