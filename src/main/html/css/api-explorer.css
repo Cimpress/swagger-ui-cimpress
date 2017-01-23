@@ -1588,7 +1588,7 @@ body {
 
 @media (min-width: 992px) {
     .swagger-section #swagger_sidebar {
-        width: 290px;
+        width: 200px;
         position: absolute;
         left: 0;
         top: 0;
@@ -1596,24 +1596,18 @@ body {
         background: #f8f8f9;
         min-height: 100vh
     }
+    .swagger-section #resources_container {
+        width: 100%;
+        padding-left: 200px;
+    }
 }
 
 @media (min-width: 1400px) {
     .swagger-section #swagger_sidebar {
-        width: 320px
+        width: 320px;
     }
-}
-
-@media (min-width: 992px) {
     .swagger-section #resources_container {
-        width: 100%;
-        padding-left: 290px
-    }
-}
-
-@media (min-width: 1400px) {
-    .swagger-section #resources_container {
-        padding-left: 320px
+        padding-left: 320px;
     }
 }
 
