@@ -9,7 +9,6 @@ var gulpif = require('gulp-if');
 var handlebars = require('gulp-handlebars');
 var wrap = require('gulp-wrap');
 var gulpDeclare = require('gulp-declare');
-var iife = require('gulp-iife');
 var watch = require('gulp-watch');
 var connect = require('gulp-connect');
 var cleanCSS = require('gulp-clean-css');
@@ -64,7 +63,7 @@ gulp.task('minify:js', ['clean'], function() {
       base: 'dist',
       merge: true
     }))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist'));
 });
 
 /**
@@ -92,7 +91,7 @@ gulp.task('copy', ['clean'], function() {
       base: 'dist',
       merge: true
     }))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist'));
 
   gulp.src([
       './node_modules/bootstrap/dist/css/bootstrap.min.css',
@@ -105,10 +104,10 @@ gulp.task('copy', ['clean'], function() {
       base: 'dist',
       merge: true
     }))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist'));
 
   gulp.src(['./src/main/html/*.html','./src/main/html/*.json', './src/main/html/images/**'], { 'base' : './src/main/html' })
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist'));
 });
 
 /**
@@ -139,7 +138,7 @@ gulp.task('minify:css', ['clean'], function() {
 });
 
 gulp.task('revReplace', ['clean', 'copy', 'minify:js', 'minify:css'], function(){
-  var manifest = gulp.src('rev-manifest.json')
+  var manifest = gulp.src('rev-manifest.json');
   return gulp.src(['./dist/*'])
     .pipe(revReplace({manifest: manifest}))
     .pipe(gulp.dest('./dist'))
