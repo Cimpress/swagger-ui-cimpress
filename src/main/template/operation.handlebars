@@ -16,7 +16,11 @@
             </a>
 
             {{#if deprecated}}
-                <h4>Warning: Deprecated</h4>
+                <div class="action-summary" style="padding-bottom: 0;">
+                    <div class="alert alert-warning" role="alert" style="margin: 0;">
+                        <strong>Warning</strong> Deprecated
+                    </div>
+                </div>
             {{/if}}
 
             {{#if summary}}
@@ -27,69 +31,54 @@
                 <div class="markdown action-summary">{{{description}}}</div>
             {{/if}}
 
+            <h4>Try this endpoint</h4>
 
             <form accept-charset="UTF-8" class="sandbox">
-
                 {{#if parameters}}
-                    <h4>
-                        Parameters
-                    </h4>
-
-                    <div class="operation-params" id="parm-{{parentId}}_{{nickname}}">
-                    </div>
-
+                    <div class="operation-params" id="parm-{{parentId}}_{{nickname}}" />
                 {{/if}}
 
-                <h4>
-                    Test this endpoint
-                </h4>
+                {{#if type}}
+                    <div class="response-content-type" />
+                {{/if}}
 
                 <div id="test-{{parentId}}_{{nickname}}">
                     <div class="sandbox_header">
-                        <input class="submit btn btn-primary" name="commit" type="submit" value="Try"
+                        {{#oauth}}
+                            <div class="auth">
+                                {{#each oauth}}
+                                    <div id="api_information_panel" style="top: 526px; left: 776px; display: none;">
+                                        {{#each this}}
+                                            <div title='{{{this.description}}}'>{{this.scope}}</div>
+                                        {{/each}}
+                                    </div>
+                                {{/each}}
+                                <button type="button" class="api-ic ic-off btn btn-default pull-right">Oauth</button>
+                            </div>
+                        {{/oauth}}
+
+                        <input class="submit btn btn-primary"
+                               name="commit"
+                               type="submit"
+                               value="Submit"
                                data-target="#get_clients-modal-request">
                         <!--small class="curl-copy-message hide" style="display:none;">Copied to clipboard</small-->
                         <!--span class="response_throbber hide" style="display: none;"></span-->
-
-                        {{#oauth}}
-                        <div class="auth">
-                        {{/oauth}}
-
-                        {{#each oauth}}
-                            <div id="api_information_panel" style="top: 526px; left: 776px; display: none;">
-                                {{#each this}}
-                                    <div title='{{{this.description}}}'>{{this.scope}}</div>
-                                {{/each}}
-                            </div>
-                        {{/each}}
-
-                        {{#oauth}}
-                            <button type="button" class="api-ic ic-off btn btn-default pull-right">Oauth</button>
-                        </div>
-                        {{/oauth}}
-
                     </div>
-
-                    {{#if type}}
-                        <div class="response-content-type"/>
-                    {{/if}}
 
                 </div>
-
-                {{#if responseMessages}}
-                    <div style="margin:0;padding:0;display:inline"></div>
-                    <h4 >
-                        Response Messages
-                    </h4>
-
-                    <div>
-                        <table class="fullwidth">
-                            <tbody class="operation-status">
-                            </tbody>
-                        </table>
-                    </div>
-                {{/if}}
             </form>
+
+            {{#if responseMessages}}
+                <div style="margin:0;padding:0;display:inline"></div>
+                <h4 style="padding-bottom: 0;">Response Messages</h4>
+
+                <div>
+                    <table>
+                        <tbody class="operation-status" />
+                    </table>
+                </div>
+            {{/if}}
 
         </div>
 
@@ -106,28 +95,24 @@
                             <span aria-hidden="true">×</span>
                         </button>
                         <h3 class="modal-title">
+                            <span class="http_method"><span class="text">{{method}}</span></span>
                             {{summary}}
-                            <span class="http_method">
-                                <span class="text">
-                                    {{method}}
-                                </span>
-                            </span>
                         </h3>
                     </div>
                     <div class="modal-body">
                         <div class='response'>
                             <h5>Request URL</h5>
-
                             <div class='block request_url'></div>
-                            <h5>Response Body</h5>
+                            <div class='block request_headers'></div>
 
-                            <div class='block response_body'></div>
                             <h5>Response Code</h5>
-
                             <div class='block response_code'></div>
-                            <h5>Response Headers</h5>
 
+                            <h5>Response Headers</h5>
                             <div class='block response_headers'></div>
+
+                            <h5>Response Body</h5>
+                            <div class='block response_body'></div>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,9 @@
                 <div class="scope-selector">
                     <div class="area controls">
                         <label for="input_baseUrl">Base URL</label>
-                        <span id="input_baseUrl" style="word-wrap: break-word;font-size:1.2rem;margin-bottom: 17px;display: block;" >{{baseUrl}}</span>
+                        <div class="input-group" style="margin-bottom: 0.5rem;">
+                            <span id="input_baseUrl">{{baseUrl}}</span>
+                        </div>
 
                         <label for="input_apiKey">Access Token (JWT)</label>
                         <div class="input-group" style="margin-bottom: 0.5rem;">
@@ -55,11 +57,11 @@
         {{#if info.description}}
             <li class="resource" id="introduction">
                 <ul class="endpoints">
-                    <li class="endpoint">
+                    <li class="endpoint" style="padding-top: 0;">
                         <ul class="operations">
                             <li class="operation" >
-                                <div class="content" id="api_info">
-                                    <h2 class="operation-title">Introduction</h2>
+                                <div class="content" id="api_info" style="margin-top: 0;">
+                                    <div class="heading"><h3><a href="#!/introduction" onclick="event.preventDefault();">Introduction</a></h3></div>
                                     <div class="info_description {{#if isMarkdown}}markdown{{/if}} action-summary info-section">{{{info.description}}}</div>
                                     <!--<a target="_blank" href="//online.swagger.io/validator/debug?url={{encodeURIComponent swaggerUrl}}">
                                       <img id="validator" src="//online.swagger.io/validator?url={{encodeURIComponent swaggerUrl}}">
@@ -82,7 +84,7 @@
                                     <a onclick="" class="toggle-samples" data-toggle="tooltip" data-placement="left" data-original-title="" title="">
                                         <span class="text">Show samples</span><span class="circle-icon"></span>
                                     </a>
-                                    <h2 class="operation-title">Authentication</h2>
+                                    <div class="heading"><h3><a href="#!/authentication" onclick="event.preventDefault();">Authentication</a></h3></div>
                                     <div class="action-summary info-section">
                                       <p>Cimpress Open uses Auth0 as an authentication service. Every Cimpress Open Portal user has an Auth0 account. The email address you registered with is the username of your Auth0 account. For more information, see the <a href="https://developer.cimpress.io/docs/apis/auth0.html" target="_blank">authentication documentation</a>.</p>
                                       <h5 id="useful-information-about-this-api">Useful Information About This API</h5>
