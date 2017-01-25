@@ -10,4 +10,5 @@ dist/**/*.woff2 binary
 dist/**/*.png binary
 dist/*.html text
 
+*.png binary
 src/main/html/images/*.png binary
