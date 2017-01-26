@@ -3,7 +3,6 @@
 # swagger-ui-cimpress
 
 [![Build Status](https://travis-ci.org/Cimpress-MCP/swagger-ui-cimpress.svg?branch=master)](https://travis-ci.org/Cimpress-MCP/swagger-ui-cimpress)
-[![codecov](https://codecov.io/gh/Cimpress-MCP/swagger-ui-cimpress/branch/master/graph/badge.svg)](https://codecov.io/gh/Cimpress-MCP/swagger-ui-cimpress)
 [![NPM version](https://badge.fury.io/js/swagger-ui-cimpress.svg)](http://badge.fury.io/js/swagger-ui-cimpress)
 [![Dependency Status](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress/status.svg)](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress)
 [![devDependency Status](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress/dev-status.svg)](https://david-dm.org/Cimpress-MCP/swagger-ui-cimpress#info=devDependencies)
