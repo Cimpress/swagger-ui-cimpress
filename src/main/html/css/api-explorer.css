@@ -1462,7 +1462,7 @@ body {
 }
 
 #api2-explorer code.json {
-    font-size: 12px
+    font-size: 0.6875rem;
 }
 
 #api2-explorer a.toggle-samples {

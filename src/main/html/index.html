@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>API Reference</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Reference</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" async></script><![endif]-->
   <!--style type="text/css"></style-->
@@ -14,9 +15,9 @@
   <!-- Icons -->
   <svg class="hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-      <symbol ng-repeat="glyph in glyphs" id="icon-copy" mi-view-box="0 0 1024 1024" viewBox="0 0 1024 1024">
+      <symbol id="icon-copy" mi-view-box="0 0 1024 1024" viewBox="0 0 1024 1024">
         <title>copy</title>
-        <path ng-repeat="path in glyph.paths" class="path0" mi-d="M640 256v-256h-448l-192 192v576h384v256h640v-768h-384zM192 90.51v101.49h-101.49l101.49-101.49zM64 704v-448h192v-192h320v192l-192 192v256h-320zM576 346.51v101.49h-101.49l101.49-101.49zM960 960h-512v-448h192v-192h320v640z" mi-fill="" mi-opacity="" d="M640 256v-256h-448l-192 192v576h384v256h640v-768h-384zM192 90.51v101.49h-101.49l101.49-101.49zM64 704v-448h192v-192h320v192l-192 192v256h-320zM576 346.51v101.49h-101.49l101.49-101.49zM960 960h-512v-448h192v-192h320v640z"></path>
+        <path class="path0" d="M640 256v-256h-448l-192 192v576h384v256h640v-768h-384zM192 90.51v101.49h-101.49l101.49-101.49zM64 704v-448h192v-192h320v192l-192 192v256h-320zM576 346.51v101.49h-101.49l101.49-101.49zM960 960h-512v-448h192v-192h320v640z"></path>
       </symbol>
     </defs>
   </svg>
@@ -74,7 +75,7 @@
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
       } else {
-        url = "http://petstore.swagger.io/v2/swagger.json";
+        url = "petstore.json";
       }
       window.swaggerUrl = url;
       // HACK 2016-06-23 @harsingh @theopak
@@ -82,6 +83,7 @@
         var result = window.location.search.match(new RegExp('(\\?|&)' + param + '(\\[\\])?=([^&]*)'));
         return result && result[3] ? decodeURIComponent(result[3]) : null;
       }
+
       // HACK 2016-06-24 @theopak
       // (NG-4455) provide a URL parameter called `interfaceBaseUrl` in order to change all scroll anchors in this
       // swagger-ui instance to reference an arbitrary base url instead of the current page URL. For example,

@@ -23,7 +23,7 @@
                             class="form-control"
                             id="input_apiKey"
                             {{#if accessToken}}readOnly{{/if}}
-                            placeholder="Bearer token (JWT)">
+                            placeholder="Bearer token (JWT)" />
                           <span class="input-group-btn">
                               {{#if accessToken}}
                                   <button class="copy-btn btn btn-secondary"
@@ -112,7 +112,15 @@
                                       {{#if accessToken}}
                                         <h5 id="your-current-bearer-token">Your Current Bearer Token</h5>
                                         <p>When you logged in, a Bearer Token (JWT) was automatically generated for you. This token will automatically be added to requests made suing this page. You can also use this token for your own testing purposes for as long as it’s valid. But be careful! Treat this token like a password.</p>
-                                        <p><code style="word-wrap: break-word">{{accessToken}}</code></p>
+                                        <label for="input_apiKey">Bearer Token (JWT)</label>
+                                        <div class="input-group" style="margin-bottom: 0.5rem;">
+                                          <input type="text"
+                                            autocorrect="off"
+                                            class="form-control"
+                                            value="{{accessToken}}"
+                                            placeholder="Bearer token (JWT)"
+                                            readOnly />
+                                        </div>
                                       {{/if}}
                                     </div>
                                 </div>
