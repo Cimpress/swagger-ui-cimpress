@@ -71,23 +71,7 @@ SwaggerUi.Views.ParameterView = Backbone.View.extend({
   },
 
   // Return an appropriate template based on if the parameter is a list, readonly, required
-  template: function(){
-    if (this.model.isList) {
-      return Handlebars.templates.param_list;
-    } else {
-      if (this.options.readOnly) {
-        if (this.model.required) {
-          return Handlebars.templates.param_readonly_required;
-        } else {
-          return Handlebars.templates.param_readonly;
-        }
-      } else {
-        if (this.model.required) {
-          return Handlebars.templates.param_required;
-        } else {
-          return Handlebars.templates.param;
-        }
-      }
-    }
+  template: function() {
+    return Handlebars.templates.param;
   }
 });

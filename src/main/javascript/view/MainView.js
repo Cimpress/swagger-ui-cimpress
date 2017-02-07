@@ -97,6 +97,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
 
   render: function () {
     this.model.baseUrl = window.baseUrl;
+    this.model.accessToken = window.accessToken;
     if (this.model.securityDefinitions) {
       for (var name in this.model.securityDefinitions) {
         var auth = this.model.securityDefinitions[name];
@@ -276,6 +277,6 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       var t = n.parents('.endpoint').first().offset().top;
       r.removeClass('is-collapsing');
       o(t);
-    }, 500);
+    }, 150);
   }
 });

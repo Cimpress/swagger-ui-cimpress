@@ -63,9 +63,10 @@
     display: inline-block;
     margin: 0 0.1rem 0 0;
     padding: 0.25rem 0;
-    width: 2rem;
+    width: 1.625rem;
     color: white;
-    font-size: 0.5em;
+    font-size: 0.40625rem;
+    line-height: 1;
     font-weight: normal;
     text-align: center;
     text-transform: uppercase;
@@ -101,31 +102,6 @@
 /* @harsingh */
 .main-section {
     margin-top: -20px;
-}
-
-/* @harsingh 2016-06-20 */
-#swagger_sidebar .nav_label {
-    display: block;
-    color: #fff;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-size: 11px;
-    font-weight: 700;
-    background: #454d53
-}
-
-@media (min-width: 992px) {
-    #swagger_sidebar .nav_label {
-        background: 0 0;
-        text-transform: none;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0;
-        color: #5c666f;
-        padding: 9px 9px 9px 20px;
-        display: block;
-    }
 }
 
 .content {
@@ -180,15 +156,24 @@
     margin: 3.75rem auto;
 }
 
-/* @harsingh 2016-06-13 */
+/* @harsingh 2016-06-13, @theopak 2017-01-23 */
 .click-to-copy {
     position: absolute;
-    right: 8px;
-    top: 8px;
-    font-size: 1.4rem;
-    fill: #e7e8e9;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    text-align: right;
+    color: #e7e8e9;
     transition: opacity 150ms ease;
     opacity: 0;
+    cursor: pointer;
+}
+.click-to-copy .icon {
+  fill: #e7e8e9;
+  padding-left: 0.25rem;
+  width: 1.5rem;
+  vertical-align: text-bottom;
 }
 .tab-content:active .click-to-copy,
 .tab-content:focus .click-to-copy,
@@ -198,40 +183,46 @@
 
 /* @harsignh @theopak 2016-06-13 */
 .guide {
-    background-color: #4F5357;
+    margin-top: 1.3rem;
+    margin-bottom: 1.7rem;
+    background-color: #3A414C;
+}
+.guide h5 {
+    margin: 0;
+    padding: 1rem 1rem 0.5rem;
+    color: white;
+    font-weight: bold;
 }
 .guide .nav {
-    padding-left: 16px; /* calc(9.5px + 0.5em) */
+    padding-left: 1rem; /* calc(9.5px + 0.5em) */
 }
-.guide .nav-pills > li {
-    margin: 0;
-}
-.guide .nav-pills > li > a {
-    border: solid 1px transparent;
-    display: block;
-    float: left;
-    color: #D0D4D7;
+.guide .nav > a {
+    display: inline-block;
+    margin: 0 0.3125rem 0 0;
+    padding: 0.5rem 0;
+    color: #8090a2;
+    border-bottom: solid 2px transparent;
+    border-radius: 0;
+    background: transparent;
     text-decoration: none;
-    margin: 1rem 0;
-    padding: 0.5rem;
-    margin-right: 5px;
     line-height: 1rem;
     outline: 0;
-    border-radius: 5px;
+    transition: border-color 75ms ease, color 75ms ease;
 }
-.guide .nav-pills > li > a:focus,
-.guide .nav-pills > li > a:hover {
-    border-color: #D0D4D7;
-    background-color: transparent;
+.guide .nav > a:focus,
+.guide .nav > a:hover {
+    color: #f7f9fa;
+    /*border-color: #f7f9fa;*/
 }
-.guide .nav-pills > li.active > a {
-    color: #fff;
-    background-color: #3d51eb;
+.guide .nav > a.active {
+    color: #f7f9fa;
+    /*border-color: #f7f9fa;*/
+    font-weight: bold;
 }
-.guide .nav-pills > li.active > a:focus,
-.guide .nav-pills > li.active > a:hover {
+/*.guide .nav > a.active:focus,
+.guide .nav > a.active:hover {
     border-color: transparent;
-}
+}*/
 
 /* @harsignh 2016-06-13 */
 .icon {
@@ -291,12 +282,12 @@
 @media (min-width: 992px) {
     .swagger-section #resources:before {
         content: "";
-        background: #4F5357;
-        height: 100%;
-        width: 50%;
+        position: absolute;
         top: 0;
         right: 0;
-        position: absolute;
+        width: 40%;
+        height: 100%;
+        background: #3A414C;
         z-index: -1
     }
 }
@@ -330,7 +321,7 @@
 @media (min-width: 992px) {
     .swagger-section .operation > .content {
         float: left;
-        width: 50%;
+        width: 60%;
         padding: 0 10px
     }
 }
@@ -344,16 +335,16 @@
 @media (min-width: 992px) {
     .swagger-section .operation > .samples {
         float: left;
-        width: 50%
+        width: 40%;
     }
 }
 
 .swagger-section h2.operation-title {
     float: none;
-    color: #333;
     margin: 0;
-    padding: 1.3rem 20px 0;
-    font: normal 1.5rem/1.3 -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 1.3rem 1.25rem 0;
+    color: #333;
+    font: normal 1rem/1.3 -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 992px) {
@@ -376,17 +367,12 @@
 }
 
 .swagger-section .heading {
-    padding: 0 20px
-}
-
-.swagger-section .heading .path {
-    display: table-cell
+    padding: 0 1.25rem
 }
 
 /* @harsingh 2016-06-22 */
 @media (min-width: 992px) {
     .swagger-section .heading .path span {
-        font-size: 16px;
         max-width: 545px;
     }
 }
@@ -402,15 +388,17 @@
     display: table-cell
 }
 
-/* @harsingh 2016-06-22 */
+/* @harsingh 2016-06-22, @tpak 2017-01-23 */
 .swagger-section .heading .http_method span {
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 11px;
-    border-radius: 20px;
-    padding: 2px 10px;
+    display: inline-block;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
     font-weight: 700;
-    display: inline-block
+    text-transform: uppercase;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 0.35rem;
 }
 
 .swagger-section .action-summary {
@@ -422,30 +410,43 @@
 /* @theopak 2016-06-13 */
 .swagger-section .action-summary p {
   margin: 0;
+  font-size: 1rem;
 }
 
-.swagger-section .operation.get .http_method a, .swagger-section .operation.get .http_method span {
-    background: #6bbd5b
+.swagger-section .operation.get .http_method a,
+.swagger-section .operation.get .http_method span {
+    color: #6bbd5b;
+    border-color: #6bbd5b;
 }
 
-.swagger-section .operation.post .http_method a, .swagger-section .operation.post .http_method span {
-    background: #248fb2
+.swagger-section .operation.post .http_method a,
+.swagger-section .operation.post .http_method span {
+    color: #248fb2;
+    border-color: #248fb2;
 }
 
-.swagger-section .operation.options .http_method a, .swagger-section .operation.options .http_method span {
-    background: #999
+.swagger-section .operation.options .http_method a,
+.swagger-section .operation.options .http_method span {
+    color: #999;
+    border-color: #999;
 }
 
-.swagger-section .operation.delete .http_method a, .swagger-section .operation.delete .http_method span {
-    background: #e27a7a
+.swagger-section .operation.delete .http_method a,
+.swagger-section .operation.delete .http_method span {
+    color: #e27a7a;
+    border-color: #e27a7a;
 }
 
-.swagger-section .operation.patch .http_method a, .swagger-section .operation.patch .http_method span {
-    background: #ff9a57
+.swagger-section .operation.patch .http_method a,
+.swagger-section .operation.patch .http_method span {
+    color: #ff9a57;
+    border-color: #ff9a57;
 }
 
-.swagger-section .operation.put .http_method a, .swagger-section .operation.put .http_method span {
-    background: #9b708b
+.swagger-section .operation.put .http_method a,
+.swagger-section .operation.put .http_method span {
+    color: #9b708b;
+    border-color: #9b708b;
 }
 
 .swagger-section .form-control.error {
@@ -453,50 +454,50 @@
     border-width: 2px
 }
 
-.swagger-section .parameter-item {
-    min-width: 320px;
+.swagger-section .sandbox {
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    min-width: 20rem;
     background: #f8f8f9;
     color: #5c666f;
-    font-size: 14px;
-    margin-bottom: 20px
+    font-size: 0.875rem;
 }
 
-.swagger-section .parameter-item .small-description {
-    font-size: 12px;
-    padding-top: 8px
+.swagger-section .sandbox .small-description {
+    font-size: 0.75rem;
 }
 
-.swagger-section .parameter-item .small-description code {
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-size: 10px;
-    border: 1px solid rgba(0, 0, 0, .07)
+.swagger-section .sandbox .small-description code {
+    padding: 0.125rem 0.25rem;
+    font-size: 0.625rem;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 0.25rem;
 }
 
-.swagger-section .parameter-item .small-description code.code-signature {
+.swagger-section .sandbox .small-description code.code-signature {
+    margin-right: 5px;
     background: 0 0;
     color: gray;
-    margin-right: 5px
 }
 
-.swagger-section .parameter-item .small-description .markdown {
+.swagger-section .sandbox .small-description .markdown {
     display: inline-table;
 }
 
-.swagger-section .parameter-item .small-description .markdown h1,
-.swagger-section .parameter-item .small-description .markdown h2,
-.swagger-section .parameter-item .small-description .markdown h3,
-.swagger-section .parameter-item .small-description .markdown h4,
-.swagger-section .parameter-item .small-description .markdown h5,
-.swagger-section .parameter-item .small-description .markdown p,
-.swagger-section .parameter-item .small-description .markdown li,
-.swagger-section .parameter-item .small-description .markdown pre
+.swagger-section .sandbox .small-description .markdown h1,
+.swagger-section .sandbox .small-description .markdown h2,
+.swagger-section .sandbox .small-description .markdown h3,
+.swagger-section .sandbox .small-description .markdown h4,
+.swagger-section .sandbox .small-description .markdown h5,
+.swagger-section .sandbox .small-description .markdown p,
+.swagger-section .sandbox .small-description .markdown li,
+.swagger-section .sandbox .small-description .markdown pre
 {
-    margin: 5px 0;
+    margin: 0 0 0.3125rem;
 }
 
 @media (min-width: 992px) {
-    .swagger-section .parameter-item {
+    .swagger-section .sandbox {
         margin: 0 20px 20px;
         border-radius: 3px;
         border: 1px solid #e8eaeb;
@@ -504,40 +505,29 @@
     }
 }
 
-.swagger-section .parameter-item:last-child {
+.swagger-section .sandbox:last-child {
     margin-bottom: 0
 }
 
 @media (min-width: 992px) {
-    .swagger-section .parameter-item:last-child {
+    .swagger-section .sandbox:last-child {
         margin-bottom: 20px
     }
 }
 
 /*
-.swagger-section .parameter-item .parameter-content-type {
+.swagger-section .sandbox .parameter-content-type {
     display: none
 }
 */
-.swagger-section .parameter-item .param-property {
-    padding: 20px;
+.swagger-section .sandbox .param-property {
+    padding: 0 0 0.25rem;
+    min-height: 3.6875rem;
     line-height: 1.4;
-    border-bottom: 1px solid #e8eaeb;
-    min-height: 59px
 }
 
-@media (min-width: 992px) {
-    .swagger-section .parameter-item .param-property {
-        position: relative;
-        padding-left: 150px
-    }
 
-    .swagger-section .parameter-item .param-property:hover {
-        background: #f0f0f2
-    }
-}
-
-.swagger-section .parameter-item .param-property:before {
+/*.swagger-section .sandbox .param-property label {
     content: attr(data-label);
     display: block;
     font-weight: 700;
@@ -545,63 +535,20 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+}*/
 
-@media (min-width: 992px) {
-    .swagger-section .parameter-item .param-property:before {
+/*@media (min-width: 992px) {
+    .swagger-section .sandbox .param-property:before {
         position: absolute;
-        top: 28px;
+        top: 0.5rem;
         left: 0;
         display: inline-block;
-        width: 150px;
+        padding: 0 1.25rem;
+        width: 9.375rem;
         vertical-align: top;
         text-align: right;
-        padding: 0 20px
     }
-}
-
-.swagger-section .parameter-item .param-property:first-child, .swagger-section .parameter-item .param-property:last-child {
-    border: 0
-}
-
-.swagger-section .parameter-item .param-property:first-child {
-    background: #949aa0;
-    font-weight: 700;
-    color: #fff
-}
-
-@media (min-width: 992px) {
-    .swagger-section .parameter-item .param-property:first-child {
-        border-bottom: 1px solid #e8eaeb;
-        background: #f8f8f9;
-        color: #5c666f;
-        font-weight: 400
-    }
-}
-
-.swagger-section .parameter-item .param-property:first-child:before {
-    display: none
-}
-
-@media (min-width: 992px) {
-    .swagger-section .parameter-item .param-property:first-child:before {
-        display: inline-block
-    }
-}
-
-.swagger-section .parameter-item .form-control {
-    width: auto;
-    max-width: 100%
-}
-
-.swagger-section .parameter-item .form-control.body-textarea {
-    min-height: 100px;
-    width: 100%
-}
-
-.swagger-section .parameter-item select.form-control {
-    width: auto
-}
+}*/
 
 @media (min-width: 992px) {
     .swagger-section .operations .model-signature h4 {
@@ -622,7 +569,7 @@
   display: none;
 }
 .model-signature .description {
-  background-color: #2b2b2b;
+  background-color: #333943;
   padding: 20px;
   line-height: 1.5em;
   color: #fff;
@@ -662,7 +609,7 @@
 
 
 .swagger-section pre {
-    background: #2B2B2B;
+    background: #333943;
     margin: 0;
     word-wrap: break-word !important;
     max-height: none;
@@ -677,61 +624,70 @@
 
 @media (min-width: 992px) {
     .swagger-section .responses-wrapper {
-        padding: 0 20px
+        padding: 0 20px;
     }
+}
+
+.swagger-section .swagger-ui-wrap table {
+    margin: 0 1.25rem;
 }
 
 .swagger-section .operation-status {
-    background: #f8f8f9;
-    color: #5c666f;
-    min-width: 320px
+    padding: 0;
+    width: 100%;
+    color: #8c9299;
 }
 
-@media (min-width: 992px) {
-    .swagger-section .operation-status {
-        background: 0 0
-    }
+.swagger-section .operation-status tr {
+    padding: 1.25rem 0;
+    line-height: 1.4;
+    vertical-align: middle;
+    border-bottom: 1px solid #e8eaeb;
+}
+
+.swagger-section .operation-status tr:last-of-type {
+    border-bottom: none;
+}
+
+.swagger-section .operation-status th {
+    width: 1.25rem;
+    font-weight: bold;
+    color: #5c666f;
 }
 
 .swagger-section .operation-status td {
-    width: auto;
-    vertical-align: middle;
-    border-bottom: 1px solid #e8eaeb;
-    line-height: 1.4;
-    padding: 15px
-}
-
-.swagger-section .operation-status td:nth-child(1) {
-    padding: 20px
-}
-
-.swagger-section .operation-status td:nth-child(2) {
-    color: #8c9299
+    padding: 1.25rem;
+    width: 100%;
 }
 
 .swagger-section .token-generator {
-    min-width: 320px;
-    background: #5c666f;
-    padding: 15px 20px;
-    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .25);
     position: relative;
-    max-height: 270px;
-    overflow-y: auto
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.85rem 1.25rem;
+    min-width: 16rem;
+    max-height: 16.875rem;
+    background: #f7f9fa;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .25);
+    overflow: hidden;
+    overflow-y: auto;
+    font-size: 1rem;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
 }
 
 @media (min-width: 992px) {
     .swagger-section .token-generator {
-        /*padding-top: 40px;*/
-        padding-top: 0;
-        padding-right: 20px;
-        box-shadow: none;
-        background: #f3f3f4;
-        color: #5c666f;
-        max-height: none;
-        min-width: 100%;
-        width: 100%;
         margin-bottom: 30px;
-        border-bottom: 1px solid #e8eaeb
+        padding-top: 0;
+        width: 100%;
+        min-width: 100%;
+        max-height: none;
+        color: #5c666f;
+        background: #f3f3f4;
+        border-bottom: 1px solid #e8eaeb;
+        box-shadow: none;
     }
 }
 
@@ -923,10 +879,6 @@
     margin-left: 5px
 }
 
-.swagger-section .token-generator .scope-selector {
-    padding: 15px 0
-}
-
 .swagger-section .token-generator .scope-selector:after {
     clear: both
 }
@@ -969,32 +921,28 @@
 }
 
 .swagger-section .token-generator label {
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
     display: inline-block;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 @media (min-width: 992px) {
     .swagger-section .token-generator label {
-        color: #5c666f;
-        font-size: 13px;
+        color: #697582;
     }
 }
 
 .swagger-section .operations h4 {
-    font-size: 16px;
-    padding: 20px;
     margin: 0;
-    color: #5c666f;
-    cursor: pointer;
+    padding: 1.25rem;
+    font-size: 1rem;
+    color: #333;
     box-shadow: inset 0 -1px 0 0 #e8eaeb;
     transition: box-shadow 0 300ms ease;
-    min-width: 320px;
-    position: relative
 }
 
 @media (min-width: 992px) {
@@ -1204,15 +1152,17 @@
 
 @media (min-width: 992px) {
     .swagger-section .sticky-nav.fixed {
-        width: 290px;
+        padding-bottom: 2rem;
+        width: 16rem;
         height: 100%;
-        overflow-y: auto
+        border-right: 1px solid #ebebeb;
+        overflow-y: auto;
     }
 }
 
 @media (min-width: 1400px) {
     .swagger-section .sticky-nav.fixed {
-        width: 320px
+        width: 20rem;
     }
 }
 
@@ -1221,7 +1171,7 @@
     height: 0;
     overflow-y: scroll;
     overflow-x: hidden;
-    background: #4F5357;
+    background: #3A414C;
     box-shadow: inset 0 2px 10px 0 rgba(0, 0, 0, .4);
     position: absolute;
     top: 43px;
@@ -1234,7 +1184,7 @@
         position: static;
         height: auto;
         overflow: visible;
-        background: #f8f8f9;
+        background: transparent;
         box-shadow: none
     }
 
@@ -1251,44 +1201,36 @@
     }
 }
 
-@media (min-width: 992px) {
-    .swagger-section .sticky-nav [data-navigator] [data-resource] {
-        cursor: pointer
-    }
+#swagger_sidebar .nav_label, /* @harsingh 2016-06-20 */
+.swagger-section .sticky-nav [data-navigator] [data-resource]:before {
+    content: attr(label); /* wtf */
+    display: block;
+    color: #fff;
+    margin-top: 1rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 1rem;
+    background: #454d53;
+    cursor: pointer;
 }
 
-@media (min-width: 992px) {
-    .swagger-section .sticky-nav [data-navigator] [data-resource] .item {
-        /*display: none*/
-    }
+/* @theopak 2017-01-23 */
+.swagger-section .sticky-nav [data-navigator] [data-resource].active:before {
+    font-weight: 700;
 }
 
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] [data-resource].active .item {
         display: block
     }
-}
-
-.swagger-section .sticky-nav [data-navigator] [data-resource]:before {
-    content: attr(label);
-    display: block;
-    color: #fff;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-size: 11px;
-    font-weight: 700;
-    background: #454d53
-}
-
-@media (min-width: 992px) {
+    #swagger_sidebar .nav_label, /* @harsingh 2016-06-20 */
     .swagger-section .sticky-nav [data-navigator] [data-resource]:before {
-        background: 0 0;
-        text-transform: none;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0;
-        color: #5c666f
+        background: transparent;
+        color: #5c666f;
+    }
+
+    /* @harsingh 2016-06-20 */
+    #swagger_sidebar .nav_label {
+        padding: 9px 9px 9px 20px;
     }
 }
 
@@ -1299,13 +1241,15 @@
 }
 
 .swagger-section .sticky-nav [data-navigator] .item {
-    padding: 12px 20px;
+    padding: 0.35rem 0 0.35rem 1.25rem;
     color: #fff;
     cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1.125rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    position: relative
+    position: relative;
 }
 
 .swagger-section .sticky-nav [data-navigator] .item a
@@ -1319,12 +1263,8 @@
 
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] .item {
+        padding-right: 0.25rem;
         color: #5c666f;
-        padding-top: 9px;
-        padding-bottom: 9px;
-        padding-right: 9px;
-        font-size: 14px;
-        background: #f3f3f4
     }
 
     .swagger-section .sticky-nav [data-navigator] .item a
@@ -1340,7 +1280,7 @@
     .swagger-section .sticky-nav [data-navigator] .item:hover,
     .swagger-section .sticky-nav [data-navigator] .item a:active,
     .swagger-section .sticky-nav [data-navigator] .item a:hover {
-        color: #8c9299
+        color: #333944
     }
 }
 
@@ -1374,7 +1314,7 @@
 
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] .item[data-selected] {
-        background: #f3f3f4;
+        background: #edf3f8;
         font-weight: 700;
         color: #333
     }
@@ -1387,16 +1327,6 @@
 @media (min-width: 992px) {
     .swagger-section .sticky-nav [data-navigator] .item[data-selected]:after {
         /*display: none*/
-    }
-}
-
-.swagger-section .sticky-nav [data-navigator] .item + .item {
-    border-top: 1px solid #576169
-}
-
-@media (min-width: 992px) {
-    .swagger-section .sticky-nav [data-navigator] .item + .item {
-        border-top: 1px solid #e8eaeb
     }
 }
 
@@ -1513,11 +1443,26 @@ body {
 }
 
 #api2-explorer .btn {
-    outline: 0
+    text-transform: none;
+    letter-spacing: normal;
+    outline: 0;
+}
+
+#api2-explorer .btn.btn-primary {
+    background-color: #0288a9;
+}
+
+#api2-explorer .btn.btn-primary:active,
+#api2-explorer .btn.btn-primary:focus, {
+    background-color: #017897;
+}
+
+#api2-explorer .btn.btn-primary:hover {
+    background-color: #0B6780;
 }
 
 #api2-explorer code.json {
-    font-size: 12px
+    font-size: 0.6875rem;
 }
 
 #api2-explorer a.toggle-samples {
@@ -1548,7 +1493,8 @@ body {
 #api2-explorer .modal .modal-title {
     padding: 0;
     margin: 0;
-    font-size: 16px
+    border: none;
+    font-size: 1rem;
 }
 
 #api2-explorer .modal .modal-title .http_method {
@@ -1558,11 +1504,11 @@ body {
 }
 
 #api2-explorer .modal .modal-title .http_method .text {
-    color: #fff;
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-left: 10px
+    margin-right: 0.625rem;
+    padding: 0.125rem 0.625rem;
+    border: 1px solid;
+    border-radius: 1.25rem;
+    font-size: 0.6875rem;
 }
 
 /* @harsingh 2016-06-22 */
@@ -1588,12 +1534,13 @@ body {
 
 @media (min-width: 992px) {
     .swagger-section #swagger_sidebar {
-        width: 290px;
         position: absolute;
         left: 0;
         top: 0;
+        width: 16rem;
         height: 100%;
         background: #f8f8f9;
+        border-right: 1px solid #ebebeb;
         min-height: 100vh
     }
 }
@@ -1607,13 +1554,16 @@ body {
 @media (min-width: 992px) {
     .swagger-section #resources_container {
         width: 100%;
-        padding-left: 290px
+        padding-left: 16rem;
     }
 }
 
 @media (min-width: 1400px) {
+    .swagger-section #swagger_sidebar {
+        width: 20rem;
+    }
     .swagger-section #resources_container {
-        padding-left: 320px
+        padding-left: 20rem;
     }
 }
 
@@ -1621,26 +1571,10 @@ body {
     padding: 0 20px
 }
 
-.swagger-section .endpoint {
-    /*margin: 0 0 100px*/
-}
-
 @media (min-width: 992px) {
     .swagger-section .endpoint + .endpoint, .swagger-section .endpoint:first-child {
-        border-top: 1px solid rgba(0, 0, 0, .08)
+        padding-top: 2rem;
     }
-}
-
-.swagger-section .sandbox_header {
-    padding: 0 20px 20px
-}
-
-.swagger-section .sandbox_header a {
-    text-decoration: underline
-}
-
-.swagger-section .sandbox_header .btn-primary {
-    margin-right: 5px
 }
 
 .swagger-section #resources a.toggle-samples {
@@ -1648,13 +1582,13 @@ body {
 }
 
 .swagger-section #resources .endpoint {
-    transition: opacity 300ms ease-in-out
+    transition: opacity 150ms ease-in-out
 }
 
 @media (min-width: 992px) {
     .swagger-section #resources {
         width: 100%;
-        transition: width 300ms
+        transition: width 150ms;
     }
 
     .swagger-section #resources .operation .content {
@@ -1672,7 +1606,7 @@ body {
     }
 
     .swagger-section #resources a.toggle-samples .text{
-      transition: opacity 250ms ease;
+      transition: opacity 75ms ease;
       opacity: 0;
     }
 
@@ -1732,7 +1666,7 @@ body {
 
 @media (min-width: 992px) {
     .swagger-section #resources.samples-collapsed {
-        width: 199%;
+        width: 166%;
     }
 
     .swagger-section #resources.samples-collapsed a.toggle-samples .circle-icon:before {
@@ -2014,7 +1948,6 @@ body {
 
 .swagger-section .swagger-ui-wrap caption, .swagger-section .swagger-ui-wrap td, .swagger-section .swagger-ui-wrap th {
     text-align: left;
-    font-weight: 400;
     vertical-align: middle
 }
 
@@ -2173,7 +2106,8 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.path {
-    padding-left: 10px
+    padding-left: 0.625rem;
+    vertical-align: middle;
 }
 
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.path a:hover {
@@ -2289,9 +2223,15 @@ body {
 }
 
 .swagger-section .swagger-ui-wrap h3 {
-    color: #000;
-    font-size: 1.1em;
-    /*padding: 10px 0*/
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    color: black;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.swagger-section .swagger-ui-wrap h3 a {
+    font-weight: bold;
+    line-height: 1.25rem;
 }
 
 .swagger-section .swagger-ui-wrap .markdown ol, .swagger-section .swagger-ui-wrap .markdown ul {

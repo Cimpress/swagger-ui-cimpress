@@ -618,10 +618,10 @@ a.btn:active {
     background: #44c7f4;
 }
 html {
-    font-size: 14px;
+    font-size: 16px;
 }
 body {
-    font-size: 14px;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     font-family: -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -2004,4 +2004,3 @@ li.L9 {
         display: none;
     }
 }
-

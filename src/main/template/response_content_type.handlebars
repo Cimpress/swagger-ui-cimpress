@@ -1,17 +1,17 @@
 <div class="parameter-item">
-    <div class="param-property hide" data-label="name">Response Type</div>
     <div class="param-property" data-label="Response Type">
-        <div>
-            <select class="parameter form-control" name="responseContentType">
-                {{#if produces}}
-                    {{#each produces}}
-                        <option value="{{{this}}}">{{{this}}}</option>
-                    {{/each}}
-                {{else}}
-                    <option value="application/json">application/json</option>
-                {{/if}}
-            </select>
+        <label for="responseContentType">Response Content-Type</label>
+        <select class="parameter form-control" name="responseContentType">
+            {{#if produces}}
+                {{#each produces}}
+                    <option value="{{{this}}}">{{{this}}}</option>
+                {{/each}}
+            {{else}}
+                <option value="application/json">application/json</option>
+            {{/if}}
+        </select>
+        <div class="small-description">
+            <div class="markdown">This sets the 'Accept' header on your request</div>
         </div>
     </div>
 </div>
-

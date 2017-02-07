@@ -1,28 +1,27 @@
 <div role="tabpanel" class="guide">
-    <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="active">
-            <a href="#sample-{{id}}" aria-controls="home" role="tab" data-toggle="tab">{{type}} Sample</a>
-        </li>
-        {{#if signature}}
-        <li role="presentation">
-            <a href="#schema-{{id}}" aria-controls="tab" role="tab" data-toggle="tab">{{type}} Schema</a>
-        </li>
-        {{/if}}
-
-    </ul>
+    <h5>{{type}}</h5>
+    <nav class="nav" role="tablist">
+        <a class="nav-link active" href="#sample-{{id}}" aria-controls="home" role="tab" data-toggle="tab">Sample</a>
+        {{#if signature}}<a class="nav-link active" href="#schema-{{id}}" aria-controls="tab" role="tab" data-toggle="tab">Schema</a>{{/if}}
+    </nav>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="sample-{{id}}">
             <div class="snippet">
-                {{#if clickToCopy}}<svg class="icon icon-copy click-to-copy" title="Copy to Request Body"><use xlink:href="#icon-copy"></use></svg>{{/if}}
+                {{#if clickToCopy}}
+                    <div class="click-to-copy">
+                        Click to copy to body
+                        <svg class="icon icon-copy" title="Copy to Request Body"><use xlink:href="#icon-copy"></use></svg>
+                    </div>
+                {{/if}}
                 <pre><code>{{sampleJSON}}</code></pre>
             </div>
         </div>
         {{#if signature}}
-        <div role="tabpanel" class="tab-pane" id="schema-{{id}}">
-            <div class="description">
-                {{{signature}}}
+            <div role="tabpanel" class="tab-pane" id="schema-{{id}}">
+                <div class="description">
+                    {{{signature}}}
+                </div>
             </div>
-        </div>
         {{/if}}
     </div>
 </div>

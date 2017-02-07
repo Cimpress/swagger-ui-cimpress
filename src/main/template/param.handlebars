@@ -1,45 +1,51 @@
-<div class="param-property hide">{{name}}</div>
-<div class="param-property" data-label='{{name}}'>
-    {{#if isBody}}
+<div class="form-group param-property" data-label='{{name}}'>
+    <label for="{{name}}">{{name}}{{#if required}}*{{/if}}</label>
+    {{#if isList}}
+        <select name='{{name}}'
+            class='parameter form-control'
+            {{#if required}}required{{/if}}
+            {{#isArray this}}multiple='multiple'{{/isArray}}>
+                {{#each allowableValues.descriptiveValues}}
+                    {{#if isDefault}}
+                        <option selected='' value='{{value}}'>{{value}} (default)</option>
+                    {{else}}
+                        <option value='{{value}}'>{{value}}</option>
+                    {{/if}}
+                {{/each}}
+        </select>
+    {{else if isBody}}
         {{#if isFile}}
-            <input type="file" name='{{name}}'/>
-
-            <div class="parameter-content-type"/>
+            <input type="file" name='{{name}}' class='form-control-file' />
         {{else}}
-            {{#if default}}
-                <textarea class='body-textarea form-control' name='{{name}}' data-toggle="tooltip" data-placement="top" title="" data-original-title='{{name}}'>{{default}}</textarea>
-                <div class="parameter-content-type"/>
-            {{else}}
-                <textarea class='body-textarea form-control' name='{{name}}' data-toggle="tooltip" data-placement="top" title="" data-original-title='{{name}}'></textarea>
-                <div class="parameter-content-type"/>
-            {{/if}}
+            <textarea name='{{name}}'
+                class='body-textarea form-control {{#if required}}required{{/if}}'
+                {{#if required}}required placeholder='(required)'{{/if}}
+                {{#if readOnly}}readonly='readonly'{{/if}}>
+                {{#if default}}{{default}}{{/if}}
+            </textarea>
+            <div class="parameter-content-type" />
         {{/if}}
-        <div class="small-description">
-            {{#if type}}
-                <code class="code-signature">{{type}}</code>
-            {{/if}}
-            <div class="markdown">{{description}}</div>
-        </div>
     {{else}}
         {{#if isFile}}
-
             <label class="btn btn-primary" for="my-file-selector">
-                <input id="my-file-selector" type="file" style="display:none;" name='{{name}}'>
+                <input type="file" name='{{name}}' id="my-file-selector" style="display:none;">
                 Choose file
             </label>
             <div class="parameter-content-type"/>
         {{else}}
-            {{#if default}}
-                <input class='parameter form-control' minlength='0' name='{{name}}' placeholder='' type='{{inputType}}' value='{{default}}'  data-toggle="tooltip" data-placement="right" title="" data-original-title='{{name}}'/>
-            {{else}}
-                <input class='parameter form-control' minlength='0' name='{{name}}' placeholder='' type='{{inputType}}' value=''  data-toggle="tooltip" data-placement="right" title="" data-original-title='{{name}}'/>
-            {{/if}}
+            <input type='{{inputType}}'
+                name='{{name}}'
+                class='parameter form-control {{#if required}}required{{/if}}'
+                minLength='0'
+                {{#if required}}required placeholder='(required)'{{/if}}
+                {{#if readOnly}}readonly='readonly'{{/if}}
+                {{#if default}}value='{{default}}'{{/if}} />
         {{/if}}
-        <div class="small-description">
-            {{#if type}}
-                <code class="code-signature">{{type}}</code>
-            {{/if}}
-            <div class="markdown">{{description}}</div>
-        </div>
     {{/if}}
+    <div class="small-description">
+        {{#if type}}
+            <code class="code-signature">{{type}}</code>
+        {{/if}}
+        <div class="markdown">{{description}}</div>
+    </div>
 </div>
