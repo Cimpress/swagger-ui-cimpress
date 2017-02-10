@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .color {
     background: #f00;
     border-radius: 3px;
@@ -325,7 +326,7 @@
     .swagger-section .operation > .content {
         float: left;
         width: 60%;
-        padding: 0.625rem;
+        padding: 0 0.625rem 2.3rem;
     }
 }
 
@@ -339,7 +340,7 @@
 .swagger-section h2.operation-title {
     /*float: none;*/
     margin: 0;
-    padding: 1.3rem 1.25rem 0;
+    padding: 0 1.25rem;
     color: #3a414c;
     font: 500 1rem/1.375rem -apple-system, ".SFNSText-Regular", "SF UI Text", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -400,15 +401,21 @@
 
 .swagger-section .action-summary {
     margin: 0;
-    padding: 0.5rem 20px 1.875rem;
-    color: #3a414c
+    padding: 0 20px 1.875rem;
+    color: #3a414c;
     font-size: 0.875rem;
+    line-height: 1.125rem;
 }
 
-/* @theopak 2016-06-13 */
+/* @theopak 2016-06-13, 2017-02-10 */
+.swagger-section .action-summary h5 {
+  margin: 1rem 0 0.3125rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.375rem;
+}
 .swagger-section .action-summary p {
-  margin: 0;
-  /*font-size: 0.875rem;*/
+  margin: 0 0 0.875rem;
 }
 
 .swagger-section .operation.get .http_method a,
@@ -669,6 +676,7 @@
     /*box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .25);*/
     overflow: hidden;
     overflow-y: auto;
+    text-overflow: ellipsis;
     font-size: 0.75rem;
     word-break: break-all;
     word-wrap: break-word;
@@ -683,13 +691,30 @@
   border-color: #d4cdd6;
   box-shadow: none;
   font-size: 0.75rem;
+  transition: color 50ms ease, border-color 50ms ease;
 }
 
 .swagger-section .token-generator .input-group:hover input,
 .swagger-section .token-generator .input-group:hover .btn,
 .swagger-section .token-generator input:focus {
-  outline: none;
-  border-color: #00b5e2;
+    outline: none;
+    border-color: #00b5e2;
+}
+
+.swagger-section .token-generator .debug-link {
+    color: #8090a2;
+    fill: #8090a2;
+    text-decoration: none;
+    border-bottom: 1px solid #d4cdd6;
+    cursor: pointer;
+    transition: color 50ms ease, border-color 50ms ease;
+}
+
+.swagger-section .token-generator .debug-link:focus,
+.swagger-section .token-generator .debug-link:hover {
+    color: #00b5e2;
+    fill: #00b5e2;
+    border-bottom-color: #00b5e2;
 }
 
 @media (min-width: 992px) {
@@ -933,12 +958,16 @@
 .swagger-section .token-generator label {
     display: inline-block;
     margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.1875rem;
     color: #fff;
     font-size: 0.625rem;
     font-weight: bold;
     line-height: 0.874rem;
     text-transform: uppercase;
+}
+
+.swagger-section .token-generator .input-group {
+    margin-bottom: 0.1875rem;
 }
 
 @media (min-width: 992px) {

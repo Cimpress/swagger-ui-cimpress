@@ -98,7 +98,7 @@ gulp.task('copy', ['clean'], function() {
   gulp.src([
       './node_modules/bootstrap/dist/css/bootstrap.min.css',
       './src/main/html/css/budicon.fixed.css',
-      './src/main/html/css/atelier-seaside-dark.css'
+      './src/main/html/css/atelier-savanna-dark.css'
     ])
     .pipe(concat('lib.css'))
     .pipe(rev())

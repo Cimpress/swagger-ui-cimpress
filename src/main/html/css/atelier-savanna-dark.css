@@ -3,67 +3,67 @@
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 
 /* Atelier-Savanna Comment */
-.hljs-comment,
-.hljs-quote {
+.comment,
+.quote {
   color: #78877d;
 }
 
 /* Atelier-Savanna Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-attribute,
-.hljs-tag,
-.hljs-name,
-.hljs-regexp,
-.hljs-link,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class {
+.variable,
+.template-variable,
+.attribute,
+.tag,
+.name,
+.regexp,
+.link,
+.name,
+.selector-id,
+.selector-class {
   color: #b16139;
 }
 
 /* Atelier-Savanna Orange */
-.hljs-number,
-.hljs-meta,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params {
+.number,
+.meta,
+.built_in,
+.builtin-name,
+.literal,
+.type,
+.params {
   color: #9f713c;
 }
 
 /* Atelier-Savanna Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet {
+.string,
+.symbol,
+.bullet {
   color: #489963;
 }
 
 /* Atelier-Savanna Blue */
-.hljs-title,
-.hljs-section {
+.title,
+.section {
   color: #478c90;
 }
 
 /* Atelier-Savanna Purple */
-.hljs-keyword,
-.hljs-selector-tag {
+.keyword,
+.selector-tag {
   color: #55859b;
 }
 
-.hljs-deletion,
-.hljs-addition {
+.deletion,
+.addition {
   color: #171c19;
   display: inline-block;
   width: 100%;
 }
 
-.hljs-deletion {
+.deletion {
   background-color: #b16139;
 }
 
-.hljs-addition {
+.addition {
   background-color: #489963;
 }
 
@@ -75,10 +75,10 @@
   padding: 0.5em;
 }
 
-.hljs-emphasis {
+.emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.strong {
   font-weight: bold;
 }

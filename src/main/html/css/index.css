@@ -406,13 +406,6 @@ a.hiring::after {
 }
 .btn,
 a.btn {
-    -webkit-transition: background-color 0.2s ease;
-    -moz-transition: background-color 0.2s ease;
-    -ms-transition: background-color 0.2s ease;
-    -o-transition: background-color 0.2s ease;
-    transition: background-color 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     border: 0;
     font-weight: bold;
     border: 1px solid #d0d2d3;

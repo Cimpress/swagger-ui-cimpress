@@ -11,7 +11,7 @@
                 <div class="scope-selector">
                     <div class="area controls">
                         <label for="input_baseUrl">Base URL</label>
-                        <div class="input-group" style="margin-bottom: 0.5rem; width: 100%;">
+                        <div class="input-group" style="width: 100%;">
                           <input type="text"
                             name="input_baseUrl"
                             id="input_baseUrl"
@@ -35,7 +35,7 @@
                         </div>
 
                         <label for="input_apiKey">Bearer Token (JWT)</label>
-                        <div class="input-group" style="margin-bottom: 0.5rem;">
+                        <div class="input-group">
                             <input type="text"
                               name="access_token"
                               autocorrect="off"
@@ -49,7 +49,7 @@
                                     <button class="copy-btn btn btn-secondary"
                                         data-clipboard-target="#input_apiKey"
                                         data-original-title="Copy to Clipboard"
-                                        style="height:34px;">
+                                        style="height: 34px;">
                                         <svg class="icon icon-clippy" title="Copy to clipboard"><use xlink:href="#icon-clippy"></use></svg>
                                     </button>
                                 {{else}}
@@ -59,7 +59,9 @@
                         </div>
                         {{#if accessToken}}<a target="_blank"
                           href="https://jwt.io?value={{encodeURIComponent accessToken}}"
-                          style="color: #5c666f; text-decoration: underline; cursor: pointer;">debug in jwt.io</a>{{/if}}
+                          class="debug-link">
+                              debug this JWT at jwt.io&nbsp;<svg class="icon icon-external" style="width: 10px; vertical-align: bottom;"><use xlink:href="#icon-external"></use></svg>
+                          </a>{{/if}}
                     </div>
 
                     <div class="area cta" style="display: none !important">
@@ -119,7 +121,7 @@
                     <li class="endpoint" id="swagger_ui_cimpress_api_info_endpoint_list">
                         <ul class="operations">
                             <li class="get operation" id="swagger_ui_cimpress_api_info_introduction">
-                                <div class="content" style="margin-top: 0;">
+                                <div class="content" id="api_info" style="margin-top: 0;">
                                     <div class="heading"><h3><a>Introduction</a></h3></div>
                                     <div class="info_description {{#if isMarkdown}}markdown{{/if}} action-summary info-section" style="font-size: 1rem; line-height: 1.5rem; color: #697582;">{{{info.description}}}</div>
                                     <!--<a target="_blank" href="//online.swagger.io/validator/debug?url={{encodeURIComponent swaggerUrl}}">
