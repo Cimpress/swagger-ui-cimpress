@@ -75,7 +75,9 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       });
     }
     // It is markdown if it has less than 6 html like tags
+    // TODO: make a standards decision
     this.model.isMarkdown = this.model.info && this.model.info.description && this.model.info.description.split(/<\/?\S+>/).length < 6;
+
     if (this.model.swaggerVersion === '2.0') {
       if ('validatorUrl' in opts.swaggerOptions) {
 
@@ -98,6 +100,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
   render: function () {
     this.model.baseUrl = window.baseUrl;
     this.model.accessToken = window.accessToken;
+    this.model.clientIdOrInfoDescriptionDoExist = window.clientId || (this.model.info && this.model.info.description);
     if (this.model.securityDefinitions) {
       for (var name in this.model.securityDefinitions) {
         var auth = this.model.securityDefinitions[name];
@@ -118,8 +121,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     // Render the outer container for resources
     $(this.el).html(Handlebars.templates.main(this.model));
 
-    // Render each resource
-
+    // Render each resource INTO THE SIDEBAR
     var resources = {};
     var counter = 0;
     for (var i = 0; i < this.model.apisArray.length; i++) {
@@ -137,7 +139,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       this.addSidebarHeader(resource, i);
     }
 
-
+    // Pre-select the first item in the sidebar and like scroll up or something what?
     var n = $(this.el).find('#resources_nav [data-resource]').first();
     n.trigger('click');
     $(window).scrollTop(0);
