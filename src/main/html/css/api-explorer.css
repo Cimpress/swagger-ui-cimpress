@@ -200,31 +200,45 @@
     line-height: 1.5625rem;
 }
 .samples .nav {
-    padding: 0 1.875rem;
+    margin: 0 !important;
+    padding: 0 1.875rem !important;
+    border: none !important;
+    list-style: none !important;
 }
-.samples .nav > a {
-    display: inline-block;
-    margin: 0 0.3125rem 1.2rem 0;
-    padding: 0.46875rem 0;
-    color: #0088A9;
-    border-bottom: solid 2px transparent;
+.samples .nav li {
+    margin: 0 !important;
+    border: none !important;
+}
+.samples .nav a {
+    display: inline-block !important;
+    margin: 0 1.3rem 1.2rem 0 !important;
+    padding: 0.46875rem 0 !important;
+    color: #0088A9 !important;
+    border-bottom: solid 2px transparent !important;
     border-radius: 0;
-    background: transparent;
+    background: transparent !important;
     text-decoration: none;
     font-size: 0.875rem;
     line-height: 1rem;
     outline: 0;
     transition: border-color 75ms ease, color 75ms ease;
 }
-.samples .nav > a:focus,
-.samples .nav > a:hover {
-    color: #00b5e2;
-    border-color: #00b5e2;
+.samples .nav a:focus,
+.samples .nav a:hover {
+    color: #00b5e2 !important;
+    /*border-color: #00b5e2;*/
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: solid 2px #00b5e2 !important;
+    background: transparent !important;
 }
-.samples .nav > a.active {
-    color: #00b5e2;
-    border-color: #00b5e2;
-    font-weight: bold;
+.samples .nav .active a {
+    color: #00b5e2 !important;
+    border-color: #00b5e2 !important;
+    font-weight: bold !important;
+    border-width: 0 0 2px !important;
+    background: transparent !important;
 }
 .samples pre {
   padding: 0;
