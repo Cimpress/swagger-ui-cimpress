@@ -8,7 +8,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" async></script><![endif]-->
   <!--style type="text/css"></style-->
   <link rel="stylesheet" type="text/css" href="lib.css">
-  <link href="//cloud.typography.com/7971714/6011752/css/fonts.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7971714/6011752/css/fonts.css" />
   <link href="min.css" rel="stylesheet" />
 </head>
 <body id="SwaggerUi" class="page-docs" style="zoom: 1;">
@@ -108,9 +108,11 @@
             window.baseUrl = host + (swaggerApi.basePath || "/");
             Backbone.trigger("mainview:newBaseUrl");
           }
-          $('pre code').each(function(i, e) {
-            hljs.highlightBlock(e)
-          });
+
+          // “Applies highlighting to all <pre><code>..</code></pre> blocks on a page.”
+          // http://highlightjs.readthedocs.io/en/latest/api.html#inithighlighting
+          hljs.initHighlighting()
+
           if (typeof initOAuth == "function" && !!window.anthony) {
             // NG-4689: Parameters are required by the initOAuth function to
             // properly open the OAuth dialog.  They are derived from
@@ -148,7 +150,7 @@
         showRequestHeaders: true,
         sorter: "alpha"
       });
-      // $('#input_apiKey').change(addApiKeyAuthorization);
+      $('#input_apiKey').change(addApiKeyAuthorization);
       // $('#input_apiKey').val(accessToken);
       window.swaggerUi.load();
       // HACK 2015-12-22 @theopak
@@ -190,7 +192,9 @@
         function i(n) {
           n.hasClass("fixed") || (navOffset = n.offset().top);
           e();
-          $(window).scrollTop() > navOffset ? $(".modal.in").length || n.addClass("fixed") : n.removeClass("fixed")
+          $(window).scrollTop() > navOffset
+              ? $(".modal.in").length || n.addClass("fixed")
+              : n.removeClass("fixed");
         }
 
         function r(e) {
@@ -203,14 +207,16 @@
           function r(e) {
             var t = o.next("[data-endpoint]"),
               n = o.prev("[data-endpoint]");
-            return "next" === e ? t.length ? t : o.parent().next().find("[data-endpoint]").first() : "prev" === e ? n.length ? n : o.parent().prev().find("[data-endpoint]").last() : []
+            return "next" === e ? t.length ? t : o.parent().next().find("[data-endpoint]").first() : "prev" === e
+                ? n.length ? n : o.parent().prev().find("[data-endpoint]").last()
+                : []
           }
           var nav = e.find("[data-navigator]");
           if (nav.find("[data-endpoint][data-selected]").length) {
             var o = nav.find("[data-endpoint][data-selected]"),
               a = $("#" + o.attr("data-endpoint")),
-              s = a.offset().top,
-              l = (s + a.outerHeight(), r("next")),
+              s = a.offset() && a.offset().top || 0,
+              l = (s + a.outerHeight() || 0, r("next")),
               u = r("prev");
             if (l.length) {
               {
