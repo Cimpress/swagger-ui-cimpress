@@ -1,11 +1,25 @@
 <div role="tabpanel" class="guide">
     <h5>{{type}}</h5>
     <nav class="nav" role="tablist">
-        <a class="nav-link active" href="#sample-{{id}}" aria-controls="home" role="tab" data-toggle="tab">Sample</a>
-        {{#if signature}}<a class="nav-link active" href="#schema-{{id}}" aria-controls="tab" role="tab" data-toggle="tab">Schema</a>{{/if}}
+        <a class="nav-link active"
+            href="#sample-{{id}}"
+            aria-controls="home"
+            role="tab"
+            data-toggle="tab">
+            Sample
+        </a>
+        {{#if signature}}<a class="nav-link"
+            href="#schema-{{id}}"
+            aria-controls="tab"
+            role="tab"
+            data-toggle="tab">
+            Schema
+        </a>{{/if}}
     </nav>
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="sample-{{id}}">
+        <div role="tabpanel"
+            class="tab-pane active"
+            id="sample-{{id}}">
             <div class="snippet">
                 {{#if clickToCopy}}
                     <div class="click-to-copy">
@@ -17,7 +31,9 @@
             </div>
         </div>
         {{#if signature}}
-            <div role="tabpanel" class="tab-pane" id="schema-{{id}}">
+            <div role="tabpanel"
+                class="tab-pane"
+                id="schema-{{id}}">
                 <div class="description">
                     {{{signature}}}
                 </div>

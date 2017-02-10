@@ -75,14 +75,35 @@
                     <div class="item" data-tg-switch="">Show Base URL and Access Token (JWT) <span class="status"></span></div>
                 </div>
                 --}}
-                {{#if info.description}}
-                    <a href="#introduction" class="nav_label">Introduction</a>
-                {{/if}}
-                {{#if clientId}}
-                    <a href="#authentication" class="nav_label">Authentication</a>
-                {{/if}}
-
                 <div id="resources_nav">
+                    {{#if clientIdOrInfoDescriptionDoExist}}
+                        <div data-resource="resource_swagger_ui_cimpress_api_info"
+                            label="API info"
+                            class="active">
+                            {{#if info.description}}
+                            <div data-endpoint="swagger_ui_cimpress_api_info_introduction"
+                                class="item"
+                                data-selected>
+                                <a href="#api_info_introduction"
+                                    onClick="event.preventDefault();">
+                                    <span class="http_method ApiReference--label">&nbsp;</span>
+                                    Introduction
+                                </a>
+                            </div>
+                            {{/if}}
+                            {{#if clientId}}
+                            <div data-endpoint="swagger_ui_cimpress_api_info_authentication"
+                                class="item"
+                                {{#unless info.description}}data-selected{{/unless}}>
+                                <a href="#api_info_authentication"
+                                    onClick="event.preventDefault();">
+                                    <span class="http_method ApiReference--label">&nbsp;</span>
+                                    Authentication
+                                </a>
+                            </div>
+                            {{/if}}
+                        </div>
+                    {{/if}}
                 </div>
             </div>
         </div>
@@ -91,15 +112,16 @@
 
 <div id='resources_container'>
     <ul id='resources' class="samples-collapsed">
-        {{#if info.description}}
-            <li class="resource" id="introduction">
+        {{#if clientIdOrInfoDescriptionDoExist}}
+            <li id="resource_swagger_ui_cimpress_api_info" class="resource">
                 <ul class="endpoints">
-                    <li class="endpoint" style="padding-top: 0;">
+                    {{#if info.description}}
+                    <li class="endpoint" id="swagger_ui_cimpress_api_info_endpoint_list">
                         <ul class="operations">
-                            <li class="operation" >
-                                <div class="content" id="api_info" style="margin-top: 0;">
-                                    <div class="heading"><h3><a href="#!/introduction" onclick="event.preventDefault();">Introduction</a></h3></div>
-                                    <div class="info_description {{#if isMarkdown}}markdown{{/if}} action-summary info-section">{{{info.description}}}</div>
+                            <li class="get operation" id="swagger_ui_cimpress_api_info_introduction">
+                                <div class="content" style="margin-top: 0;">
+                                    <div class="heading"><h3><a>Introduction</a></h3></div>
+                                    <div class="info_description {{#if isMarkdown}}markdown{{/if}} action-summary info-section" style="font-size: 1rem; line-height: 1.5rem; color: #697582;">{{{info.description}}}</div>
                                     <!--<a target="_blank" href="//online.swagger.io/validator/debug?url={{encodeURIComponent swaggerUrl}}">
                                       <img id="validator" src="//online.swagger.io/validator?url={{encodeURIComponent swaggerUrl}}">
                                     </a>-->
@@ -108,20 +130,16 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
-            </li>
-        {{/if}}
-        {{#if clientId}}
-            <li class="resource" id="authentication">
-                <ul class="endpoints">
+                    {{/if}}
+                    {{#if clientId}}
                     <li class="endpoint">
                         <ul class="operations">
-                            <li class="operation" >
+                            <li class="get operation" id="swagger_ui_cimpress_api_info_authentication">
                                 <div class="content">
                                     <a onclick="" class="toggle-samples" data-toggle="tooltip" data-placement="left" data-original-title="" title="">
                                         <span class="text">Show samples</span><span class="circle-icon"></span>
                                     </a>
-                                    <div class="heading"><h3><a href="#!/authentication" onclick="event.preventDefault();">Authentication</a></h3></div>
+                                    <div class="heading"><h3><a>Authentication</a></h3></div>
                                     <div class="action-summary info-section">
                                       <p>Cimpress Open uses Auth0 as an authentication service. Every Cimpress Open Portal user has an Auth0 account. The email address you registered with is the username of your Auth0 account. For more information, see the <a href="https://developer.cimpress.io/docs/apis/auth0.html" target="_blank">authentication documentation</a>.</p>
                                       <h5 id="useful-information-about-this-api">Useful Information About This API</h5>
@@ -131,7 +149,7 @@
                                       </p>
                                       {{#if accessToken}}
                                         <h5 id="your-current-bearer-token">Your Current Bearer Token</h5>
-                                        <p>When you logged in, a Bearer Token (JWT) was automatically generated for you. This token will automatically be added to requests made suing this page. You can also use this token for your own testing purposes for as long as it’s valid. But be careful! Treat this token like a password.</p>
+                                        <p>When you logged in, a Bearer Token (JWT) was automatically generated for you. This token will automatically be added to requests made using this page. You can also use this token for your own testing purposes for as long as it’s valid. But be careful! Treat this token like a password.</p>
                                         <label for="input_apiKey">Bearer Token (JWT)</label>
                                         <div class="input-group" style="margin-bottom: 0.5rem; width: 100%;">
                                           <input type="text"
@@ -151,8 +169,8 @@
                                                 <h5>Example cURL request</h5>
                                                 <div class="tab-content">
                                                     <div role="tabpanel" class="tab-pane active" id="example_auth_curl">
-                                                        <!-- Authentication code sample (NG-5085) -->
-                                                        <div class="snippet"><pre><code class="bash"><span class="comment"># Get an auth token for the API with client_id</span>
+<!-- Authentication code sample (NG-5085) -->
+<div class="snippet"><pre><code class="bash hljs"><span class="comment"># Get an auth token for the API with client_id</span>
 <span class="comment"># representing “{{info.title}}”</span>
 <span class="dollar"></span><span class="built_in">curl</span> "<span style="text-decoration: underline;">https://cimpress.auth0.com/oauth/ro</span>" \
     --data <span class="string">"client_id={{clientId}}"</span> \
@@ -174,8 +192,7 @@
     --request &lt;METHOD&gt; \
     --header <span class="string">'Authorization: Bearer &lt;JWT&gt;'</span>
 {{/if}}
-</code></pre>
-                                                        </div>
+</code></pre></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -185,6 +202,7 @@
                             </li>
                         </ul>
                     </li>
+                    {{/if}}
                 </ul>
             </li>
         {{/if}}
