@@ -80,7 +80,9 @@ gulp.task('copy', ['clean'], function() {
       './node_modules/handlebars/dist/handlebars.min.js',
       './node_modules/underscore/underscore-min.js',
       './node_modules/backbone/backbone-min.js',
+      // './lib/highlight.9.9.0.pack.js',
       './lib/highlight.7.3.pack.js',
+      // './lib/highlight.min.js',
       './node_modules/marked/marked.min.js',
       './node_modules/clipboard/dist/clipboard.min.js',
     ])
@@ -96,6 +98,7 @@ gulp.task('copy', ['clean'], function() {
   gulp.src([
       './node_modules/bootstrap/dist/css/bootstrap.min.css',
       './src/main/html/css/budicon.fixed.css',
+      './src/main/html/css/atelier-seaside-dark.css'
     ])
     .pipe(concat('lib.css'))
     .pipe(rev())
@@ -106,7 +109,13 @@ gulp.task('copy', ['clean'], function() {
     }))
     .pipe(gulp.dest('./dist'));
 
-  gulp.src(['./src/main/html/*.html','./src/main/html/*.json', './src/main/html/images/**'], { 'base' : './src/main/html' })
+  gulp.src([
+    './src/main/html/*.html',
+    './src/main/html/*.json',
+    './src/main/html/images/**'
+  ], {
+    'base' : './src/main/html'
+  })
     .pipe(gulp.dest('./dist'));
 });
 
