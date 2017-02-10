@@ -8,7 +8,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" async></script><![endif]-->
   <!--style type="text/css"></style-->
   <link rel="stylesheet" type="text/css" href="lib.css">
-  <link href="//cloud.typography.com/7971714/6011752/css/fonts.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7971714/6011752/css/fonts.css" />
   <link href="min.css" rel="stylesheet" />
 </head>
 <body id="SwaggerUi" class="page-docs" style="zoom: 1;">
@@ -18,6 +18,21 @@
       <symbol id="icon-copy" mi-view-box="0 0 1024 1024" viewBox="0 0 1024 1024">
         <title>copy</title>
         <path class="path0" d="M640 256v-256h-448l-192 192v576h384v256h640v-768h-384zM192 90.51v101.49h-101.49l101.49-101.49zM64 704v-448h192v-192h320v192l-192 192v256h-320zM576 346.51v101.49h-101.49l101.49-101.49zM960 960h-512v-448h192v-192h320v640z"></path>
+      </symbol>
+    </defs>
+  </svg>
+  <svg class="hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <symbol id="icon-clippy" mi-view-box="0 0 1024 896" viewBox="0 0 1024 896">
+        <title>clippy</title>
+        <path d="M128 768h256v64H128v-64z m320-384H128v64h320v-64z m128 192V448L384 640l192 192V704h320V576H576z m-288-64H128v64h160v-64zM128 704h160v-64H128v64z m576 64h64v128c-1 18-7 33-19 45s-27 18-45 19H64c-35 0-64-29-64-64V192c0-35 29-64 64-64h192C256 57 313 0 384 0s128 57 128 128h192c35 0 64 29 64 64v320h-64V320H64v576h640V768zM128 256h512c0-35-29-64-64-64h-64c-35 0-64-29-64-64s-29-64-64-64-64 29-64 64-29 64-64 64h-64c-35 0-64 29-64 64z" />
+      </symbol>
+    </defs>
+  </svg>
+  <svg class="hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" fill="currentColor" data-id="geomicon-external" viewBox="0 0 32 32" style="vertical-align: baseline;">
+    <defs>
+      <symbol id="icon-external" mi-view-box="0 0 32 32" viewBox="0 0 32 32">
+        <path d="M4 4 L12 4 L12 8 L8 8 L8 24 L24 24 L24 20 L28 20 L28 28 L4 28 z M16 4 L28 4 L28 16 L24 12 L16 20 L12 16 L20 8z"></path>
       </symbol>
     </defs>
   </svg>
@@ -108,9 +123,11 @@
             window.baseUrl = host + (swaggerApi.basePath || "/");
             Backbone.trigger("mainview:newBaseUrl");
           }
-          $('pre code').each(function(i, e) {
-            hljs.highlightBlock(e)
-          });
+
+          // “Applies highlighting to all <pre><code>..</code></pre> blocks on a page.”
+          // http://highlightjs.readthedocs.io/en/latest/api.html#inithighlighting
+          hljs.initHighlighting()
+
           if (typeof initOAuth == "function" && !!window.anthony) {
             // NG-4689: Parameters are required by the initOAuth function to
             // properly open the OAuth dialog.  They are derived from
@@ -148,7 +165,7 @@
         showRequestHeaders: true,
         sorter: "alpha"
       });
-      // $('#input_apiKey').change(addApiKeyAuthorization);
+      $('#input_apiKey').change(addApiKeyAuthorization);
       // $('#input_apiKey').val(accessToken);
       window.swaggerUi.load();
       // HACK 2015-12-22 @theopak
@@ -190,7 +207,9 @@
         function i(n) {
           n.hasClass("fixed") || (navOffset = n.offset().top);
           e();
-          $(window).scrollTop() > navOffset ? $(".modal.in").length || n.addClass("fixed") : n.removeClass("fixed")
+          $(window).scrollTop() > navOffset
+              ? $(".modal.in").length || n.addClass("fixed")
+              : n.removeClass("fixed");
         }
 
         function r(e) {
@@ -203,14 +222,16 @@
           function r(e) {
             var t = o.next("[data-endpoint]"),
               n = o.prev("[data-endpoint]");
-            return "next" === e ? t.length ? t : o.parent().next().find("[data-endpoint]").first() : "prev" === e ? n.length ? n : o.parent().prev().find("[data-endpoint]").last() : []
+            return "next" === e ? t.length ? t : o.parent().next().find("[data-endpoint]").first() : "prev" === e
+                ? n.length ? n : o.parent().prev().find("[data-endpoint]").last()
+                : []
           }
           var nav = e.find("[data-navigator]");
           if (nav.find("[data-endpoint][data-selected]").length) {
             var o = nav.find("[data-endpoint][data-selected]"),
               a = $("#" + o.attr("data-endpoint")),
-              s = a.offset().top,
-              l = (s + a.outerHeight(), r("next")),
+              s = a.offset() && a.offset().top || 0,
+              l = (s + a.outerHeight() || 0, r("next")),
               u = r("prev");
             if (l.length) {
               {
