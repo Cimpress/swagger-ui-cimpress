@@ -11,31 +11,51 @@
                 <div class="scope-selector">
                     <div class="area controls">
                         <label for="input_baseUrl">Base URL</label>
-                        <div class="input-group" style="margin-bottom: 0.5rem;">
-                            <span id="input_baseUrl">{{baseUrl}}</span>
-                        </div>
-
-                        <label for="input_apiKey">Bearer Token (JWT)</label>
-                        <div class="input-group" style="margin-bottom: 0.5rem;">
+                        <div class="input-group" style="margin-bottom: 0.5rem; width: 100%;">
                           <input type="text"
-                            name="access_token"
+                            name="input_baseUrl"
+                            id="input_baseUrl"
                             autocorrect="off"
                             class="form-control"
-                            id="input_apiKey"
-                            {{#if accessToken}}readOnly{{/if}}
-                            placeholder="Bearer token (JWT)" />
+                            {{#if clientId}}readOnly{{/if}}
+                            placeholder="https://example.com/swagger.json"
+                            value="{{baseUrl}}" />
                           <span class="input-group-btn">
-                              {{#if accessToken}}
+                              {{#if clientId}}
                                   <button class="copy-btn btn btn-secondary"
-                                      data-clipboard-target="#input_apiKey"
-                                      data-toggle="tooltip"
-                                      data-placement="left"
+                                      data-clipboard-target="#input_baseUrl"
                                       data-original-title="Copy to Clipboard"
-                                      style="height:34px;"><img src="./images/clippy.svg" alt="Copy to clipboard" width="13" style="vertical-align: text-bottom;"></button>
+                                      style="height:34px;">
+                                      <svg class="icon icon-clippy" title="Copy to clipboard"><use xlink:href="#icon-clippy"></use></svg>
+                                  </button>
                               {{else}}
                                   <button class="copy-btn btn btn-secondary" id="explore" style="height: 34px; color: black;">Go</button>
                               {{/if}}
                           </span>
+                        </div>
+
+                        <label for="input_apiKey">Bearer Token (JWT)</label>
+                        <div class="input-group" style="margin-bottom: 0.5rem;">
+                            <input type="text"
+                              name="access_token"
+                              autocorrect="off"
+                              class="form-control"
+                              id="input_apiKey"
+                              {{#if clientId}}readOnly{{/if}}
+                              placeholder="Bearer token (JWT)"
+                              value="{{accessToken}}" />
+                            <span class="input-group-btn">
+                                {{#if accessToken}}
+                                    <button class="copy-btn btn btn-secondary"
+                                        data-clipboard-target="#input_apiKey"
+                                        data-original-title="Copy to Clipboard"
+                                        style="height:34px;">
+                                        <svg class="icon icon-clippy" title="Copy to clipboard"><use xlink:href="#icon-clippy"></use></svg>
+                                    </button>
+                                {{else}}
+                                    <button class="copy-btn btn btn-secondary" id="explore" style="height: 34px; color: black;">Go</button>
+                                {{/if}}
+                            </span>
                         </div>
                         {{#if accessToken}}<a target="_blank"
                           href="https://jwt.io?value={{encodeURIComponent accessToken}}"
