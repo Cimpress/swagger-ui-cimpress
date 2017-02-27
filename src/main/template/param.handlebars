@@ -27,11 +27,8 @@
         {{/if}}
     {{else}}
         {{#if isFile}}
-            <label class="btn btn-primary" for="my-file-selector">
-                <input type="file" name='{{name}}' id="my-file-selector" style="display:none;">
-                Choose file
-            </label>
-            <div class="parameter-content-type"/>
+            <input class='parameter form-control {{#if required}}required{{/if}}' type="file" name='{{name}}' id="my-file-selector">
+             <div class="parameter-content-type"/>
         {{else}}
             <input type='{{inputType}}'
                 name='{{name}}'
