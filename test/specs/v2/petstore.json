@@ -20,8 +20,7 @@
   "schemes": [
     "http"
   ],
-  "tags": [
-    {
+  "tags": [{
       "name": "user",
       "description": "Operations about user"
     },
@@ -43,6 +42,38 @@
     }
   ],
   "paths": {
+    "/v1/images/creators/file": {
+      "post": {
+        "tags": [
+          "Images"
+        ],
+        "summary": "Creates a collection of images using the provided local images",
+        "operationId": "Images_Post",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [{
+          "name": "file",
+          "in": "formData",
+          "description": "The Image to upload",
+          "required": true,
+          "type": "file"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UploadResponse"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/pet": {
       "post": {
         "tags": [
@@ -59,30 +90,26 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "pet",
-            "description": "Pet object that needs to be added to the store",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Pet"
-            }
+        "parameters": [{
+          "in": "body",
+          "name": "pet",
+          "description": "Pet object that needs to be added to the store",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/Pet"
           }
-        ],
+        }],
         "responses": {
           "405": {
             "description": "Invalid input"
           }
         },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        "security": [{
+          "petstore_auth": [
+            "write:pets",
+            "read:pets"
+          ]
+        }]
       },
       "put": {
         "tags": [
@@ -99,17 +126,15 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Pet object that needs to be added to the store",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Pet"
-            }
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "Pet object that needs to be added to the store",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/Pet"
           }
-        ],
+        }],
         "responses": {
           "405": {
             "description": "Validation exception"
@@ -121,14 +146,12 @@
             "description": "Invalid ID supplied"
           }
         },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        "security": [{
+          "petstore_auth": [
+            "write:pets",
+            "read:pets"
+          ]
+        }]
       }
     },
     "/pet/findByStatus": {
@@ -143,19 +166,17 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "status",
-            "description": "Status values that need to be considered for filter",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
-          }
-        ],
+        "parameters": [{
+          "in": "query",
+          "name": "status",
+          "description": "Status values that need to be considered for filter",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -170,14 +191,12 @@
             "description": "Invalid status value"
           }
         },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        "security": [{
+          "petstore_auth": [
+            "write:pets",
+            "read:pets"
+          ]
+        }]
       }
     },
     "/pet/findByTags": {
@@ -192,19 +211,17 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "tags",
-            "description": "Tags to filter by",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
-          }
-        ],
+        "parameters": [{
+          "in": "query",
+          "name": "tags",
+          "description": "Tags to filter by",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -219,14 +236,12 @@
             "description": "Invalid tag value"
           }
         },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        "security": [{
+          "petstore_auth": [
+            "write:pets",
+            "read:pets"
+          ]
+        }]
       }
     },
     "/pet/{petId}": {
@@ -241,16 +256,14 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "petId",
-            "description": "ID of pet that needs to be fetched",
-            "required": true,
-            "type": "integer",
-            "format": "int64"
-          }
-        ],
+        "parameters": [{
+          "in": "path",
+          "name": "petId",
+          "description": "ID of pet that needs to be fetched",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
         "responses": {
           "404": {
             "description": "Pet not found"
@@ -265,8 +278,7 @@
             "description": "Invalid ID supplied"
           }
         },
-        "security": [
-          {
+        "security": [{
             "api_key": []
           },
           {
@@ -291,8 +303,7 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "in": "path",
             "name": "petId",
             "description": "ID of pet that needs to be updated",
@@ -319,14 +330,12 @@
             "description": "Invalid input"
           }
         },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        "security": [{
+          "petstore_auth": [
+            "write:pets",
+            "read:pets"
+          ]
+        }]
       },
       "delete": {
         "tags": [
@@ -339,8 +348,7 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "in": "header",
             "name": "api_key",
             "description": "",
@@ -361,14 +369,12 @@
             "description": "Invalid pet value"
           }
         },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        "security": [{
+          "petstore_auth": [
+            "write:pets",
+            "read:pets"
+          ]
+        }]
       }
     },
     "/store/order": {
@@ -383,17 +389,15 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "order placed for purchasing the pet",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Order"
-            }
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "order placed for purchasing the pet",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/Order"
           }
-        ],
+        }],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -419,15 +423,13 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "orderId",
-            "description": "ID of pet that needs to be fetched",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [{
+          "in": "path",
+          "name": "orderId",
+          "description": "ID of pet that needs to be fetched",
+          "required": true,
+          "type": "string"
+        }],
         "responses": {
           "404": {
             "description": "Order not found"
@@ -454,15 +456,13 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "orderId",
-            "description": "ID of the order that needs to be deleted",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [{
+          "in": "path",
+          "name": "orderId",
+          "description": "ID of the order that needs to be deleted",
+          "required": true,
+          "type": "string"
+        }],
         "responses": {
           "404": {
             "description": "Order not found"
@@ -485,17 +485,15 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Created user object",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "Created user object",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/User"
           }
-        ],
+        }],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -515,20 +513,18 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "List of user object",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "User"
-              }
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "List of user object",
+          "required": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "User"
             }
           }
-        ],
+        }],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -548,20 +544,18 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "List of user object",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/User"
-              }
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "List of user object",
+          "required": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/User"
             }
           }
-        ],
+        }],
         "responses": {
           "default": {
             "description": "successful operation"
@@ -581,8 +575,7 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "in": "query",
             "name": "username",
             "description": "The user name for login",
@@ -642,15 +635,13 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "username",
-            "description": "The name that needs to be fetched. Use user1 for testing. ",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [{
+          "in": "path",
+          "name": "username",
+          "description": "The name that needs to be fetched. Use user1 for testing. ",
+          "required": true,
+          "type": "string"
+        }],
         "responses": {
           "404": {
             "description": "User not found"
@@ -677,8 +668,7 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
+        "parameters": [{
             "in": "path",
             "name": "username",
             "description": "name that need to be deleted",
@@ -715,15 +705,13 @@
           "application/json",
           "application/xml"
         ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "username",
-            "description": "The name that needs to be deleted",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [{
+          "in": "path",
+          "name": "username",
+          "description": "The name that needs to be deleted",
+          "required": true,
+          "type": "string"
+        }],
         "responses": {
           "404": {
             "description": "User not found"
@@ -748,6 +736,17 @@
     }
   },
   "definitions": {
+    "UploadResponse": {
+      "type": "object",
+      "properties": {
+        "ImageIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "User": {
       "properties": {
         "id": {
@@ -904,6 +903,7 @@
         "name": "Tag"
       }
     },
+
     "Order": {
       "properties": {
         "id": {
