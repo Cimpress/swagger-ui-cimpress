@@ -64,6 +64,7 @@ describe('swagger 2.0 specification tests using petstore.json', function () {
 
   after(() => {
     servers.close()
+    // driver.quit returns a promise that mocha will wait for
     return driver.quit()
   });
 });
