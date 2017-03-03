@@ -55,9 +55,16 @@ describe('swagger 2.0 specification tests using petstore.json', function () {
       return driver.wait(until.elementLocated(locator), testTimeout);
     });
   });
+  // nesting file inputs in labels causes the file upload to fail
+  it('should have not have a file input inside a label', function () {
+    return driver.findElements(webdriver.By.css('label input[type="file"]')).then((i)=> {
+      expect(i).to.be.empty;
+    })
+  })
 
-  after((done) => {
-    servers.close();
-    done();
+  after(() => {
+    servers.close()
+    // driver.quit returns a promise that mocha will wait for
+    return driver.quit()
   });
 });

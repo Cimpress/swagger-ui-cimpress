@@ -33,9 +33,9 @@ SwaggerUi.Views.ParameterView = Backbone.View.extend({
     this.model.default = (this.model.default || this.model.defaultValue);
 
     if(this.model.format === 'password') {
-        this.model.inputType = 'password';
+      this.model.inputType = 'password';
     } else {
-        this.model.inputType = 'text';
+      this.model.inputType = 'text';
     }
 
     if (this.model.allowableValues) {
