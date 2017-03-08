@@ -128,16 +128,15 @@
           // http://highlightjs.readthedocs.io/en/latest/api.html#inithighlighting
           hljs.initHighlighting()
 
-          if (typeof initOAuth == "function" && (!accessToken || !!window.clientId)) {
+          if (typeof initOAuth == "function" && (!accessToken || (!!window.clientId && !!window.audience))) {
             // NG-4689: Parameters are required by the initOAuth function to
             // properly open the OAuth dialog.  They are derived from
             // https://github.com/swagger-api/
-            var audience = window.audience || (window.location.host.match(/staging|integration|localhost/) ? "https://development.api.cimpress.io/" : "https://api.cimpress.io/");
             initOAuth({
               clientId: window.clientId,
               realm: "",
               appName: "App",
-              additionalQueryStringParams: {"audience": audience}
+              additionalQueryStringParams: {"audience": window.audience}
             });
           }
           if (swaggerUi.options.apiKey) {
