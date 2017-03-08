@@ -106,8 +106,8 @@
       // pane point to `https://example.com/page#!/pet/addPet`.
       window.interfaceBaseUrl = getQueryParam('interfaceBaseUrl') || window.location.origin;
       window.clientId = getQueryParam("client_id");
-      // HACK - this will enable outh2
-      window.anthony = getQueryParam("anthony");
+      // Hack - this will enable outh2 (if the security definitions are in the swagger json)
+      window.audience = getQueryParam("audience");
       // HACK 2015-12-22 @theopak
       var accessToken = getQueryParam("access_token");
       window.accessToken = accessToken;
@@ -128,12 +128,11 @@
           // http://highlightjs.readthedocs.io/en/latest/api.html#inithighlighting
           hljs.initHighlighting()
 
-          if (typeof initOAuth == "function" && !!window.anthony) {
+          if (typeof initOAuth == "function" && (!accessToken || !!window.clientId)) {
             // NG-4689: Parameters are required by the initOAuth function to
             // properly open the OAuth dialog.  They are derived from
             // https://github.com/swagger-api/
-            // Hack: really hacky way to set the audience while we integrate the catalog api
-            var audience = getQueryParam("audience") || (window.location.host.match(/staging|integration|localhost/) ? "https://development.api.cimpress.io/" : "https://api.cimpress.io/");
+            var audience = window.audience || window.location.host.match(/staging|integration|localhost/) ? "https://development.api.cimpress.io/" : "https://api.cimpress.io/";
             initOAuth({
               clientId: window.clientId,
               realm: "",
