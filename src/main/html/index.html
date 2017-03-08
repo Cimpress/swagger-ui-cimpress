@@ -132,7 +132,7 @@
             // NG-4689: Parameters are required by the initOAuth function to
             // properly open the OAuth dialog.  They are derived from
             // https://github.com/swagger-api/
-            var audience = window.audience || window.location.host.match(/staging|integration|localhost/) ? "https://development.api.cimpress.io/" : "https://api.cimpress.io/";
+            var audience = window.audience || (window.location.host.match(/staging|integration|localhost/) ? "https://development.api.cimpress.io/" : "https://api.cimpress.io/");
             initOAuth({
               clientId: window.clientId,
               realm: "",

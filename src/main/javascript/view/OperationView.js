@@ -74,9 +74,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     }
     this.model.description = this.model.description || this.model.notes;
     this.model.oauth = null;
-    // TODO: remove anthony flag when we only pass an accessToken on v1 auth from protal
-    modelAuths = window.anthony && (this.model.authorizations || this.model.security);
-    if (!window.anthony && this.model.security && window.accessToken) {
+    modelAuths = window.audience && (this.model.authorizations || this.model.security);
+    if (!window.audience && this.model.security && window.accessToken) {
       this.model.operation.security = undefined; // this makes it so swagger client uses ACCESS_TOKEN_IN_URL
       // search applyAll = !securities in swagger-client.js to learn more
     }
