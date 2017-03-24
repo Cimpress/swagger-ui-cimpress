@@ -56,7 +56,7 @@ describe('swagger 2.0 specification tests using petstore.json', function () {
     });
   });
   // nesting file inputs in labels causes the file upload to fail
-  it('should have not have a file input inside a label', function () {
+  it('should not have a file input inside a label', function () {
     return driver.findElements(webdriver.By.css('label input[type="file"]')).then((i)=> {
       expect(i).to.be.empty;
     })
