@@ -5,6 +5,9 @@
             class='parameter form-control'
             {{#if required}}required{{/if}}
             {{#isArray this}}multiple='multiple'{{/isArray}}>
+                {{#unless required}}
+                    <option {{#unless hasDefault}} selected='' {{/unless}} value=''></option>
+                {{/unless}}
                 {{#each allowableValues.descriptiveValues}}
                     {{#if isDefault}}
                         <option selected='' value='{{value}}'>{{value}} (default)</option>
