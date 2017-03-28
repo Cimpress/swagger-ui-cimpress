@@ -3,8 +3,9 @@
   "description": "A swagger-ui fork with an easy to read, responsive three pane view. Used on developer.cimpress.io.",
   "version": "3.2.0",
   "license": "Apache-2.0",
-  "author": "Theo Pak <tpak@cimpress.com> (https://github.com/theopak)",
+  "author": "Cimpress <support@cimpress.io> (https://github.com/Cimpress-MCP)",
   "contributors": [
+    "Theo Pak <tpak@cimpress.com> (https://github.com/theopak)",
     "Harsh Singh <harsingh@cimpress.com>"
   ],
   "homepage": "https://github.com/Cimpress-MCP/swagger-ui-cimpress",
