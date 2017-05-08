@@ -52,7 +52,7 @@
     "event-stream": "^3.2.2",
     "express": "4.15.2",
     "gulp": "^3.8.11",
-    "gulp-clean-css": "3.0.4",
+    "gulp-clean-css": "3.2.0",
     "gulp-concat": "2.6.1",
     "gulp-connect": "^5",
     "gulp-declare": "^0.3.0",
