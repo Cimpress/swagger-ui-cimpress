@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "chai": "3.5",
-    "codecov": "2.1.0",
+    "codecov": "2.3.0",
     "cors": "^2.5.3",
     "del": "^2.2.0",
     "docco": "^0.7.0",
