@@ -50,7 +50,7 @@
     "del": "^2.2.0",
     "docco": "^0.7.0",
     "event-stream": "^3.2.2",
-    "express": "4.15.2",
+    "express": "5.0.0-alpha.6",
     "gulp": "^3.8.11",
     "gulp-clean-css": "3.0.4",
     "gulp-concat": "2.6.1",
