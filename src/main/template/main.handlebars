@@ -146,7 +146,7 @@
                                       <p>Cimpress Open uses Auth0 as an authentication service. Every Cimpress Open Portal user has an Auth0 account. The email address you registered with is the username of your Auth0 account. For more information, see the <a href="https://developer.cimpress.io/docs/developers/auth0.html" target="_blank">authentication documentation</a>.</p>
                                       <h5 id="useful-information-about-this-api">Useful Information About This API</h5>
                                       <p>
-                                          <strong>Client ID:</strong> {{clientId}}<br/>
+                                          {{#unless audience}}<strong>Client ID:</strong> {{clientId}}<br/>{{/unless}}
                                           {{#if baseUrl}}<strong>Base URL:</strong> {{baseUrl}}{{/if}}
                                       </p>
                                       {{#if accessToken}}
