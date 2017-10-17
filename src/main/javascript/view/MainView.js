@@ -101,6 +101,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     this.model.baseUrl = window.baseUrl;
     this.model.accessToken = window.accessToken;
     this.model.clientIdOrInfoDescriptionDoExist = window.clientId || (this.model.info && this.model.info.description);
+    this.model.audience = window.audience;
     if (this.model.securityDefinitions) {
       for (var name in this.model.securityDefinitions) {
         var auth = this.model.securityDefinitions[name];
