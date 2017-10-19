@@ -78,7 +78,7 @@
     "selenium-webdriver": "3.3.0",
     "sinon": "2.1.0",
     "sinon-chai": "2.9.0",
-    "source-map-support": "0.4.14",
+    "source-map-support": "0.4.15",
     "stream-browserify": "^2.0.1"
   }
 }
